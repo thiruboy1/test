@@ -38,6 +38,8 @@ $(document).ready(function(){
   $('#update').click(function (){
 
             l = update()
+            location.reload(true);
+            
      });
    });
 
