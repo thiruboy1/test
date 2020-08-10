@@ -71,3 +71,15 @@ def post_table(request):
     return render(request,"post_tb_update.html", context)
 
 ```
+
+## in urls.py
+
+```
+from django.views.decorators.csrf import csrf_exempt
+
+urlpatterns = [
+
+    url(r'table1/$', csrf_exempt(pv.post_table), name="post_table1"),
+
+]
+```
