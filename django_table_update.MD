@@ -45,6 +45,10 @@ $(document).ready(function(){
 
 
 ```
+## Create Button in html file to update the table
+```
+<button id="update">Update</button>
+```
 
 ## IN Views.PY
 
