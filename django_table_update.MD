@@ -1,5 +1,5 @@
 ## insert the following in html file
-'''
+```
 html
     head
         <script>
@@ -8,8 +8,8 @@ html
         </script>
     head
     
-    
     <script>
+    
 <!--# Function to Retrive data from table and post to view-->
 function update(){
         var list =  ""
@@ -43,13 +43,13 @@ $(document).ready(function(){
 
 </script>
 
-...
 
+```
 
 ## IN Views.PY
 
 
-'''
+```
 def post_table(request):
 # check if post is sussesfull and store the value in alldata variable
     if request.method == 'POST':
@@ -70,4 +70,4 @@ def post_table(request):
     }
     return render(request,"post_tb_update.html", context)
 
-'''
+```
