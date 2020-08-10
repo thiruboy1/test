@@ -1,12 +1,12 @@
 ## insert the following in html file
 '''
-<htmlL>
-    <headD>
+html
+    head
         <script>
             <!-- update "post_table1" with your url name which is mentioned in urls.py, eg:- "url(r'table1/$', csrf_exempt(pv.post_table), name="post_table1"),," -->
             var URL = "{% url 'post_table1' %}"
         </script>
-    </head>
+    head
     
     
     <script>
