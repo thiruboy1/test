@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+<!--{% block head_title %} {{i.title}}{{block.super}}{% endblock head_title %}-->
+
+{% block content %}
+
+
+<script>
+<!-- update "post_table1" with your url name which is mentioned in urls.py, eg:- "url(r'table1/$', csrf_exempt(pv.post_table), name="post_table1"),," -->
+     var URL = "{% url 'post_table1' %}";
+</script>
+<script>
+<!--# Function to Retrive data from table and post to view-->
+function update(){
+        var list =  ""
+        var arr = []
+
+<!--# Upadate the table name-->
+        $( function fn() { $('.table tr').each(
+        function firstFunction(rowindex) {
+            var line = ""
+            $.each(this.cells, function (cellIndex, cell){
+                  line+=cell.textContent+',';
+                    });
+                list = line
+                arr.push(list)
+            });
+            var i;
+            for (i=1; i<arr.length; i++){
+
+            var data = { "data": arr[i] }
+            $.post(URL, data, function(response){ } );
+            }
+    });
+    return arr
+
+}
+
+
+$(document).ready(function(){
+  $('#update').click(function (){
+
+            l = update()
+
+            location.reload(true);
+     });
+   });
+
+</script>
+
+
+
+
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>
+  <div class="card-body">
+      <button id="edit" >Edit</button>
+      <button id="update">Update</button>
+      {% csrf_token %}
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+     <table id="priceTable" class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+
+            <th class="text-center">ID</th>
+
+              <th class="text-center">Name</th>
+              <th class="text-center">Description</th>
+               <th class="text-center">Timestamp</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in qs %}
+          <tr>
+
+              <td class="pt-3-half" contenteditable="true">{{i.id}}</td>
+              <td class="pt-3-half" contenteditable="true">{{i.title}}</td>
+              <td class="pt-3-half" contenteditable="true">{{i.description}}</td>
+              <td class="pt-3-half" contenteditable="true">{{i.timestamp}}</td>
+
+
+<!--            <td class="pt-3-half">-->
+<!--              <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"-->
+<!--                    aria-hidden="true"></i></a></span>-->
+<!--              <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"-->
+<!--                    aria-hidden="true"></i></a></span>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <span class="table-remove"><button type="button"-->
+<!--                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>-->
+<!--            </td>-->
+          </tr>
+        {% endfor %}
+          <!-- This is our clonable table line -->
+>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+<div class="pagination">
+    <span class="step-links">
+        {% if qs.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ qs.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ qs.number }} of {{ qs.paginator.num_pages }}.
+        </span>
+
+        {% if qs.has_next %}
+            <a href="?page={{ qs.next_page_number }}">next</a>
+            <a href="?page={{ qs.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock content %}
