@@ -1,0 +1,6463 @@
+==> 01-Basic-Linux-commands-1.txt <==
+#- date
+
+#- cal
+a- cal 2018
+b- cal 12 2018
+
+#- clear
+clears screen.
+
+#- ls
+list directory contents
+
+a) ls -l or ll
+To list files in the current directory with detailed
+info.
+
+b) ls -lt
+To list files in the current directory with detailed info sorted by 
+date and time with the newest file first.
+
+c) ls -lh
+To list files in the current directory with their 
+size in human readable format.
+
+d) ls -la
+To list all files including the hidden files with 
+detailed info.
+
+e) ls -ltr
+To list files in the current directory with detailed info sorted by 
+date and time with the newest file first.
+
+#- PWD
+Print working directory or your current location.
+
+#- CD
+Change directory.
+a- cd  /usr/bin
+b- cd  ~ or cd takes your user's home directory
+c- cd ~user (another users's home directory)
+d- cd /
+e- cd -   (takes you to the previous directory)
+f- cd ..  (go up one level)
+==> 02-Basic-Linux-Commands-2.txt <==
+#- tty
+Displays the terminal name you are currently logged 
+on to.
+
+#- who
+Lists currently logged-in users.
+
+#- whoami and who am i 
+Lists which user id you are logged in as currently.
+
+#- w
+Shows who is logged in and what they are doing.
+
+#- logname
+Print user's login name (even if user has switched 
+ID)
+
+#- id 
+id test - Print user and group id and group info
+
+#- groups
+Print the groups a user is part of.
+
+#- last
+last command reports history or successfull logins 
+and system reboots.
+
+#- lastlog 
+Shows most recent login of all users
+
+#- lastb
+All failed user login attempts, shows username, 
+time and tty.
+
+
+#- hostname
+
+#- hostnamectl
+
+#- uname and umane -a
+
+#- touch
+
+#- cat 
+Concatenate files and print on the standard output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+==> 03-Basic-Linux-commands-3.txt <==
+- Copy file1 and name the copied file file2
+#- cp file1 file2
+
+----
+
+- Delete a file
+#- rm file2
+#- rm -f filename (without asking for confirmation)
+----
+
+Rename or move a file
+
+#- mv file1 to file3
+
+----
+
+- Create a Directory called dir1
+#- mkdir dir1
+
+- Remove a directory
+#- rmdir dir1
+
+- Remove a directory with files in it.
+#- rm -rf dir1
+-r = recursively
+-f = forcefully
+----
+
+- List history of your commands
+#- history
+
+- Re run a command from history by number
+#- !# (# represents the command number)
+
+==> 04Listing-and-Modifying-System-Timezone.txt <==
+#- timedatectl list-timezones
+
+- List time zones.
+
+#- timedatectl set-timezone America/New_York
+
+Set your time to New york time zone.
+
+#- timedatectl
+
+Check your system time zone.
+==> 07Displaying-and-setting-the-Hostname.txt <==
+#- hostname
+
+- Lists your system name
+
+#- hostnamectl
+
+- Lists hostname and other system details
+
+#- hostnamectl set-hostname linux
+
+- Set your hostname to linux
+- Reboot 
+
+#- cat /etc/hostname 
+
+- Can also be changed by editing the file 
+
+
+
+==> 08Using-compression-and-archiving-tools.txt <==
+Compression Tools:
+
+- Compression tools are used to compress one or
+more files or an archive to save space.
+
+#- gzip
+
+This command creates a compressed file of each of the
+files specified and adds .gz extension to the files.
+
+- Example: 
+#- gzip filename
+#- ls or ll (check files after compression)
+
+- To uncompress use:
+#- gunzip filename
+or
+#- gzip -d filename
+# ls or ll (check files after decompression) 
+
+---
+
+You can also use bzip2 and bunzip2
+
+#- bzip2 filename
+#- bunzip2 filename or bzip2 -d filename
+
+---
+
+Archiving tools: 
+
+- tar (tape archive)command creates, appends, updates
+lists and extracts files to and from a single file
+called tar file (aka tarball)
+
+Example: 
+
+#- tar 
+
+options:
+-c (Creates a tarball)
+-v (Verbose mode)
+-f (Specifies a tarball name)
+-t (Lists contents of a tarball)
+-x (Extracts from a tarball)
+-z (Compresses a tarball with gzip command)
+
+#- tar cvf example.tar  example 
+Creates tarball example.tar of the file example
+
+#- tar tvf example.tar
+To list contents of tarball example.tar
+
+#- tar xvf example.tar
+To extract file example.tar
+
+#- tar cvzf example.tar.gz example
+Creates a tarball and compresses it with gzip
+
+#- tar xvzf example.tar.gzgzip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 09Introduction-to-the-vi-editor.txt <==
+The vi (vim) Editor:
+
+- The vi editor is an interactive fullscreen visual 
+text editing tool that lets you create and modify 
+text files.
+It is available in all Linux didtributions.
+It is an essential tool for Linux users and admins.
+
+#- vi filename 
+If the filename exists it will open it, otherwise it
+will create a new file with specified filename.
+
+- Once the file is open use below examples:
+
+Example1: type i (go in insert mode to insert 
+characters) to edit or make changes to the file.
+
+Example2: 
+- Esc (to get out of insert mode)
+- :
+- wq! to save file
+or q! to quit without saving
+
+Example3:
+
+- type o to Add a new line after current line
+- type dd to delete line where curser is.
+
+-------
+
+Below is the list of commands and actions:
+
+
+vi mode commands
+
+Command		Action
+k	Move one line upwards
+l	Move one character to the right
+h	Move one character to the left
+w	Move one word to the right
+W	Move one word to the right past punctuation
+b	Move one word to the left
+B	Move one word to the left past punctuation
+e	Move to the end of the current word
+1G	Move to the beginning of the file
+H	Move to the top of the current screen
+M	Move to the middle of the current screen
+L	Move to the bottom of the current screen
+Ctrl-G	Move to the last line in the file
+Ctrl-F	Move one screen towards the end of the file
+Ctrl-D	Move 1/2 screen towards the end of the file
+Ctrl-B	Move one screen towards the beginning of the file
+Ctrl-U	Move 1/2 screen towards the beginning of the file
+Ctrl-L	Refresh the screen
+5G	Move to line 5 of the file (5 can be any line number)
+/string	Find text string forward
+?string	Find text string backward
+n	Find forward next string instance after a string search
+N	Find backward next string instance after a string search
+ZZ	Save the file exit vi
+x	Delete the character at the cursor
+X	Delete the character behind the cursor
+dd	Delete the line the cursor is on
+10dd	Delete the 10 lines following the cursor
+yy	Yank the current line
+p	Put the yanked line below the current line
+P	Put the yanked line above the current line
+
+-----
+
+Command mode commands
+Command	Action
+:g/X/s//x/g	Global Search and replace (X=search object x=replace object)
+:r file		Import a file into the current file
+:34 r file	Import a file into the current file after line 34
+:w		Write out the file to save changes
+:w file		Write the file to named file
+:wq or wq!	Save the file and exit vi
+:w!		Force save the file
+:q!		Quit vi but don’t save changes
+--------------
+
+Input mode commands
+Command		Action
+a	Insert characters to the right of the cursor
+A	Append characters to the current line
+i	Insert characters to the left of cursor
+I	Insert characters at the beginning of the current line
+o	Add a new line after current line
+O	Insert a new line above the current line
+==> 10Obtain-Linux-help.txt <==
+- Using man (manual) pages.
+
+- man provides information about a command, its usage
+and available optons.
+
+Examples: 
+#- man cat
+#- man touch
+
+- Press Enter key to scroll by line.
+- Press spacebar to scroll by page.
+
+-h to get help    
+-q to quit out of man pages.
+
+#- man man
+
+- To search by keyword 
+- man -k keywword
+
+Example: 
+#- man -k passwd
+#- apropos passwd
+
+-------------
+
+- Using help:
+Finding information by using --help 
+#- cat --help
+
+
+----------
+
+- Using "whatis"
+Quick method for searching a command or file.
+#- whatis cat
+#- whatis cd
+
+-----------
+
+- Using info
+
+#- info cat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 11Counting-Words-Lines-and-Characters.txt <==
+#- wc filename (/etc/profile)
+  76  252 1795
+
+76: 	Number of lines
+252: 	Number of Words
+1750: 	Number of Characters (or bytes)
+
+Options: 
+-l (Prints line count)
+-w (Prints word count)
+-c (Prints bytes count)
+-m (Prints character count)
+
+
+#- wc -l /etc/profile
+
+76 lines
+
+
+#- cat -n /etc/profile
+
+==> 12File-Types.txt <==
+- Linux (Currently using RHEL 7.4 distro) supports 
+several different types of files.
+
+Some of the common file types are listed below: 
+- Regular files
+- Directory files
+- Executable files
+- Symbolic link files
+- Device files
+
+
+- Regular files:
+
+Regular files may contain text or binary data. These
+files could be command in the binary form or shell
+scripts.
+Examples:
+#- ls /bin
+#- file .bash_profile
+
+
+- Directory files: 
+
+Directories are logical containers that are used to 
+hold files and sub-directories.
+Examples:
+#- ll / 
+Letter d at the begining identifies the file as a 
+directory.
+#- file /
+Identifies / as a directory
+
+
+- Executable Files: 
+Any file that can be run is an executable, they could 
+be shell scripts or binary commands.
+Examples: 
+#- ll /usr/bin (x means it is executable)
+#- file /usr/bin/whoami (executable command)
+
+
+- Symbolic link files(aka symlink or softlink): 
+
+These can be considered as a shortcut to another file 
+or directory. Begins with letter l and shows an arrow.
+
+Examples: 
+#- ll /usr/sbin/vigr
+l = soft link
+-> = point to original file
+
+#- file /usr/sbin/vigr
+
+
+
+- Device Files: 
+
+Each piece of hardware in the system has an associated
+file called device file. 
+Two types of device files are: 
+- character (or raw) device file,(keybord)
+- block device file
+
+Examples: 
+#- ll /dev/sda 
+#- ll /dev/tty
+First character b represents block device file
+First character c represents character device file.
+
+#- file /dev/sda
+#- file /dev/tty
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 13Creating-Files-and-Directories.txt <==
+- Files can be create in multiple ways. However, 
+directories can only be created with one command.
+
+- Creating File with touch command: 
+Examples: 
+#- touch file1
+#- ls
+#- touch file2 file3 file4
+#- ls
+Note : If the file already exists, it will update the
+timestamp on it to the current date and time.
+
+
+- Creating files with vi editor: 
+Examples: 
+#- vi filename
+- add text
+- save and exit 
+
+
+- Creating directories using mkdir command:
+Examples: 
+#- mkdir dir1
+To create a directory called dir1
+
+#- mkdir a b c 
+To create 3 directories a b c.
+
+#- mkdir -p 1/2/3
+To create hierarchy of sub-directories.
+
+
+==> 14Listing-Files-and-Directories.txt <==
+- Use ll command to list files and directories.
+
+#- ll 
+
+drwxr-xr-x. 3 root root 15 May  9 20:50 1
+
+Break down by Columns: 
+
+Column 1: drwxr-xr-x. 
+First charcter indicates a directory, next 9 characters
+indicate permissions.
+
+Column 2: 3
+Displays the number of links.
+
+Column 3: root
+Shows the owner name.
+
+Column 4: root
+Displays the owning group name.
+
+Column 5: 15
+Identifies the file size in bytes. For directories
+this number reflects the number of blocks being used
+by directory to hold info about its contents.
+
+Column 6,7 and 8:  May  9 20:50 1
+Displays month, day of month and last modified time.
+
+Column 9: 1
+Name of the file or directory.
+
+==> 15Displaying-File-Contents-with-cat-less-more-and-tail.txt <==
+- Linux offers several tools for showing file contents.
+Directory contents are simply the files and sub-
+directories that it contains.
+
+- Using the cat command: 
+Examples: 
+#- cat /etc/profile
+Displays the contents of the file profile.
+
+
+- Using more and less command: 
+
+Examples: 
+#- more /etc/profile
+
+Displays long text files one page at a time, starting
+at the beginning.
+
+- Use spacebar to scroll forward one screen at a time.
+- Use Enter to scroll one line at a time.
+
+
+#- less /etc/profile
+
+Similar to more command but offers some extended
+capabilities, it is also faster than more as it does
+not need to read the entire file before it starts to
+show.
+
+
+- Using head and tail commands: 
+
+Examples:
+#- head /etc/profile
+By default it shows first 10 lines of the file.
+
+#- head -3 /etc/profile
+This will show only the first 3 lines of a file.
+
+
+#- tail /etc/profile
+By default it shows last 10 lines of the file.
+
+#- tail -3 /etc/profile
+This will show only the last 3 lines of a file.
+
+
+
+
+
+
+
+
+==> 16Copying-Directories-and-Files.txt <==
+- The copy operation duplicates a file or a directory.
+
+- Use cp command to copy files and directories:
+Example: 
+#- cp file1 newfile1
+To copy file1 to newfile1
+#- ls
+
+
+- If the file already exists it gets over written by
+default, use -i option if you want a confirmation
+before over writing the file.
+
+Example: 
+#- cp -i file1 newfile1
+
+
+#- cp -r dir1 dir2
+Copy a directory recursively.
+#- ls
+
+
+
+==> 17Moving-Renaming-Directories-and-Files.txt <==
+- Moving and renaming files: 
+
+Move "mv" command is used to rename or move files.
+
+- Moving and renaming files: 
+Examples:
+
+#- mv file1 file2
+To move or rename a file.
+
+#- mv -i file1 file2
+If file2 already exists use -i for confirmation.
+
+
+- Moving and renaming Directories: 
+Examples:
+
+#- mv dir1 dir2
+To move or rename a directory.
+
+
+
+
+
+
+
+
+==> 18Removing-Directories-and-Files.txt <==
+- Removing Files
+
+#- rm file1
+Remove file.
+
+#- rm -i file2
+To remove file with confirmation.
+
+#- rm -f file
+To remove file forcefully (no confirmation).
+
+
+
+
+- Removing directories: 
+
+#- rmdir dir1
+To delete an empty directory.
+
+#- rm -r dir1
+To delete a non empty directory recursively. 
+
+$- rm -rf dir1
+To remove a directory recursively and forcefully.
+
+
+
+
+
+==> 19Finding-Files.txt <==
+- Typical running Linux system has hundreds and 
+thousands of files. You may need to search for a files
+by a particular user or search file by their size.
+
+- Using the find command
+#- find / -name fi* -print
+
+find = command
+/ = Path or location we want to search
+name = search option (search by name)
+print = action (print is default so no need to type it)
+delete = action
+
+Example: 
+
+- Find all files named "file1": under / directory
+and delete them all: 
+
+#- find / -name files
+#- find / -name files -delete
+#- #- find / -name files
+find / -perm -4000
+
+
+- Find files smaller than 1 MB in root's home directory
+#-  find / -size -1M
+
+- Find files smaller than 1 MB in current directory.
+#-  find . -size -1M
+"." represents current directory
+
+
+- To find files in /usr, larger than 40MB
+#- find /usr -size +40M
+
+
+- Find files that were modified 4 days ago:
+#- find /var -mtime 4
+
+#- man find 
+To learn more about find command.
+
+ 
+
+
+
+
+
+
+
+
+==> 20Soft-and-hard-links.txt <==
+- Linking files and directories
+
+-Before looking at soft and hard links, let's look at
+some basics that you must understand:
+
+
+- Let's look at the result of below command: 
+
+#- ll /usr/sbin/vigr 
+
+lrwxrwxrwx. 1 root root 4 Dec 20 06:10 /usr/sbin/vigr 
+-> vipw
+
+- Each file in a system has many attributes assigned to 
+it at the time of its creation known as metadata. These
+include file's type, size, permissions, owners name
+owners group name, ACL, links and other related info.
+
+This metadata info has to be stores somewhere.
+This metadata info takes only 128-bytes of space and
+this tiny storage space is knows as inode (index node)
+Inode assigns a numeric identifier to each file which 
+is used by the kernel.
+
+
+To find out inode number of a file use below command:
+
+#- ll -i /usr/sbin/vigr 
+
+99699 lrwxrwxrwx. 1 root root 4 Dec 20 06:10 
+/usr/sbin/vigr -> vipw
+
+99699 = inode number
+
+--------
+
+
+- Soft and hard links
+
+- Soft links (aka symlink or symbolic link):  
+
+Soft links are similar to a short cut in windows, they 
+point to another file. 
+
+Example: 
+- Create a soft link called file2 to an existing
+file called file1: 
+
+#- ln -s file1 file2
+#- ll file2
+lrwxrwxrwx. 1 root root 5 May 10 15:34 file2 -> file1
+
+l = soft link
+-> = points to the linked file
+
+
+- Show inodes of both files:
+#- ll -i file*
+Inodes assigned to both files are different.
+
+Note: If the original file is deleted symlink becomes 
+useless as it is a shortcut to a file that does not
+exist.
+
+----
+
+- Hard link: 
+
+Hard link associates one or more files with a single
+inode number unlike a softlink.
+This also implies that any changes made to original 
+file will also be applied to the hard linked file.
+
+
+Example: 
+
+- Create a hard link called file2 to an existing 
+file called file1. 
+
+#- ln file1 file2
+#- ll -i file*
+
+200622 -rw-r--r--. 2 root root 0 May 10 15:34 file1
+200622 -rw-r--r--. 2 root root 0 May 10 15:34 file2
+
+As you can see both files have the same inode number.
+200622 is the inode number
+2 represents number of hard links
+
+Note: If one file is deleted the other file will 
+exist unlike a symlink.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 21Understanding-File-and-Directory-Permissions.txt <==
+- Understanding permissions
+
+Let's look at permissions of file1 and file2:
+
+#- ll file1 and ll file2
+-rwx-w---x. 1 root root 0 May 10 15:34 file1
+-rwxrwxrwx. 1 root root 0 May 10 16:18 file2
+	
+
+r = read
+w = write
+x = execute
+
+u = user owner
+g = group owner
+o = others (or public)
+
+
+
+
+
+
+
+
+==> 22Modifying-File-Permissions.txt <==
+- Modifying permissions
+
+Let's look at permissions of file1:
+
+#- ll file1 and ll file2
+-rwx-w---x. 1 root root 0 May 10 15:34 file1
+-rwxrwxrwx. 1 root root 0 May 10 16:18 file2
+	
+
+r = read
+w = write
+x = execute
+
+u = user owner
+g = group owner
+o = others (or public)
+
+r = read     = 4
+w = write    = 2
+x = execute  = 1
+rwx   =	       7 
+
+rwx-w---x     and  rwxrwxrwx
+7   2   1	   7   7   7
+
+- Change rights of a file and grant full rights to 
+user, group and others through octal notations.
+#- ll
+#- chmod 777 file
+#- ll
+
+- Change rights of a file - remove read, write and
+execute rights for group and others via symbolic
+notation.
+
+#- chmod go-rw file
+#- ll file 
+
+To re-add read and write rights back to group & 
+others:
+#- chmod go+rw
+$- ll file
+
+- Assign read rights to all users
+#- chmod a=rwx
+a = all
+
+
+
+
+
+
+
+
+
+==> 23Defualt-Permissions-and-umask.txt <==
+Linux assigns default permissions to a file or a
+directory at the time of creation. 
+
+Default permissions are calculated based on the 
+umask (user mask)permission value subtracted from a 
+preset value called "initial" permissions.
+
+Default permission = umask - initial
+
+
+Example: 
+Create a file as a regular user 
+#- touch file
+#- ll
+-rw-rw--r--. 1 root root 0 May 10 17:04 file
+6   6   4
+
+readwrite-readwrite--read-- (default permissions)
+
+
+- To find umsak value:
+#- umask
+002
+umask can be changed using sudo vi /etc/profile
+For regular users: 
+- Initial permissions = 666 for files 
+- Initial permissions = 777 for directories 
+Files: 
+- Initial permissions - umask = Default permission  
+  666 - 002 = 664
+
+-rw-rw--r--. 1 root root 0 May 10 17:04 file
+6   6   4
+
+Directories: 
+- Initial permissions - umask = Default permission
+  777 - 002 = 775
+Example: 
+#- mkdir 2 (as regular user)
+#- ll 2
+drwxrwxr-x. 2 1 1 6 May 10 17:20 2
+7  7   5
+ 
+
+ 
+==> 24Modify-File-Ownership-and-Group-Membership.txt <==
+- Create a file.
+
+#- touch file
+
+ll file
+
+- Create a user user1
+#- useradd user1
+
+- Change ownership of file to user1
+#- chown user1 file
+#- ll file
+
+- Change group ownership of file to user1
+#- chgrp user1 file
+#- ll file
+
+- Create user2
+#- useradd user2
+
+- Assign both ownership and owning group to user2
+for file1
+#- chown user2:user2 file
+#- ll file
+
+
+- Assign both ownership and owning group to user2
+for a directory Recursively:
+#- chown -R user2:user2 directory
+
+==> 25Special-Permissions-setuid-setgid-and-sticky-bit.txt <==
+- Linux offers 3 types of special permission bits that
+maybe set on executable files or directories to 
+respond differently for certain operations.
+
+These special permission bits are:
+
+- setuid (set user identifier) bit
+- setgid (set group identifier) bit
+- sticky bit
+
+
+- The setuid and setgid:
+
+- These 2 bits can provide non-owners and non-group 
+owners the ability to run executables with same access
+as the owner and group owner.
+
+
+- Setuid bit on executable files:
+
+Setuid bit flag can provide regular users the ability 
+to run the same access as the owner of the executable 
+file.
+It is represented by an s in the owner's permission
+class. 
+
+Example: 
+#- ll /usr/bin/su
+-rwsr-xr-x. 1 root root 32096 Dec  1 18:28 /usr/bin/su
+s = setuid bit
+
+- Login with a regular user and run su command.
+
+- Lets remove the setuid flag 
+#- chmod u-s /usr/bin/su
+#- ll /usr/bin/su
+-rwxr-xr-x. 1 root root 32096 Dec  1 18:28 /usr/bin/su
+
+Setuid bit has been removed, let try to run su again 
+as a regular user.
+su: Authentication failure
+
+- To re-add setuid bit:
+#- chmod u+s /usr/bin/su
+#- ll /usr/bin/su
+-rwsr-xr-x. 1 root root 32096 Dec  1 18:28 /usr/bin/su
+re-added setuid bit represented by s.
+
+- You can also use numbers to apply setuid bit.
+#- chmod u+s /usr/bin/su
+or 
+#- chmod 4755 /usr/bin/su
+
+4 adds the the setuid bit.
+
+- To search for all files with setuid bit permissions:
+#- find / -perm -4000
+
+------------
+
+Setgid bit on executable files:
+
+- Setgid bit is set on executable files at the group 
+level. Setgid bit flag can provide regular users the 
+ability to run the same access as the group members of 
+the executable file.
+It is represented by an s in the group's permission
+class. 
+
+Example: 
+#- ll /usr/bin/wall
+-r-xr-sr-x. 1 root tty 15344 Jun  9  2014 /usr/bin/wall
+s is the stickybit flag in group permissions
+
+
+To remove setgid bit: 
+#- chmod g-s /usr/bin/wall
+
+To add setgid bit: 
+#- chmod g+s /usr/bin/wall
+ or 
+#- chmod 2555 /usr/bin/wall
+
+
+- To search for all files with setgid bit permissions:
+#- find / -perm -2000
+
+-------------
+
+- Stickybit: 
+
+Sticky bit is set on public writeable directories to 
+prevent moving or deletion by regular users.
+
+Example: 
+
+#- ll -d /tmp
+drwxrwxrwt. 7 root root 93 May 11 04:00 /tmp/
+
+t = stickybit in other's permissions
+
+
+- The stickybit can be set by following command:
+- Create a directory
+#- mkdir dir1
+
+-Add stickybit with rwx permissions to all
+#- chmod o+t /tmp
+#- chmod 777 /tmp
+or
+#- chmod 1777
+#- ll dir1
+
+- To remove stickybit
+#- chmod o-t dir1
+or
+#- chmod 777 dir1
+
+1 sets the sticky bit.
+
+- To search for all files with stickybit permissions:
+#- find / -type d -perm -1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 26Introduction-to-the-Bash-Shell.txt <==
+- Bash (bourne again shell) Shell: 
+
+The shell is referred to as the command interpreter
+and it is an interface between a user and the kernel.
+
+Shell accepts instructions from users (or srcipts), 
+interprets them and passes them on to kernel for 
+processing. 
+Kernel then utilizes all hardware and software 
+components required for successfully processing the
+instructions. 
+
+RHEL/Centos supports several shells of which bash shell
+is the most popular.
+
+It is also the default shell in RHEL7. Bash shell 
+provides variety of features such as variable 
+manipulation, command substitution, input and output
+redirection, command history, tab completion, tilde
+substitution, pattern matching, metacharacters, command
+aliasing, quoting, conditional execution, flow control
+and shell scripting. 
+
+The bash shell is identified by $ sign for regular 
+users and the # for root user. This Shell is resident 
+in /bin/bash file.
+
+
+
+
+
+
+
+==> 27Variables.txt <==
+- Variables: 
+
+- A variable is a temporary storage of data in memory.
+Stored information is used for customizing the shell
+environment and by many system and application processes
+to function properly. 
+
+- There are 2 types of variables: local and environment.
+
+-The value of a local variable is only available in the
+current shell and not in the sub-shell.
+
+- The value of an environment variable can be passed 
+from current to sub-shell during the execution of a
+script. Which means value stored in an environment
+variable is passed from the parent process to the child
+process. 
+
+- Some environment variables are defined automatically
+through system and user startup files at log in such as:
+
+DISPLAY  - stores hostname or IP for X terminal
+HISTFILE - Define files for storing history of commands
+HOME     - Sets the home directory path
+LOGNAME  - Stores the login name
+PWD      - Stores the current directory location
+SHELL    - Holds the absolute path to primary shell file
+
+
+Setting an Unsetting Varaiables and View their Values
+
+-Local and environment variables may be set or unset at
+the command prompt or via programs, and their values
+may be viewed and used as necessary. 
+
+-Uppercase letters for naming variables are recommended
+to avoid any possible conflicts with existing command,
+program, file or directory names.
+
+Examples: 
+
+- Define a local variable called VR1:
+$- VR1=rhel7
+
+- To view the stored value in VR1: 
+$- echo $VR1
+
+To make this variable an environment variable: 
+
+$- export VR1
+
+- To undefine this variable: 
+
+$- unset VR1
+
+
+- Define a local variable with white spaces:
+
+$- VR1="This is a Test"
+
+echo $VR1
+
+- set command lists current values for all shell 
+variables, including local and environment variables.
+
+
+- To modify primary prompt for a user :
+$- export PS1="<$LOGNAME@$(hostname):\$PWD>"
+
+- Command prompt for user 1 now looks like: 
+
+<1@centos:/home/example>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 28Input-Output-and-Error-Redirection.txt <==
+- The bash shell gives us the flexibility to redirect
+input, output, and error messages. 
+
+This allows programs and commands to read input from a
+non-default source and forward output or errors to a 
+non-default destination.
+
+
+
+- Redirecting standard Input:
+
+Input redirection instructs a command to read the
+required information from a file instead of the keyboard
+The '<' (less than) character is used for input 
+redirection.
+
+- Redirecting standard input: 
+Example:
+
+#- cat < /etc/cron.allow 
+
+--------
+
+- Redirecting standard Output '>' (greater than sign):
+
+Output redirection sends the output generated by a
+command to an alternative destination. The > sign is
+is used for this purpose. You can redirect the output
+to file with the  > sign to overwite the mentioned
+file or append to it by using >> signs.
+
+Example: 
+
+- Redirecting standard output to a file:
+
+#- ll > file2 
+ or 
+#- ll >> file2 (to append)
+
+#- cat file2
+
+--------
+
+- Redirecting standard error:
+
+Error redirection forwards an error messages generated
+to an alternative destination - such as a file.
+
+-Example:
+
+#- find / -name core -print 2> /dev/null
+
+This command will find all occurences of files by the
+name core in the entire root directory and send any 
+errors to /dev/null (/dev/null is used to discard data).
+
+
+
+- Redirecting both standard output and error: 
+Following example shows you how to forward both error
+and standard output to a file.
+
+- Example: 
+
+#- ls /nothing &> test
+
+There is no file or directory called nothing so the 
+the ls command will run, produce an error and send it
+to a file called test. 
+
+Note: Test file will be created if it does not already 
+exist.
+
+#- cat test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 29Command-History.txt <==
+Command History: 
+
+Command History keeps a log of all commands that you 
+run at the command prompt. This feature is enabled by
+default. Bash shell stores command history in a file
+located in user's home directory.
+
+- Following command can tell you where the command
+history file is located.
+
+#- echo $HISTFILE
+
+/root/.bash_history
+
+- HISTSIZE variable controls max number of command
+enries that can be that can be stored in HISTFILE.
+
+#- echo $HISTSIZE
+
+---
+
+- Let's look at the history command examples:
+
+#- history
+#- history | more
+
+
+- To re-execute a command: 
+#- !60
+This will re-run the command on line number 60.
+
+
+- To re-run the last executed command:
+#- !!
+
+
+- Using the up arrow key: 
+
+Also shows you previously typed in commands.
+
+
+
+
+
+
+
+
+
+
+
+==> 30Tilde-Substitution.txt <==
+- Tilde Substitution:
+
+Also knows as tilde expansion is performed on words
+that begin with the tilde ~ character.
+
+- If ~ is used as a standalone character, it refers to
+the home directory of the user running the command.
+
+Let's look at some examples: 
+
+Examples: 
+
+#- echo ~
+Refers to home directory of current user.
+
+
+#- ls ~
+ List contents of home directory
+
+#- echo ~+
+
+Echo current directory - similar to PWD
+
+#- echo ~-
+
+Refers to previous working directory
+
+#- echo ~username
+
+Refers to home directory of the specified user.
+
+
+Note: It can be used with any commands such as cd, ls
+and echo.
+
+
+==> 31Regular-expression-GREP.txt <==
+Regular Expression:
+
+Also refered to as pattern matching, regex or regexp.
+To keep it simple you can just refer to it as pattern
+matching for now.
+
+Pattern can be a character, series of characters, word
+or sentences.
+
+- grep (global regular expansion print): 
+Linux provides a powerful tool called grep for pattern 
+matching. 
+The grep tool searches contents of one or more text 
+files or supplied input for a regular expression. If the 
+expression is matched it prints every line containing
+that expression on the screen.
+
+Example: 
+
+#- grep test /etc/passwd
+#- grep 1000 /etc/passwd
+
+Test is the expression that you are searching for in
+/etc/passwd file.
+
+#- grep nologin /etc/passwd
+Search for nologin
+
+#- grep -v nologin /etc/passwd
+To exclude nologin
+
+#- grep -nv nologin /etc/passwd
+To exclude nologin and number the lines found
+
+
+#- grep ^root /etc/passwd
+To search for any lines that begin with root.
+Caret sign ^ marks the beginning of a line or word.
+
+#- grep ^$ /etc/passwd
+To search for all empty lines in /etc/passwd
+
+
+#- grep -i root /etc/passwd
+To perform case-insensitive search for root in a file.
+i = case insensitive 
+
+#- cat  /etc/passwd  | egrep 'test|root'
+Searches for patterns test and root in /etc/passwd.
+
+| (pipe) can send output of one command as input to 
+the next. More on pipe in the next section.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 32Metacharacters-Wild-Cards-Pipe (1).txt <==
+Metacharacters: 
+
+These are special characters that possess special
+meaning to the shell. They are output redirection <>,
+caret^, $, ., *, ?, []square brackets, pipe |, curly
+brackets {}, parantheses (), \, +. 
+
+We will cover some of these in this section.
+
+
+The * character: 
+
+Asterisk matches zero to unlimited number of characters
+
+Example: 
+
+#- ls /etc/ali*
+To list all files that begin with ali in /etc.
+
+#- ls /var/log/*.log
+To search for in /var/log for files ending with .log.
+
+
+----
+
+The ? character:
+Question mark character matches exactly one character,
+except for a leading period in a hidden file.
+
+Example:
+ 
+#- ls -d /var/???
+To search for directories with exactly 3 characters in
+their names.
+
+----
+
+The [] character:
+Square brackets can be used to match either a set of
+characters or range characters.
+
+Examples:
+
+#- ls /usr/sbin/[wz]*
+To ls all files that begin with with either of the two
+characters wz in /usr/sbin.
+
+
+#- ls /usr/sbin/[w-z]*
+To ls all files that begin with any letter between w 
+and z.
+
+
+-------
+
+The | (pipe) character:
+
+Pipe is represented by the vertical bar |, residing
+with the \(backslash) on the keyboard, is used to send
+output of one command as input to the next.
+
+Example: 
+
+#- ll /etc | more
+
+#- ll /etc | grep fstab
+
+#- who | nl
+nl = number each line
+
+#- cat -n /etc/passwd | grep 26
+
+Find line 26 in /etc/passwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 33Your-first-bash-script-hello-world.txt <==
+Shell Script:
+
+Shell script is just a simple text file with ".sh" 
+extension, having executable permission.
+
+For example: firstscript.sh
+
+
+
+Writing and executing a script:
+
+- Create a file in your current directory hello.sh.
+
+# touch hello.sh
+
+- Edit file:
+
+# vi hello.sh
+
+- Write script and save file.
+
+#!/bin/bash
+# My first script
+
+echo "Hello World!"
+
+wq!
+
+- To clarify: 
+
+#!/bin/bash = shebang (thats how the script starts)
+# = Comment ( Does not execute anything)
+echo "Hello World!" =  actual script
+
+
+
+- Make the script executable:
+# chmod 744 hello.sh
+
+
+- Run the script:
+# ./hello.sh
+
+
+Output:
+Hello World!
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 34 Create+an+Interactive+script.txt <==
+Create an interactive script:
+
+- Create a file called interactive.sh
+# touch interactive.sh
+
+- Write below lines in script
+
+#! /bin/bash
+echo "What's Your First Name?";
+read a;
+echo "Welcome Mr. $a, What's your Last Name";
+read b;
+echo "Thanks Mr. $a $b for providing your name";
+echo
+echo "Mr. $b, Goodbye"
+
+wq!
+
+- Make the script executable
+# chmod 755 interactive.sh
+
+- Run script
+# ./interactive.sh
+
+
+
+
+==> 35 User+Authentication+Files.txt <==
+- Types of users served by the authentication files: 
+
+Linux supports three types of user accounts: root, 
+normal and serice.
+
+
+- The root user: 
+The root User is the superuser or administrator with 
+full access to all services, administrative functions 
+and  possesses full powers on the system.
+This user is automatically created during Linux 
+installation. 
+
+- The normal user:
+The normal users have user-level previlages. They cannot 
+perform any administrative functions, but can run 
+applications and programs that they are authorized to 
+execute. 
+
+- The service account: 
+
+The service accounts are responsible for taking care of
+the installed services. The service accounts include 
+apache, ftp, mail, ntp, postfix and qemu.
+
+
+
+- Authentication Files:
+
+Account info for these users is stored in four files
+located in the /etc directory.
+
+These files are passwd, shadow, group and gshadow. These
+files are updated when a user account is created, 
+modified or deleted. 
+
+These authentication files are referenced to check and 
+validate the credentials when a user attempts to login.
+
+These files are so important that the system keeps a
+backup of each of these files as passwd-, shadow-, 
+group- and gshadow- in /etc directory.
+
+Example: 
+#- ls /etc/shadow*
+/etc/shadow  /etc/shadow-
+
+- All four files will be covered in the next lectures.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 36 The+passwd+File.txt <==
+The passwd File: 
+
+The /etc/passwd file contains important user login info.
+Each line contains info for each user account.
+
+
+There are 7 fields on each line separated by a colon :
+
+
+Examples: 
+#- grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+
+- root, user and service accounts: 
+
+#- grep test /etc/passwd
+test:x:1000:1000:test:/home/test:/bin/bash
+
+#- grep ntp /etc/passwd
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+
+- Breakdown of the 7 fields: 
+
+Field 1: User Name = root, test and ntp
+
+Field 2: Password (stored in /etc/shadow) = x 
+(If * instead of x, it means a disabled account)
+
+Field 3: UID (User ID) = 0, 1000 and 38 (0 for root)
+
+Field 4: GID (Group ID) = 0, 1000 and 38 
+Represents user's primary group - entry in /etc/group.
+
+Field 5: Comments = root, test and empty.
+
+Field 6: Home Directory = /root, /home/test and /etc/ntp
+
+Field 7: Default Shell = /bin/bash and /sbin/nologin
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+==> 37 The+shadow+File.txt <==
+The shadow File: 
+
+The implementation of shadow password mechanism provides
+secure password security for local users.
+
+With this mechanism in place not only user passwords are
+are encrypted and stored in /etc/shadow file but limits
+such as password expiration, warning period, etc., can
+also be applied on a per-user basis.
+#- cat /etc/shadow
+
+
+These limits and other settings are defined in the
+/etc/login.defs file and are enforced on user accounts.
+The shadow file is only readable by the root user for 
+security purposes.
+#- grep -v ^# /etc/login.defs
+
+
+If shadow password mechanism is active a user existence
+is first checked in /etc/passwd and then in shadow for 
+authentication.
+
+
+
+Examples:
+
+#- grep user /etc/shadow
+
+test:$6$Mgwnh$.2ZrafQ::0:99999:7:::
+root:$6$03YAalCcIBR1::0:99999:7:::
+- There are 9 colon : separated fields per line entry.
+
+1- Test = Username
+
+2- Encrypted Password = $6$Mgwnh$.2ZrafQx
+! sign at the beginning of line means account is locked
+
+3- Blank = lastchg days (Date when pw was last modified)
+Blank = pw aging not applied, 0 = Change pw at login.
+
+4- 0 = minday (Min # of days before pw can be changed)
+
+5- 99999 = maxdays (Max # of days of pw validity)
+
+6- 7 = warndays 
+Number of days a user gets Warning to change pw 
+
+7- Blank = inactive days 
+Max number or days allowed of user inactivity
+Blank or null means feature is disabled
+
+8- Blank - Disabled days 
+Number of days before user account expires
+
+9- Blank - Reserved for future use.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 38 The+group+File.txt <==
+The group File: 
+
+This file contains the group info. Each row in the file
+stores one group entry.
+
+#- cat /etc/group
+To view the file.
+
+Every user in the system must be a member of atleast 
+one group - refered to as the user's Primary group.
+
+By default, a group name matches the username.
+
+- For Example: 
+
+By default 
+Group name user1 will be the primary group of user1
+Group name root will be the primary group of root user
+
+This default group is known as User Private Group(UPG)
+and it safeguards a user's files from other users.
+
+
+
+- There are 4 fields per line separated by a colon :
+
+Examples:
+
+#- grep username /etc/group
+user1:x:1004:
+root:x:0:
+
+Field 1: user1 = Group name 
+Same as user name by default 
+
+Field 2: x = Password Placeholder
+x point to gshadow file for password
+
+Field 3: 1004 = GID (group identifier or group ID)
+
+By default groups are ceated with GID's starting at
+1000. Several users can be part of one group and a
+user can be part of multiple groups.
+
+Field 4: Blank = Group members
+Blank (if no members) as user's primary group is listed
+in the /etc/passwd file and not the group file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+==> 39 The+gshadow+File.txt <==
+- The gshadow File: 
+
+The shadow password implemention provides an added layer
+of security at the group level. 
+With this mechanism active, the group passwords are 
+encrypted and stored in a secure /etc/gshadow file, only
+readable by the root user.
+
+#- cat /etc/gshadow
+To view gshadow as root
+
+- This file stores encrypted group passwords. Each row
+in file responds to one entry in the group file.
+
+There are 4 fields per line, separated by a colon :
+
+- Examples: 
+#- grep username /etc/gshadow
+
+root:::
+test:!!::test
+user1:!::
+
+Field 1: test = Group Name(as it appears in /etc/group)
+
+Field 2: !, !!, blank = Contains encrypted pw, ! or !!
+- Encypted pw can be set with gpasswd command.
+- Single ! disallows users access to this group with the
+newgroup command.
+- Pair of !! means same restriction as signle ! and it
+also indicates that group pw has never been set.
+
+Field 3: Blank = Group Admins
+Lists group admins that can add/remove users to from 
+this group with gpasswd command.
+
+Field 4: Test and blank = Members
+Users that belong to the group.
+
+
+
+
+
+
+
+==> 40 pwck+and+vigr.txt <==
+Integrity of Authentiction files: 
+
+
+The pwck command verifies the integrity of the users and
+authentication information. 
+It checks that all entries in /etc/passwd and 
+/etc/shadow have the proper format and contain valid 
+data. The user is prompted to delete entries that are
+improperly formatted or which have other uncorrectable
+errors.
+
+Example: 
+#- pwck:
+user 'ftp': directory '/var/ftp' does not exist
+pwck: no changes
+
+
+
+
+- Preventing Corruption in Authentication files: 
+
+When an admin needs to edit passwd or the group file
+manually, and if another user is changing his password 
+at the same time - the admin changes to the file will
+be lost. 
+Command vigr or vipw locks the file so editing of the
+files by another user by will be locked for that
+duration.
+
+The vipw and vigr commands edits the files /etc/passwd 
+and /etc/group, respectively.
+ 
+With the -s flag, they will edit the shadow versions
+of those files:
+/etc/shadow and /etc/gshadow, respectively. 
+
+The programs will set the appropriate locks to prevent
+file corruption.
+ 
+When looking for an editor, the programs will first
+try the environment variable $VISUAL, then the
+environment variable $EDITOR, and finally the default
+editor, vi.
+
+[root@centos example]# vigr -s
+vigr: Couldn't lock file: Interrupted system call
+vigr: /etc/gshadow is unchanged
+
+As the file is being edited either by a command or
+via vigr so invoking another session generates the 
+above error.
+
+
+
+
+
+
+
+==> 41 Activating+and+Deactivating+Shadow+Password+Mechanism.txt <==
+Activating and Deactivating Shadow Password Mechanism:
+
+Shadow Password mechanism enables the use of shadow and
+gshadow files for storing user and group passwords and
+password aging info maybe deactivated if needed.
+However, this is not recommended.
+
+The activation tool reference the /etc/login.defs file
+for some password aging attributes while being executed
+
+Examples: 
+
+- To activate password shadowing.
+#- pwconv
+
+This command executes silently without displaying any
+output unless there is an iusse.
+It creates the shadow file with read-only permissions
+for the root user.
+
+#- ll /etc/shadow
+
+
+- To activate password shadowing at the group level.
+#- grpconv
+
+This command executes silently without displaying any
+output unless there is an issue.
+
+It creates the gshadow file with read-only permissions
+for the root user.
+
+#- ll /etc/gshadow
+
+
+
+- To deactivate password shadowing and remove the
+shadow file: 
+#- pwunconv
+ 
+
+- To deactivate password shadowing at the group level
+and remove the shadow file: 
+#- grpunconv
+
+
+
+
+
+
+
+
+==> 42 Adding+Users+and+default+values.txt <==
+- The useradd and login.defs:
+
+The useradd command picks up the default values from the
+/etc/default/useradd and /etc/login.defs files for any
+options that are not specified at the command line.
+
+The login.defs file is also consulted by the usermod, 
+userdel, chage and passwd commands as needed.
+
+- To view useradd file:
+
+#- cat /etc/default/useradd
+or
+#- useradd -D
+
+
+These default values can be modified as desired.
+
+
+Example: 
+
+- To change the default base directory to /usr/home as 
+the home directory: 
+
+#- useradd -D -b /usr/home
+
+To confirm: 
+#- useradd -D
+
+
+
+- The other file /etc/login.defs comprises of additional
+directives that set several defaults.
+
+User and group management commands consult the file
+/etc/login.defs to obtain info that is not specified at
+the command line.
+
+
+- Example: 
+
+To view the file login.defs a grep is shown on the 
+uncommented and non-empty lines use below command:
+
+#- grep -v ^# /etc/login.defs | grep -v ^$
+
+MAIL_DIR  /var/spool/mail
+PASS_MAX_DAYS  99999
+PASS_MIN_DAYS  0
+PASS_MIN_LEN   5
+PASS_WARN_AGE  7
+UID_MIN                  1000
+UID_MAX                 60000
+SYS_UID_MIN               201
+SYS_UID_MAX               999
+GID_MIN                  1000
+GID_MAX                 60000
+SYS_GID_MIN               201
+SYS_GID_MAX               999
+CREATE_HOME    yes
+UMASK           077
+USERGROUPS_ENAB yes
+ENCRYPT_METHOD SHA512
+
+
+
+
+
+
+==> 43 The+passwd+command.txt <==
+- The passwd command:
+
+Passwd command is used to change the password of a user
+account. 
+A normal user can run passwd to change their own 
+password.
+Super user root or another user with root privilege can 
+use passwd command to change another user's password, or 
+define how that account's password can be used or 
+changed.
+
+ Examples:
+
+- To change current logged-in user's password:
+# passwd
+
+- To change another user's password (as root): 
+#- passwd username 
+
+- Non-root user can also change another user's password
+with sudo privileges: 
+#- sudo passwd username
+
+
+- Options for passwd command: 
+
+Examples:
+ 
+- To lock a user account: 
+#- passwd -l username
+
+- To Unlock a user account: 
+#- passwd -u username
+
+
+- To view other options see man pages: 
+#- man passwd  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 44 Creating+a+User+Account+with+Default+Values.txt <==
+- Creating a User Account with Default Values: 
+
+Examples: 
+
+
+- Create user8 with all default values:
+#- useradd user8
+
+
+
+- Create a password for this user: 
+#- passwd user8
+
+
+
+- Check added user8 info in authentication files:
+#- cd /etc; grep user8 passwd shadow group gshadow
+
+
+
+==> 45 Create+a+User+account+with+No+Login+Access.txt <==
+- "No login" shell is primarily used for application 
+accounts. As these accounts do not require login access
+to the system. 
+
+
+
+- To create a user123 with shell file /sbin/nologin:
+#- useradd -s /sbin/nologin user123
+
+
+- Check if the shell is assigned correctly: 
+#- grep user123 /etc/passwd
+
+
+
+- Try to login to make sure login is denied.
+#- su user123
+
+
+Note: 
+The nologin shell can also be assigned to a regular
+user to disable access temporarily.
+
+==> 46 Password+Aging+on+User+accounts.txt <==
+- Configure password aging for user123.
+
+
+#- passwd -n 7 -x 28 -w 5 user123
+
+-n = mindays = 7 - 
+Minimum number of days between password change.
+
+-x = maxdays = 28
+Maximum number of days between password change.
+
+-w = warndays = 5
+Number of days of warning before password expires.
+
+
+
+- Confirm new settings with the chage command:
+#- chage -l user123
+
+
+#- man passwd
+
+
+
+==> 47 Modify+and+Delete+a+User+Account.txt <==
+- Delete a User Account
+
+- To remove user123 along with home and mail spool 
+directories: 
+#- userdel -r user123
+
+- Confirm user1 deletion:
+#- grep user123 /etc/passwd
+
+or 
+
+#- id user123
+
+
+Modify a user account: 
+
+- Modify user1's login name from user1 to usernew, UID 
+to 2000, home directory to /home/usernew and login shell 
+to /sbin/nologin:
+
+#- usermod -u 2000 -m -d /home/usernew -s /sbin/nologin
+-l usernew user1
+
+- Confirm changes
+#- grep usernew /etc/passwd
+
+- Set Dec 29, 2018 as the newexpiry date for usernew:
+#- usermod -e 2018-12-29 usernew
+
+- Confirm changes: 
+#- chage -l usernew
+
+
+
+
+
+==> 48 Switching+users.txt <==
+Switching Users: 
+
+Logging in to the system directly as root is not 
+recommended. The recommended practice is to log on with 
+normal user account and then switch into the root 
+account if necessary.
+
+In addition to becoming root, we can also switch into 
+another user account. Unless you are root, you need to
+know the password for the target user account you are
+switching to.
+
+The su command can used to switch into another user
+account.
+
+Example: 
+
+- To switch from a user to root without executing 
+startup scripts for the target user:
+#- su
+Password (root pw)
+
+
+
+- To switch into a different user account from user1
+to user2, specify the name of the target user with the
+command: 
+#- su - user2
+Password (user2 password)
+
+
+- You can also issue a command as a different user 
+without switching into that user: 
+
+#- su -c 'firewall-cmd --list-services'
+Password (root password)
+
+-c option is available with su.
+- firewall-cmd --list-services requires superuser
+privileges.
+- users can use su to execute privileged commands. 
+
+
+- User root can switch into any account without being
+prompted for that user's password.
+
+#- su user1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 49 The+sudo+utility.txt <==
+The sudo utility: 
+
+Linux gives normal users the ability to run privileged
+commands. There is a utility called sudo that can be 
+used for this purpose.
+
+
+- For example, a regular user can run useradd command 
+with sudo if they have been granted access: 
+#- sudo useradd
+password
+
+
+- Rights provided to sudo users can be used to allow
+a user or a group to run scripts and applications
+owned by a different user.
+
+
+- Rights an be provided by editing a file /etc/sudoers.
+- File can be edited by using visudo command.
+
+- To give ALL privileges to administrative commands on 
+the system to both a user called test and a group 
+called wheel, add the below line to /etc/sudoers file: 
+
+test    ALL=(ALL)      ALL
+%wheel  ALL=(ALL)      ALL
+
+
+- To give access to users and groups so they can run 
+privileged commands without getting prompted for a
+password, below lines can be added to sudoers file.
+
+test    ALL=(ALL)    NOPASSWD: ALL
+%wheel  ALL=(ALL)    NOPASSWD: ALL
+
+
+- Rights can also be granted to users and groups in 
+a restricted way:
+
+user	All=/usr/sbin/userdel,/usr/sbin/adduser
+%wheel	All=/usr/sbin/userdel,/usr/sbin/adduser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 50 Create,+modify+and+delete+group+accounts.txt <==
+- To Create a group account linuxadm with GID 5000:
+
+#- groupadd -g 5000 linuxadm
+
+
+
+- To create a group account sales sharing the GID of
+group linuxadm: 
+
+#- groupadd -o -g 5000 sales
+
+
+
+- To Change the name of group sales to group mgmt: 
+
+#- groupmod -n mgmt sales
+
+
+- To change the GID of linuxadm group to 6000:
+
+#- groupmod -g 6000 linuxadm
+
+
+
+- Add user1 to group linuxadm while retaining the
+user's existing membership: 
+
+#- usermod -a -G linuxadm user1
+
+
+
+- Verify group memberships for user1:
+
+#- id user1
+or
+#- groups user1
+
+
+
+- Delete the group mgmt: 
+
+#- groupdel mgmt
+
+
+
+==> 51 Managing+Groups+with+gpasswd+Command.txt <==
+- Add user1 and user2 as administrators to the
+linuxadm group: 
+
+#- gpasswd -A user1,user2 linuxadm
+
+
+
+- Add user2 and user3 as members of the linuxadm
+group: 
+
+#- gpasswd -a user2 -a user3 linuxadm
+
+
+
+- Create user4 with default values and assign 
+password = user123: 
+
+#- useradd user4 ; echo user123 | passwd --stdin 
+user4
+
+
+
+- Substitute user2 and user3 with user4 as a
+member of the linuxadm group: 
+
+#- gpasswd -M user4 linuxadm
+
+
+
+
+- Set a password on the linuxadm group:
+
+#- gpasswd linuxadm
+
+
+
+- Login as user4 and run the command groups to list
+group membership for user4:
+
+#- groups
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 52 User+and+System+Shell+Startup+Files.txt <==
+- System-wide Shell startup files: 
+
+System-wide startup files set the general environment
+for all users at the time of their login to the 
+system. These files are:
+
+- /etc/bashrc: 
+Defines functions and aliases, sets the umask value, 
+the command prompt, etc. It includes settings from
+the shell scripts located in the /etc/profile.d
+directory.
+
+- /etc/profile: 
+Sets environment variables such as PATH, USER, MAIL,
+LOGNAME, HOSTNAME, HISTSIZE and HISTCONTROL for users
+and startup programs. Also processes shell scripts
+located in /etc/profile.d directory.
+
+
+- /etc/profile.d: 
+Contains scripts for bash and C shell users that are
+executed by /etc/profile file. Additional scripts 
+can be created here for further enviroment changes.
+
+#- cat /etc/bashrc
+#- cat /etc/profile
+#- ll /etc/profile.d
+
+
+
+
+- Per-user Shell startup files: 
+
+These files override or modify default system-wide
+settings. Individual users can customize these files
+to suit their needs. These get copied into user's
+home directory at the time of their creation.
+
+Per-user startup files for bash shell users:
+
+~/.bashrc:
+Defines functions and aliases. This file sources
+global definitons from /etc/bashrc file.
+
+~/.bashrc_profile:
+Sets environment variables. This file sources the
+~/.bashrc file to set functions and aliases.
+
+ 
+#- cat ~/.bashrc
+#- cat ~/.bashrc_profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 53 What+is+SSH.txt <==
+https://www.tecmint.com/protect-ssh-logins-with-ssh-motd-banner-messages/
+
+ Introduction to SSH Secure Shell: 
+
+Secure Shell SSH provides a secure mechanism for data
+transmission between source and destination systems over
+IP networks. 
+
+It replaces older remote login programs that transmitted
+user password in clear text(Telnet) and unencrypted data.
+
+SSH uses encryption for secure communication and digital
+signatures for user authentication.
+
+It also ensures integrity of the data being transfered.
+
+SSH includes a set of utilities and provides remote 
+users the ability to login, transfer files and securely
+execute commands. 
+
+SSH utilities have widely replaced other unsecure login
+and file transfer programs.
+
+SSH operates over port 22, unless you configure it
+otherwise. 
+
+Example: 
+
+#- ssh servername (test)
+
+#- man ssh
+
+==> 54 When+is+SSH+used.txt <==
+When is SSH used?
+
+
+Most servers are located in data centers or equipment 
+racks far away from the system admins and users.
+
+
+Same is true for routers, switches and other network
+devices.
+
+
+In most cases it's not practical to physically visit the
+console of each server that you manage, so instead we
+install SSH clients susch as PuTTY or TeraTerm on
+Windows computers or OpenSSH on Macs and nix computers.
+
+
+We can then use such software to log in across the
+network to the remote servers and other network devices.
+
+
+That is how system administrators manage servers from 
+the command line as though they were actually sitting
+at the physical console.
+
+
+==> 55How+to+configure+SSH.txt <==
+How to configure SSH?
+
+Once SSH is installed, configuration file is located in
+/etc/ssh/sshd_config.
+
+
+Within this file you can modify things such as:
+
+-The listening IP adress
+-TCP Port number (Default is 22)
+-Logging options
+-Authentication options
+
+
+Before making any changes to this file make sure to 
+make a backup of the original file for safety.
+
+Example:
+
+#:- cat /etc/ssh/sshd_config
+
+==> 56 Securing+SSH.txt <==
+Securing SSH:
+
+From security standpoint, there are two easy things to
+do to make SSH secure:
+
+1- Change the default port:
+
+The default port is 22, but its easy to change it to
+something else within the dynamic port range of
+49,153 to 65,535. 
+
+A hacker running a system wide port scan can still 
+discover it but it is better than having port 22 as a
+default which almost everyone knows.
+
+Usually hackers are looking for easy targets and they
+move on to an easier target if it takes too long.
+
+
+2- Disable root login:
+
+On most internet connected servers, usually logs will
+indicate tons of attempts using username root by the
+bad guys.
+Everyone knows Linux admin username is root so they will
+try to penetrate the system with that username first.
+
+Example:
+- Make a backup of sshd_config
+- vi /etc/ssh/sshd_config
+- Change port 22 to 5000
+- Change PermitRootLogin from yes to no
+
+Note: Now you will have to login with a regular user
+instead of root via SSH.
+ 
+==> 57 Transferring+Files+with+scp+and+sftp.txt <==
+Transferring Files with SCP:
+
+SCP stand for secure copy and is a part of SSH suite.
+It allows you to transfer a file securely from one
+server to another.
+
+Example: 
+
+#: scp file1 root@servername:/
+To copy file1 from current location to another server
+under the directory /.
+
+Note: You don't need to specify the user name if logging
+in with the same username.
+
+
+
+Connecting through sftp: 
+
+SFTP is installed as part of the SSH suite. 
+It allows secure transfer of files as well as secure
+authentication. Like SSH, SFTP also operates on the
+same port 22.
+
+Example:
+
+#: sftp servername
+
+
+
+
+==> 58 Configure+Private-Public+Key-Based+Authentication.txt <==
+Configure Private-Public Key-Based Authentication:
+
+In this example you will generate private/public key
+combination for a user on one server and use it to 
+allow this user to access another server using the ssh
+command.
+
+1- log onto centos (server name)
+2- ssh-keygen
+3- cat /home/user1/.ssh/id_rsa
+4- ssh-copy-id -i id_rsa.pub test(server name)
+5- ssh test as user2
+
+
+==> 59 The+OpenSSH+Service.txt <==
+OpenSSH is a free and open source implementation of SSH.
+Once applied on the system - telnet, rlogin, rsh, rexec,
+and ftp services can be disabled to enhance security.
+
+The ssh command has replaced telnet, rlogin, rsh, rexec
+and rcp,ftp commands have been replaced by scp, sftp
+respectively. 
+
+
+
+Example: 
+
+- To transfer files securely from source to destination:
+
+#- scp  /file1  servername:/file1
+
+#- ssh user@servername
+
+#- man ssh
+
+ ssh (SSH client) is a program for logging into a
+ remote machine and for executing commands on a remote
+ machine.  It is intended to provide secure encrypted
+ communications between two untrusted hosts over an
+ insecure network.  X11 connections, arbitrary TCP
+ ports and UNIX-domain sockets can also be forwarded
+ over the secure channel.
+
+==> 60 OpenSSH+Versions+and+Algorithms.txt <==
+OpenSSH currently supports 2 versions: v1 and v2. Both 
+are available in RHEL/Centos 7.
+Newer version should used as it has enhanced features 
+and configuration options.
+
+Configuration file is located in /etc/ssh/sshd_config.
+
+#- cat /etc/ssh/sshd_config
+
+Check for installed ssh packages:
+
+#- rpm -qa | grep ssh.
+
+
+- Both versions support various algorithms for data 
+encryption and user authentication (digital signatures).
+
+OpenSSH v1: 
+Supports the RSA Algorithm only.
+
+OpenSSH v2: 
+Supports RSA, DSA and ECDSA.
+
+RSA:
+Rivest-Shamir-Adleman, who first published this
+Algorith.
+RSA is most commonly used becuase it supports both
+encryption and digital signatures.
+
+DSA: 
+Digital Signature Algorithm
+
+ECDSA:
+Elliptic Curve Digital Signature Algorithm.
+
+==> 61 Encryption.txt <==
+Encryption is a way of transforming information into a 
+scrambled form to conceal the real informtion from 
+unauthorized access. 
+
+Encryption is done at the client end and the reverse
+process is de-encryption, which is on the server end.
+
+OpenSSH uses many encryption techniques during an end 
+to end communication session.
+
+These techniques include symmetric and asymmetric
+encryption. 
+
+
+- Symmetric Encryption: 
+
+This type of encryption uses a single secret key or a
+pair of keys to protect authentication traffic as well
+as the entire communication session. 
+This key is generated as a result of a negotiation 
+process between the client and server.
+
+
+- Asymmetric Encryption:
+
+This encryption uses a private/public key combination
+for encryption. These keys are randomly generated
+alphanumeric characters attached to messages during a
+communication session. 
+
+The client transfers the information using a public key
+and the server decrypts it using the paired private key.
+
+The private key must be kept secure since it is private
+to that one system only. The public key is distributed
+to clients. 
+
+This method is used for channel encryption as well as 
+for user authentication. 
+
+
+
+
+
+
+==> 62 Authentication+Methods.txt <==
+Once an encrypted channel is established between the 
+client and server, additional negotiations take place
+between the two to authenticate the user trying to gain
+acces to the server. 
+
+
+Open SSH offers several methods for this purpose, listed 
+below in the order in which they are attempted during
+the authentication process:
+
+- GSSAPI - based authentication
+- Host based authentication
+- Private/Public key based authentication
+- Challenge response authentication
+- Password based authentication
+
+
+GSSAPI - based authentication: 
+
+It provides a standard interface that allows security
+mechanism such as Kerberos to be plugged in. OpenSSH
+uses this interface and kerberos for authentication.
+
+With this method, an exchange of tokens takes place
+between the client and server to validate user identity.
+
+This method is only supported in OpenSSH version 2.
+
+
+Host based authentication: 
+
+Allows a single user, a group of users or all users on
+the client to be authenticated on the server.
+A user may be configured to login with a matching user
+name on the server or as a differnt user that exists on
+the server.
+Each user that requires an automatic entry on the server
+a .shosts file is set up in the user's home directory.
+
+Group of users or all users setup is done in the 
+/etc/ssh/shosts.equiv file.
+
+
+
+Private/Public key based authentication:
+
+This method uses a private/public key combination for
+user authentication. The user on the client has a public
+key and the server stores the corresponding private key.
+
+When user tries to login, the server prompts the user to
+enter the key and lets the user login if the key is
+validated.
+
+
+Challenge response authentication: 
+
+This method is based on response to one or more 
+challenge questions that the user has to answer 
+correctly in order to gain login access to the server.
+
+
+Password based authentication:
+
+Server prompts the user to enter their password. It
+checks the password against the stored entry in the
+/etc/shadow file and allows the user to login if the 
+password is confirmed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 63OpenSSH+Packages.txt <==
+OpenSSH has three packages that are of interest. 
+
+These are:
+ 
+- openssh
+- openssh clients
+- openssh server
+
+openssh: 
+
+The openssh package provides the ssh-keygen command and
+some supported library routines. 
+
+
+openssh clients: 
+
+This package include commands such as scp, ftp, slogin,
+ssh and ssh-copy-id and a client configuration file 
+/etc/ssh/ssh_config. 
+
+
+openssh server: 
+
+This package contains the sshd daemon, a server 
+configuration file /etc/ssh/sshd_config and library
+routines.
+
+By default openssh-server package is installed during
+OS installation, which allows user to login using the
+ssh command.
+==> 64 Viewing+and+Monitoring+Processes.txt <==
+Viewing and Monitoring Processes:
+
+An operational system can have hundreds or thousands of
+running processes depending on its purpose.
+
+We can view and monitor these processes using various
+native tools such as ps (process status) and top.
+
+
+- The ps command: 
+
+Shows basic process information in four cloumns.
+
+Example: 
+
+The ps command without any options or arguments lists
+processes specific to the terminal where this command
+is run.
+
+#: ps
+
+ PID TTY          TIME CMD
+12034 pts/0    00:00:00 bash
+12749 pts/0    00:00:00 ps
+
+Above output shows basic information in four columns.
+
+PID = process ID number.
+TTY = Terminal the process belongs to.
+TIME = Cumulative time CPU has given to this process.
+CMD = Name of command or program being executed. 
+
+
+Commonly used options with ps command include:
+-a = all
+-e = every
+-f = full-format
+-F = Extra full format
+-l = long format
+
+
+Example: 
+
+
+#: ps -eaf
+
+UID = User ID or process owner's name.
+PID = Process ID number.
+PPID = Process ID of the parent process.
+C    = Processor utiliztion for the process.
+STIME = Process start date or time.
+TTY = Terminal the process belongs to.
+TIME = Aggregated execution time for the process.
+CMD = Name of command or program being executed.
+
+Information of each running process is maintained and
+kept in the /proc file system.
+
+
+
+- The top command: 
+Another popular tool for viewing process info is the
+top command.
+It displays the statistics in real-time helps to 
+identify performance issues on the system.
+
+Example: 
+
+#: top
+
+press q or ctrl c to quit top.
+
+
+PID – Process ID
+USER – Name of the effective user (owner) of the 
+process.
+PR – Priority
+NI – Nice value
+VIRT – virtual memory size
+RES – resident memory size
+SHR – shared memory size
+S – process status (which could be one of the 
+following: D (uninteruptible sleep), R (running), 
+S (sleeping), T (traced or stopped) or Z (zombie)
+%CPU – the share of cpu time used by the process 
+since last update.
+%MEM – share of physical memory used.
+TIME+ – total cpu time used by the task in hundredths
+of a second.
+COMMAND – command name or command line 
+(name + options) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 65 Understanding+Processes.txt <==
+Understanding Processes: 
+
+A process is a unit for provisioning system resources.
+It is any program, application or command that runs on
+the system.
+
+A process is created in memory in its own address space
+when a command, program or application is initiated.
+
+Processes are organized in a hierarchial fashion.
+
+Each process has a parent process a.k.a. a calling
+process that spawns it.
+
+A single parent process may have one or more child
+processes and processes many of its attributes to
+them when they are created.
+
+Each process is assigned a unique identification number
+knows as PID (Process identifier), which is used by the
+kernel to manage and control the process through its
+lifecycle.
+
+Once the process is completed or terminated, this event
+is reported back to its parent process and all the
+resources assigned to it are then freed and the PID
+is removed.
+
+Several processes are started at system boot, many of
+which sit in the memory and wait for an event to trigger
+a request to use their services.
+
+These background system processes are called daemons
+and are critical for the system to operate.
+
+
+
+
+
+
+
+
+
+
+
+
+==> 66 Listing+a+Specific+process.txt <==
+Listing a specific process:
+
+Linux (RHEL,Centos) offers the pidof and pgrep command
+that only lists the PID of a specific process.
+
+These commands have a few switches available to them.
+
+However, their simplest use is to pass a process name
+as an argument to view its PID.
+
+For example:
+
+- To list the PID of the crond daemon use:
+
+#- pidof crond
+
+or
+
+#- pgrep crond
+
+Also check with:
+
+#- ps -eaf | grep crond
+
+
+==> 67 View+Processes+by+User+and+group+ownership.txt <==
+- View Processes by User and group ownership:
+
+A process can be listed by its ownership or owning
+group. 
+
+We can use the ps command for this purpose.
+
+
+For example: 
+
+- To list all processes owned by root, specify the -U
+option with the command and username: 
+
+#- ps -U root
+
+
+[root@centos ~]# ps -U root
+  PID TTY          TIME CMD
+    1 ?        00:00:04 systemd
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:01 ksoftirqd/0
+
+
+This command lists PID, TTY, TIME and process name for
+all processes owned by the root user.
+
+
+
+-  We can also specify -G option and the name of an 
+owning group to print processes associated only with 
+that group.
+
+Example: 
+
+#- ps -G root
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 68 Process+States.txt <==
+Process States:
+
+A process changes its operating state many times during
+its life cycle.
+
+Factors such as processor load, memory availability,
+process priority and response from other apps affect
+how often a process changes from one state to another.
+
+Process could be in a non-running state for a while
+or waiting on another process to provide information
+so that it can continue to run.
+
+- There are five basic process states: 
+
+  - Running
+  - Sleeping	
+  - Waiting
+  - Stopped
+  - Zombie
+
+
+- Running: 
+
+The process is being executed by the system CPU.
+
+
+- Sleeping: 
+
+The process is waiting input from a user or another
+process.
+
+
+- Waiting: 
+
+The process has received the input it was waiting for
+and is now ready to run as soon as its turn arrives.
+
+
+- Stopped: 
+
+The process is currently halted and will not run even
+when the turn arrives, unless a signal is sent to it
+to change its behavior.
+
+
+- Zombie: 
+
+The process is dead. A zombie process exists in the
+process table alongside other processes but it takes
+up no resources. 
+
+Its entry exists until the parent process permits it
+to die. 
+
+A zombie process is also called a defunct process.
+
+
+- Check with top comand
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 69 What+is+process+Niceness.txt <==
+Understanding process Niceness: 
+
+
+Each process has an assigned priority, which is
+established at initiation. It is based on a numeric
+value called niceness (or a nice value).
+
+
+There are 40 niceness values, with -20 being the 
+highest and +19 being the lowest value.
+
+
+Most processes started by the system use the default
+niceness of 0. 
+
+
+A process running at higher priority gets more CPU
+attention.
+
+
+A child process inherits the niceness of its parent or
+calling process.
+
+Normally, we run programs at the default niceness but
+we can change it based on system load and urgency.
+==> 70 Viewing+and+changing+process+Niceness.txt <==
+Viewing and changing process Niceness:
+
+We can view current process priorities and niceness
+values with the ps command, the top command and the 
+system monitor GUI. 
+
+- You can use -l option to look for priority:
+
+#- ps -l
+
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY
+
+
+See column seven - PRI.
+
+Priority is calculated based on the Niceness value,
+column 8 - NI.
+
+
+
+
+- Run the following command:
+
+#- ps -efl
+
+F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  
+4 S root         1     0  0  80   0 - 32042 ep_pol 
+1 S root         2     0  0  80   0 -     0 kthrea 
+1 S root         3     2  0  80   0 -     0 smpboo 
+1 S root         5     2  0  60 -20 -     0 worker 
+
+Above output indicates use of default niceness for
+the first 3 processes and the highest niceness of
+-20 for the fourth one. 
+
+The values are used by the process scheduler to adjust
+their execution time on the CPU.
+
+
+
+
+- To check the default niceness:
+
+#- nice
+
+0 is default.
+
+
+
+- Changing process niceness:
+
+You can assign a different niceness to a program or a
+command at its startup.
+
+Example 1: 
+
+- To run the top command at a lower priority with
+nice value of +2:
+
+#- nice -2 top
+
+From another terminal you can check with:
+
+#- ps -el | grep top
+
+
+
+
+Example 2:
+
+- To run the top command at a higher priority with
+nice value of -10. 
+
+Note:  Two dashes
+
+#- nice --10 top
+
+
+From another terminal you can check with:
+
+#- ps -el | grep top
+
+
+You will notice that the process is now running with a
+higher priority 70 with a nice value of -10.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 71 Renicing+a+running+process.txt <==
+Renicing a running process: 
+
+The niceness of a running process can be changed using
+the renice command. 
+
+Renicing will change the priority at which the process
+is currently running.
+
+
+Example: 
+
+- To change the nice of a running top session from 
+old priority to +5: 
+
+1- find the PID of top 
+
+#- pidof crond
+642 (PID)
+
+2- Change it to +5
+
+#- renice 5 642
+
+3- ps -el | grep top
+
+Note: Options -u and -g can be used with renice to 
+change nice values of processes owned by a user or
+group members.
+==> 72 Job+Scheduling.txt <==
+Understanding Job scheduling: 
+
+Job scheduling allows a user to submit a command or a
+program for execution at a specified time in the
+future.
+
+The execution of the command or program could be one
+time or recurring based on pre-determined time
+schedule.
+
+One time execution is normally scheduled for an 
+activity that needs to performed at low system usage
+times. For example, an execution of a lengthy shell
+program.
+
+In contrast, recurring activities may include backups,
+deleting old log files, system monitoring tasks, 
+running custom scripts and removing unwanted files.
+
+
+
+- Job scheduling and execution is taken care of by two
+daemons: 
+
+- atd
+- crond
+
+atd: 
+
+atd manages the jobs scheduled to run one time in the
+future.
+The atd daemon retires a missed job at the same time
+next day.
+
+- crond
+crond manages recurring jobs at pre-specified times.
+At startup, this daemon reads schedules in files 
+located in the /var/spool/cron and /etc/cron.d
+directories and loads them in the memory for later
+execution.
+
+This daemon run a job at its scheduled time only and
+unlike atd daemon does not entertain missed jobs.
+
+Note: 
+Neither daemon needs to restart after any additions
+or changes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 73 Control+Processes+with+signals.txt <==
+Controlling Processes with Signals: 
+
+A system may have hundreds or thousands of processes
+running simultaneously on it. 
+
+It is sometimes necessary to alert a process of an 
+event.
+We can accomplish that by send a control signal to the
+process.
+
+
+Processes can send a signal to alert each other as well
+
+A process will halt its execution as soon as it gets
+the signal and take appropriate action as per the 
+enclosed instructions in that signal.
+
+
+The signal can instruct the process to terminate
+gracefully, kill it abruptly or force it to re-read
+its configuration.
+
+
+There are many signals available for use but we will
+mostly deal with only a few of them.
+
+
+Each signal is associated with a unique numeric 
+identifier, a name and an action.
+
+- List of available signals can be displayed by using
+the kill  command with -l option:
+
+#- kill -l
+
+
+Examples:
+
+1- SIGHUP: 
+
+Hang up signal causes a process to disconnect itself 
+from a closed terminal it was tied to.
+Can also instruct a a running daemon to re-read its
+configuration.
+
+2- SIGINT: 
+
+The ^c signal issued on the controlling terminal can
+interrupt the execution of a process.
+
+9- SIGKILL: 
+
+Kills a process abruptly.
+
+15- SIGTERM: 
+
+Sends the signal to stop a process in an orderly way.
+This is the default signal and can be ignored by a 
+process.
+
+
+
+Commands:
+
+The commands kill and pkill are used to send a signal
+to a process. Regular users can kill processes that 
+they own and root user can kill any process.
+
+
+- pkill: 
+The pkill command needs process name(s) to send a 
+signal to.
+
+Examples: 
+- To kill with default soft termination signal: 
+#- pkill top
+
+- To kill forcefully right away use:
+
+#- pkill -9 top
+
+
+- kill
+The kill command needs PID(s) to send a signal.
+
+Examples:
+
+- To kill with default soft termination signal: 
+#- kill top
+
+- To kill forcefully right away use:
+
+#- kill -9 top
+
+
+- The command killall can be used to terminate all
+processes that match provided criteria.
+
+Example: 
+
+#- killall top
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 74Controlling+user+access.txt <==
+Controlling user access:
+
+By default, all users have access to schedule jobs 
+using the at and cron services.
+
+The access can be restricted to specific users only.
+Restrictions can be applied by adding users in the
+allow or deny files in /etc directory.
+
+For at, at.allow and at.deny files are used.
+For cron, cron.allow and cron.deny files are used.
+
+We can simply add user names to allow or deny files to
+grant or deny access.
+
+
+Note: 
+
+By default, deny files exist and are empty and allow
+files do not exist. This mean all users will have full
+access to using both tools by default.
+
+
+
+==> 75Scheduling+with+at+command.txt <==
+Scheduling with at command: 
+
+The at command is used to schedule a one-time job in
+the future.
+
+All submitted jobs are spooled in the /var/spool/at
+directory and executed by atd daemon at specified time.
+
+This file also includes the name of the command or
+script to be run.
+
+Ways of expressing a time with the at command: 
+
+at 1:20am    =  Runs at next 1:20am
+at noon	     =	Runs at 12pm
+at 12:42     = 	Runs at 11:42pm
+at midnight  = 	Runs at 12am
+at 17:01 tomorrow  =  Runs at 5:01pm, next day.
+at now + 7 hours  = Runs 7 hours from now
+at 3:00 1/15/2019 = Runs at 3am on Jan 15, 2019
+
+
+
+You can also supply a filename with at command using 
+the -f option. This command will execute that file at
+specified time.
+
+Example: 
+
+-To run a script script.sh from a user's home directory
+3 hours from now: 
+
+#- at -f /home/user/script.sh now + 3 hours
+
+If at is not installed, you may have to install it.
+
+Check if installed:
+#- yum list installed at
+
+To install: 
+#- yum install at
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 76Submit,+view,+list+and+remove+an+at+job.txt <==
+Submit, view, list and remove an at job:
+
+
+Exerice:
+
+1- Run the at command and specify the time and date
+for the job execution.
+
+# at 11:30pm 6/30/2019
+
+at> find / -name core
+
+
+2- List the job file created in /var/spool/at:
+
+# ll /var/spool/at
+
+ID 5 created for job
+
+
+3- Display contents of this file:
+
+# cat /var/spool/at/file
+ 
+or
+
+# at -c 5
+
+
+4- List spooled job:
+
+# at -l
+
+or
+
+# atq
+
+
+
+5- Remove spooled job
+
+# at -d 5
+
+or
+
+# atrm 5
+
+This will remove the job file from /var/spool/at.
+Can be confirmed with atq command as well.
+
+
+
+
+
+
+
+
+==> 77Using+crontab.txt <==
+Crontab:
+
+Using crontab is another method of scheduling jobs to
+in the future. 
+
+Unlike, atd, crond executes cron jobs on a regular
+basis as long as they comply with format defined in the
+/etc/crontab file.
+
+#- cat /etc/crontab
+
+Crontables for users are located in the /var/spool/cron
+directory. Each authorized user with a scheduled job
+has a file matching their user name in this directory.
+
+For example: 
+
+The crontab file for User1 will be:
+/var/spool/cron/user1 
+
+Crontables are also stored in /etc/cron.d directory, 
+only root user has access to create, modify and delete
+them.
+
+When daemon is done running the jobs at the specified 
+time, it adds a log entry to /var/log/cron file.
+
+
+- To check if cron is already installed:
+
+# yum list installed | grep cron
+  or
+# rpm -qa | grep cron
+
+
+Crontab command can be used with options:
+-e = to edit
+-l = to list
+-r = remove crontables
+
+
+
+
+
+
+
+
+
+==> 78Syntax+of+User+Crontab+Files.txt <==
+Syntax of User Crontab Files:
+
+The /etc/crontab file specifies the syntax that each
+cron job must comply with.
+
+# cat /etc/crontab
+
+Field	Description	Allowed Value
+MIN	Minute field	0 to 59
+HOUR	Hour field	0 to 23
+DOM	Day of Month	1-31
+MON	Month field	1-12
+DOW	Day Of Week	0-6
+CMD	Command	Any command to be executed.
+
+
+
+Example: 
+
+- Scheduling a Job For a Specific Time
+The basic usage of cron is to execute a job in a 
+specific time as shown below. This will execute the 
+Full backup shell script (full-backup) on 11th July 
+at 09:30 AM.
+
+Please note that the time field uses 24 hours format.
+So, for 9 AM use 9, and for 9 PM use 21.
+
+1- # crontab -e
+
+2- Add the below line:
+
+30 09 11 07 * /home/user1/full-backup
+
+-------------------
+30 – 30th Minute
+09 – 09 AM
+11 – 11th Day
+07 – 7th Month (July)
+* – Every day of the week
+-------------------
+
+# crontab -l
+
+To check the contents of crontable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 79Add+list+and+remove+a+Cron+job.txt <==
+Add list and remove a Cron job:
+
+- Add a cron job as user 'test':
+
+1- Edit crontab file: 
+# crontab -e
+
+2- Add your job in file:
+
+30 09 11 07 * /home/test/script
+
+3- Save an exit.
+
+Note:
+This will execute the  script (full-backup) on 
+11th July at 09:30 AM.
+
+
+
+- List contents of crontable:
+
+# crontab -l
+
+
+
+- Remove a cronjob as user test:
+
+# crontab -r
+
+- Confirm deletion: 
+
+# crontab -l
+
+
+
+
+
+==> 80 Add+list+and+remove+a+Cron+job.txt <==
+Add list and remove a Cron job:
+
+- Add a cron job as user 'test':
+
+1- Edit crontab file: 
+# crontab -e
+
+2- Add your job in file:
+
+30 09 11 07 * /home/test/script
+
+3- Save an exit.
+
+Note:
+This will execute the  script (full-backup) on 
+11th July at 09:30 AM.
+
+
+
+- List contents of crontable:
+
+# crontab -l
+
+
+
+- Remove a cronjob as user test:
+
+# crontab -r
+
+- Confirm deletion: 
+
+# crontab -l
+
+
+
+
+
+==> 81 1-+Introduction+to+software+packages.txt <==
+Introduction: 
+
+Linux applications are called Packages. A software
+package is a group of files organized in a directory
+structure and metadata that makes up a software 
+application. 
+
+
+Files contained in a package include installable scripts
+configuration files, library files, commands and the
+related documentation. 
+
+
+The Redhat software management system was originally
+called Redhat Package Manager but is now known as RPM
+Package Manager (RPM). 
+
+
+We can use RPM to install, remove and manage packages.
+
+
+Example:
+
+# rpm -qa
+
+# rpm -qa | grep ssh
+==> 82 2-+Redhat+Subscription+Management+Service.txt <==
+Redhat Subscription Management Service (RHSM): 
+
+This is a service provided by Redhat. You first register
+your systems with RHSM then attach subscriptions to them
+based on the OS and and software they run.
+
+Once registered through RHSM your system is entitled to
+software updates, technical support and access to the 
+supported software. 
+
+Note: CentOS is the same thing as Redhat but without
+the support from Redhat.
+
+
+- Registering you system with RHSM: 
+
+# subscription-manager register --auto-attach
+
+Username
+Password
+
+System has been registered
+
+Status: Subscribed
+
+
+
+- Unregistering and unsubscribing your system with RHSM: 
+
+# subscription-manager remove --all
+
+# subscription-manager unregister
+
+# subscription-manager clean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 83c3-+Using+YUM+for+Managing+Software+Packages.txt <==
+Managing Packages with yum: 
+
+The yum (Yellowdog Updater Modified) is included with
+RHEL/Fedora/CentOS for the management of software.
+
+This utility requires that your system has access to a
+software repository.
+
+
+
+For Redhat: 
+The Redhat Subscription Management Service grants your 
+system access to software repositories but it is
+restricted to subscribers only.
+
+For CentOS:
+Do not require a subscription and software repositories
+are accessible to everyone. 
+
+
+It allows you to install, update and remove software on
+your system running RHEL, Fedora or and CentOS.
+
+Main benefit of using the yum command is that it will
+automatically resolve dependencies when you install
+any software package.
+
+
+
+
+Practical Examples:
+
+1- To install specified package: 
+# yum -y install <package name>
+# yum install vsftpd (Very secure ftp Daemon)
+
+-y = install without asking for confirmation
+
+
+2- Remove a package: 
+# yum remove vsftpd
+
+
+3- Check which packages need to be updated on your 
+system:
+# yum check-update
+
+
+4- Update all packages on your system:
+# yum update
+
+
+5- Search for packages:
+
+# yum search vsftpd
+
+
+6- Check for install package
+
+# yum list installed | grep ssh
+
+
+
+Managing package groups:
+
+1- List available groups: 
+
+# yum grouplist
+
+
+2- Search specific package
+
+# yum grouplist | grep -i server
+
+
+2- Install group GNOME Desktop
+
+# yum groupinstall GNOME Desktop
+
+
+3- Remove installed group
+
+# yum groupremove GNOME Desktop
+
+
+4- To download a package in your current directory:
+
+# yum install yum-utils
+# yumdownloader -v vsftpd
+# ls
+
+5- Find info about a package
+# yum info ntp
+
+
+
+- View yum history:
+
+1- To list last 20 transactions:
+
+# yum history list
+
+2- List history info
+# yum history info
+
+3- List all transactions: 
+# yum history list all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+==> 84 - 4-+Using+RPM+for+Software+Package+Management.txt <==
+RPM Package Manager:
+
+RPM is designed to simplify the installation, querying 
+and removing software in Linux environment.
+
+It allows ease of updating existing packages and 
+verification of packages.
+
+
+RPM usage:
+
+1- To check all installed packages: 
+
+# rpm -qa
+q = query 
+a = all
+
+2- To check a particular installed package:
+
+# rpm -qa | grep ntp
+
+
+3- To install a .rpm package
+
+# cd /test
+# ls
+vsftpd-3.0.2-22.el7.x86_64.rpm
+
+# rpm -ivh vsftpd-3.0.2-22.el7.x86_64.rpm
+i = install
+v = verbose
+h = hash 
+
+
+4- To upgrade a package:
+
+# rpm -Uvh package name (can also install using this)
+
+
+5- To remove a package:
+# rpm -e vsftpd 
+
+
+6- To Verify all or one rpm Package:
+
+# rpm -Va 
+
+or
+
+# rpm -Va | grep ssh
+
+
+7- To get information about a RPM package:
+
+# rpm -qi ntp
+
+
+8- Find the Location where files were copied:
+
+# rpm -ql ntp
+
+9- Determine which rpm a file came from:
+
+# rpm -qf /var/lib/ntp/
+
+
+10- Install an rpm from a website:
+
+# rpm -Uvh  http://pkgs.repoforge.org/......   .rpm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 85Run+Levels.txt <==
+Runlevel: 
+
+Determines the state of a system and controls how one
+can login, what services and scripts should run when a 
+system starts.  
+
+Defaults runlevels vary from distro to distro, as do the
+default settings in each run level.
+
+Below are the run levels for Redhat/CentOS 6.
+
+Note: Redhat/CentOS 7 uses Targets.
+
+
+Runlevel are defined from 0 – 6: 
+
+- Runlevel 0 – Shut down the system 
+(do not make it default)
+
+- Runlevel 1 – single mode
+
+- Runlevel 2 – multiuser mode without networking
+(no NFS support)
+
+- Runlevel 3 – multiuser without "X" (command line)
+(Most commonly used - recommended for servers)
+
+- Runlevel 4- Not used
+
+- Runlevel 5 – X11 (GUI)
+(Good for end-user systems, NOT recommended for Servers)
+
+
+- Runlevel 6 – Reboots the system
+Do not set inittab value to runlevel6.
+
+
+
+Other Distros: 
+
+Debian and Ubuntu also has 7 runlevels. 0, 1 and 6 are 
+the same as Redhat. 
+Runlevels 2 throuh five are identical but can be 
+configured in whatever way you desire.
+Default is run level 2 but it is configured as a full
+multi-user mode with graphics (X windows).
+
+
+
+- View current runlevel: 
+
+# runlevel
+
+- To change current runlevel
+# init runlevel  (init 6 will reboot)
+
+- To change default run level: 
+Modify /etc/inittab file and change default level. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 86 Targets.txt <==
+Targets:
+
+Systemd has replaced sysVinit as the default service 
+manager in RHEL 7. Some of the sysVinit commands have
+been symlinked to their RHEL 7 counterparts, however 
+this will eventually be deprecated in favor of the 
+standard systemd commands in the future.
+
+Systemd uses Targets instead of the runlevels.
+
+
+- Each Runlevel Target file is a symbolic link to the
+system-start Target equivalents. For example:
+
+# cd /usr/lib/systemd/system
+# ls -l runlevel*
+
+
+
+
+Comapring runlevel with Target: 
+
+Runlevel 0 – shut down the system
+Runlevel 1 – single mode
+Runlevel 2 – multiuser mode without networking
+Runlevel 3 – multiuser with text login screen
+Runlevel 4- customized runlevel (not in use)
+Runlevel 5 – runlevel 3 with graphical login
+Runlevel 6 – Reboots the system
+
+
+Targets: 
+
+0- runlevel 0.target, poweroff.target 
+System halt/shutdown
+
+1- runlevel1.target, rescue.target
+Single-user mode (rescue mode)
+
+2- runlevel2.target
+User-defined/Site-specific runlevels. By default, 
+identical to 3.
+
+3- runlevel3.target, multi-user.target
+Multi-user, non-graphical mode, command line
+
+4-  runlevel4.target
+User-defined/Site-specific runlevels. By default, 
+identical to 3.
+
+5- runlevel5.target, graphical.target
+Multi-user, graphical mode
+
+6- runlevel6.target, reboot.target
+Reboot
+
+
+- emergency- emergency.target
+Emergency mode. Root fs is mounted read only, no other
+fs are mounted and no networking either.
+
+
+
+- Managing Targets
+
+
+
+Viewing and setting Default boot Target:
+
+- To check current default boot target
+# systemctl get-default
+
+multi-user.target
+
+
+- To change default boot target:
+# systemctl set-default multi-user.target
+
+-----
+
+Switching into specific targets: 
+
+- Switch to graphical target (Legacy runlevel 5)
+# systemctl isolate graphical.target
+
+- Switch to multi-user Target (Legacy runlevel 3)
+# systemctl isolate multi-user.target
+
+- Shutdown system to halt state:
+# systemctl halt
+
+- Shutdown and power off
+# systemctl poweroff
+
+- Reboot
+# systemctl reboot
+
+- To switch to Legacy runlevel 3 Target:
+# systemctl isolate runlevel3.target
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 87 Updating+Kernel.txt <==
+Updating Kernel: 
+
+
+- Check version of running kernel: 
+
+# uname -r
+3.10.0-693.11.1.el7.x86_64
+
+
+- To Install/update the kernel: 
+Either command - keeps old kernel and files
+
+
+# yum update kernel
+
+- To verify if the kernel package upadted: 
+# yum list installed kernel
+
+
+- Menu entry gets added in /boot/grub2/grub.cfg
+
+Check version again: 
+# uname -r
+
+After reboot, you will start seeing the new kernel
+option as well.
+
+You can also check with rpm command:
+# rpm -qa | grep kernel
+
+
+
+
+
+
+==> 88 1-+Linux+Server+Security.txt <==
+Introduction:
+
+In this section we will cover things we can do to make
+your server more secure.
+
+Keep in mind there is no such thing as 100% secure
+system and that is why you want to include regular
+backups and auditing as part of your security plan.
+
+If your server is connected to the internet there is
+always a possibility that its security can be compromised
+so the idea behind security is to minimize the attacks
+on our system as much as possible.
+
+If your security is tight then an attacker may move on
+to an easier target.
+
+
+- Below are things you want to implement and consider when
+planning your system's security:
+
+
+- Physical Security
+
+- Keep the software up to date
+# yum update
+
+- Employ the Principle of Least Privilege
+
+- Use Encryption
+
+- Avoid Non-Secure Protocols
+
+- Clean up your systems
+# rpm -qa > /tmp/installedpackages.txt
+
+- Minimize number of services per system
+
+- Enfore a good password policy
+# chage
+# /etc/login.defs
+
+- Disable root login
+# /etc/ssh/sshd_config
+
+- Disable Unneeded Services
+# chkconfig  --list   (RHEL 6)
+# systemctl list-unit-files (RHEL 7)
+
+- Delete X Windows
+# yum groupremove "X Windows System"
+
+- Implement a Firewall
+# firewalld daemon for RHEL 7 and iptables
+Covered in detail in the Firewall section.
+
+- Separate Partitions
+/home
+/tmp
+/var
+/
+/boot
+
+- Block SSH attacks
+
+# /var/log/auth.log
+# /etc/hosts.deny
+# yum install denyhosts
+Change default SSH port 22.
+
+
+- Perform Security Scans and Audits
+
+ - nmap (yum install nmap)
+ - Nessus
+
+
+- Use Sudo
+# /etc/sudoers
+# visudo
+
+
+- Use lastlog
+# lastlog
+# lastlog -u username
+
+Shows recent login info
+
+
+- last command shows list of last logged in users
+# last
+# last username
+
+
+- Additional Security Tools
+Wireshark
+Snort
+Aircrack
+John the Ripper
+
+
+- Regular Backups
+Free open source backup tools:
+- Bacula
+- rsnapshot
+- DRBD
+- Amanda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 89 2-+Firewall+and+iptables.txt <==
+- Understanding and Managing Firewall
+
+- iptables with and without firewalld
+
+# yum list installed | grep iptables
+# yum list installed | grep firewalld
+
+
+- iptables Configuration File
+# cat /etc/sysconfig/iptables
+
+
+- iptables and firewalld services:
+
+# systemctl enable firewalld (Autostart)
+# systemctl start firewalld (start service)
+# systemctl status firewalls -l
+
+To stop this service:
+# systemctl stop firewalld
+# systemctl disable firewalld
+
+Similarly for iptables:
+# systemctl enable iptables
+# systemctl start iptables
+
+- To List the rules currently in place:
+# iptables -L
+- To remove all existing rules:
+# iptables -F
+
+- Insert a rule to allow inbound traffic on port 90
+from 192.168.1.0/24 only:
+# iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport
+90 -j ACCEPT
+
+# Service iptables save (Save rules)
+# iptables -L (To check)
+
+- Add a runtime rule to allow traffic on TCP port 443:
+# firewall-cmd --add-port=443/tcp
+
+- To List Services
+# firewall-cmd --list-services
+
+- To List Ports:
+# firewall-cmd --list-ports
+
+
+
+
+
+
+
+
+
+==> 90 Managing+Storage+with+parted.txt <==
+- Managing Storage with parted
+
+The parted tool is used to carve up disks on RHEL/CentOS 
+systems.
+
+This text based program allows us to view, add, check,
+modify, copy, resize and delete partitions.
+
+Parted understands and supports both MBR and GPT
+schemes.
+
+- MBR (Master boot record): Used by BIOS-based systems
+- GPT (GUID partition table): Used by UEFI-based systems
+
+
+
+Practical Use: 
+
+- Use the parted command to see all options
+# parted
+
+- Type help to see list of subcommands
+# help
+
+- q or quit to quit.
+# q 
+
+
+- Create an MBR partition Table and a Partition:
+
+# lsblk (To see the disk)
+
+# parted /dev/sdb
+
+# print (view current partition info)
+
+# mklabel msdos
+
+# mkpart primary 1 100M
+
+# print
+
+# quit or q
+
+Note: Run partprobe command if the disk had any 
+partitions previously. Not needed for new and
+unpartitioned disks
+
+- To confirm:
+# parted /dev/sdb print
+or
+# grep sdb /proc/partitions
+
+
+
+- Delete an MBR partition
+
+# parted /dev/sdb
+# print
+# rm 1
+# print
+# q
+
+- To confirm:
+# parted /dev/sdb print
+or
+# grep sdb /proc/partitions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 91 Managing+Storage+with+gdisk.txt <==
+Managing Storage with gdisk:
+
+The gdisk utility is used to carve up disks using GPT
+format.
+
+This text based (menu driven) program allows us to
+view, add, verify, modify and delete partitions among
+other tasks.
+
+It can be used to create upto 128 partitions on a single
+GPT disk on systems with UEFI firmware.
+
+Note: Skip if you don't have UEFI system.
+Error: Found invalid GPT and valid MBR; converting MBR
+to GPT format.
+
+
+
+
+- Practical Use: 
+
+# gdisk /dev/sdb
+# ? (To list sub-commands)
+# q (To quit)
+
+
+- Create a GPT Partition Table and a Partition:
+
+# gdisk /dev/sdb
+# o (Labels the disk to use GPT scheme)
+# y (yes)
+# p (To view disk label)
+
+- Create a 100 MB partition:
+# n (Create a partition)
+Use all defaults except for size)
+# +200M
+
+- Verify 
+# p
+- Write and save changes
+# w 
+# y (yes)
+
+
+Note: Use partprobe if the disk had some partitions 
+previously.
+
+- Confirm the partition information:
+
+# gdisk -l /dev/sdb
+or
+# grep sdb /proc/partitions
+
+
+- To delete a GPT Partitions: 
+
+# gdisk /dev/sdb
+# p (view current partition table)
+# d1 (delete partition number 1)
+# p (verify)
+# q (quit)
+
+
+- Confirm the partition information:
+
+# gdisk -l /dev/sdb
+or
+# grep sdb /proc/partitions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 92LVM.txt <==
+LVM (Logical Volume Manager):
+
+The LVM solution is widely used for managing disk
+storage.
+
+Managing disk space has always been a significant 
+and time consuming task for system adminstrators.
+
+Running out of disk space used to be the start of a
+long and complex series of tasks to increase the space 
+available to a disk partition. It also required taking 
+the system off-line. This usually involved installing a 
+new hard drive, booting to recovery or single-user mode,
+creating a partition and a filesystem on the new hard 
+drive, using temporary mount points to move the data 
+from the too-small filesystem to the new, larger one,
+changing the content of the /etc/fstab file to reflect
+the correct device name for the new partition, and 
+rebooting to remount the new filesystem on the 
+correct mount point.
+
+
+LVM allows for very flexible disk space management. 
+It provides features like the ability to add disk space
+to a logical volume and its filesystem while that 
+filesystem is mounted and active and it allows for the 
+collection of multiple physical hard drives and 
+partitions into a single volume group which can then be
+divided into logical volumes.
+
+
+Structure:
+
+-Physical Hard drive
+  - PV (Physical Volume)
+     - VG (Volume Group)
+	- LV (Logical Volume)
+	    - Filesystem 
+
+
+
+Practical Use:
+
+- Create a Physical Volume:
+# lsblk (To check available disks)
+
+
+- Create a PV (Physical Volume)
+# pvcreate /dev/sdb
+
+- Confirm
+# pvs
+
+
+Create a VG (Volume Group)called test_vg on sdb
+# vgcreate test_vg /dev/sdb
+
+- To Check
+# vgs
+or
+# vgdisplay
+
+
+- Create a Logical Volume called example_lv on test_vg
+Volume Group - Size of 50 MB:
+
+- lvcreate -n example_lv -L 50M test_vg
+
+- Check
+# lvs
+or
+# lvdisplay /dev/test_vg/example_lv
+
+
+To be able to use and mount this LV
+
+- Create a ext3 Filesystem:
+
+# mkfs.ext3 /dev/test_vg/example_lv
+
+
+To mount this LV on a directory /tmp/example:
+
+- Make a directory under /tmp
+# mkdir example
+
+Now mount the LV:
+
+#  mount /dev/test_vg/example_lv /tmp/example
+
+- Check 
+# df -h
+
+Note: This is not permanent, to make this permanent
+you need to add this entry in /etc/fstab:
+
+# /dev/mapper/test_vg-example_lv  /tmp/example ext3
+defaults 1 2
+
+
+Extend a Volume Group and Logical Volume:
+
+
+- Add disk or use existing VG if space is available:
+# pvcreate /dev/sdc
+# vgextend test_vg /dev/sdc
+
+- Check 
+# vgs
+
+
+- Extend a Logical Volume:
+
+# lvextend -L 100M /dev/test_vg/example_test
+
+Check:
+#df -h
+Size has not changed yet.
+
+- Run the followinf command:
+# resize2fs /dev/test_vg/example_lv
+
+- Check again
+# df -h
+
+Success.
+
+
+
+ To remove LV, VG and PV:
+
+- To Remove a Logical Volume:
+# unmount /tmp/exampe
+# lvremove -f /dev/test_vg/example_lv
+
+
+- To Remove a Volume Group:
+
+# vgs
+# vgremove test_vg
+
+Check:
+# vgs
+
+
+- To remove a Physical Volume:
+
+# pvs
+# pvremove /dev/sdb
+
+Check:
+# pvs
+
+# lsblk
+see sdb as unassigned
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 93 Network+Components.txt <==
+Basic Network components you must know:
+
+IP Address
+Subnet Mask
+Gateway
+Static vs DHCP
+Ethernet and Virtual Interface
+MAC Address
+
+
+IP Address:
+An Internet Protocol address is a numerical label 
+assigned to each device connected to a computer network
+that uses the Internet Protocol for communication.
+
+Most networks today, including all computers on the 
+Internet, use the TCP/IP protocol as the standard for 
+how to communicate on the network. In the TCP/IP 
+protocol, the unique identifier for a computer is 
+called its IP address.
+
+There are two standards for IP addresses: IP Version 4 
+(IPv4) and IP Version 6 (IPv6). All computers and 
+networked devices with IP addresses have an IPv4 address
+and many are starting to use the new IPv6 address system
+as well.
+
+IPv4:
+
+IPv4 uses 32 binary bits to create a single unique 
+address on the network. An IPv4 address is expressed by
+four numbers separated by dots.
+Example: 192.168.123.132
+
+Each number represents eight-digit binary number, also 
+called an octet.
+These eight bit sections are known as octets. 
+The example IP address, then, becomes 
+11000000.10101000.01111011.10000100
+192     .168     .123     . 132 
+
+IPv6:
+
+When the Internet exploded, IPv6 was created as it was
+realized that we may run out of IPv4 addresses.
+IPv6 uses 128 binary bits to create a single unique 
+address on the network. 
+An IPv6 address is expressed by eight groups of 
+hexadecimal numbers separated by colons:
+
+2001:cdba:0000:0000:0000:0000:3257:9652
+
+Groups of numbers that contain all zeros are often 
+omitted to save space:
+
+2001:cdba::3257:9652
+
+
+
+- Subnet Mask and subnetting:
+
+The practice of dividing a network into two or more 
+networks is called subnetting.
+
+For IPv4, a network may also be characterized by its 
+subnet mask or netmask.
+For example: 255.255.255.0 is the subnet mask for the 
+prefix 198.51.100.0/24.
+
+
+- Gateway:
+A gateway is a network node that connects two networks
+using different protocols together. While a bridge is 
+used to join two similar types of networks, a gateway is
+used to join two different networks.
+
+Common Gateway is your home modem or your router.
+
+
+
+- Static IP vs DHCP or Dynamic IP:
+
+A Static IP address is a dedicated IP address that does
+not change. This is an IP address that is used by your 
+system every time you log in to the network. 
+DHCP or Dynamic is an IP address that will automatically
+be chosen for you from a pool of IP addresses that are 
+assigned in the DHCP scope available on your network.
+Think Static as permanent and DHCP as temporary IP.
+
+
+
+Ethernet and Virtual Interface
+
+- Ethernet Interface:
+
+This usally the NIC (Network Interface card) that is on
+that back of your computer a.k.a. NIC Card.
+
+- Virtual Interface:
+
+Very common now in Virtual environments such as Oracle
+VM virtualbox, VMWare etc. 
+Virtual interfaces exist only in software; there are no
+physical elements. You identify an individual virtual 
+interface using a numerical ID after the virtual 
+interface name such as eth0.
+
+
+MAC address:
+
+Every NIC virtual or physical has a hardware address 
+that's known as a MAC.
+MAC stands for Media Access Control, and each identifier
+is intended to be unique to a particular device.
+
+A MAC address consists of six sets of two characters, 
+each separated by a colon:
+
+Example:
+
+00:1B:44:11:3A:B7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 94 The+OSI+model.txt <==
+The OSI Model:
+
+Open Systems Interconnection (OSI) model, a conceptual 
+framework that describes the functions of a networking 
+or telecommunication system.
+
+The model uses layers to help give a visual description 
+of what is going on with a particular networking system.
+This helps network administrators narrow down problems
+physical or application related.
+
+
+- OSI model consists of 7 Layers:
+
+7- Application
+6- Presentation
+5- Session
+4- Transport
+3- Network
+2- Data link
+1- Physical
+
+
+- Layer 7- Application:
+
+Applications that work at Layer 7 are the ones that 
+users interact with directly. 
+
+Example:
+Internet Explorer, Firefox, Skype, Outlook, Office etc
+
+
+- Layer 6- Presentation:
+
+it represents the preparation or translation of 
+application format to network format.
+
+Examples:
+
+JPEG, GIF, MIDI etc.
+Another  good example of this layer is encryption and 
+decryption of data for secure transmission.
+
+
+
+- Layer 5- Session:
+
+Manages connection between local and remote application.
+Handles application session management.
+
+Example:
+
+SQL, NFS etc.
+
+
+
+- Layer 4- Transport:
+
+The Transport Layer deals with the coordination of the 
+data transfer between end systems and hosts. How much 
+data to send, at what rate, where it goes, etc.
+
+Examples:
+
+TCP, UDP, Apple Talk etc.
+
+
+- Layer 3- Network: 
+
+This layer is is responsible for packet forwarding, 
+including routing through different routers.
+Determines how data gets from one system to another.
+
+Examples: 
+
+IP, Traceroute, PING, ARP etc
+
+
+
+- Layer 2- Data Link:
+
+The Data Link Layer provides node-to-node data transfer
+(between two directly connected nodes), and also handles
+error correction from the physical layer. 
+
+Two sublayers exist here as well - the Media Access 
+Control (MAC) layer and the Logical Link Control (LLC) 
+layer. In the networking world, most switches operate at
+Layer 2.
+
+Examples:
+
+Switches, Bridges, Ethernet etc.
+
+
+
+- Layer 1- Physical:
+
+This layer conveys the bit stream across the network 
+either electrically, mechanically or through radio waves
+The physical layer covers a variety of devices and 
+mediums, among them cabling, connectors, receivers, 
+transceivers and repeaters.
+
+
+
+Memorizing Layers:
+
+All People Seem To Need Data Processing.
+
+7- Application - All
+6- Presentation - People
+5- Session - Seem
+4- Transport - To
+3- Network - Need
+2- Data link - Data
+1- Physical - Processing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 95 Network+files+and+commands.txt <==
+Network Adapter Files:
+
+Network interface configuration files are located in the
+/etc/sysconfig/network-scripts directory.
+
+# cd /etc/sysconfig/network-scripts/ifcfg-
+
+- You can use ip addr command to display your available 
+network interfaces.
+Older systems you can use ifconfig.
+
+# ip addr
+# ifconfig
+
+- Find your hostname or servername:
+
+# hostname
+or 
+# hostnamectl
+
+# cat /etc/hostname	
+
+
+- To /View Edit IP for hostname:
+
+# cat /etc/hosts
+
+
+- To View Change your DNS name:
+
+# cat /etc/resolv.conf
+Shows your Router address if home network - via ISP.
+8.8.8.8 is Google's name server.
+
+
+- To bring your Interface up and down
+# ifup eth0 or enp0s3
+# ifdown eth0 or enp0s3
+
+
+- Ping
+
+PING (Packet INternet Groper) command is the best way to
+test connectivity between two nodes. Whether it is Local
+Area Network (LAN) or Wide Area Network (WAN). 
+Ping uses ICMP (Internet Control Message Protocol) to 
+communicate to other devices.
+
+Example:
+
+# ping google.com
+
+or 
+- Ping with -c option exit after N number of request.
+
+# ping -c 3 google.com
+
+
+
+- traceroute Command: 
+
+traceroute is a network troubleshooting utility which 
+shows number of hops taken to reach destination also 
+determine packets traveling path. 
+
+Example
+
+- trace google.com
+
+# traceroute google.com
+
+
+
+
+- Netstat (Network Statistic):
+
+Netstat command displays connection info, routing table 
+information etc. To displays routing table information 
+use option as -r.
+
+# netstat -r
+
+
+
+- Route command
+
+Shows default routing table in Linux
+
+# route
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> 96 NIC+Bonding.txt <==
+NIC Bonding:
+
+- Configure Interface Bonding with NetworkManager CLI:
+
+1- Add two new interfaces 
+
+Watch Video on how to: 
+"Add a Network Adapter through Oracle VM Virtual Box"
+
+2- Check status of NetworkManager Service:
+
+# systemctl status NetworkManager
+
+3- List all available network interfaces:
+
+# nmcli dev status
+enp0s8
+enp0s9
+4- Load bonding driver in Kernel:
+
+# modprobe bonding
+
+
+5- Verify:
+
+# modinfo bonding
+
+6- Add logical Interface "bond0" with load balancing
+policy "round-robin", IP 192.168.1.120/24 and
+gateway 192.168.1.1: 
+
+# nmcli con add type bond con-name bond0 ifname bond0
+mode balance-rr \ip4 192.168.1.120/24 gw4 192.168.1.1
+
+Check file:
+#  cat /etc/sysconfig/network-scripts/ifcfg-bond0
+
+- Add two added interfaces as slaves:
+
+Add 1st Interface enp0s8
+# nmcli con add type bond-slave ifname enp0s8 master
+bond0
+
+Add 2nd Interface
+# nmcli con add type bond-slave ifname enp0s9 master
+bond0
+
+Check Files: 
+# cat 
+/etc/sysconfig/network-scripts/ifcfg-bond-slave-enp0s8
+and 
+/etc/sysconfig/network-scripts/ifcfg-bond-slave-enp0s9
+
+- Activate bond0
+# nmcli con up bond0
+
+-  Show connection info for bond and slaves:
+# nmcli con show | egrep 'bond0|enp0s8|enp0s9'
+
+# reboot
+
+
+
+
+
+
+
+
+
+
+
+
+==> cluster.txt <==
+#excersis 1
+#creating 2 node cluster and one storage server using haproxy for #clustering and iscsi for storage
+echo "list of avlialble disk in $HOSTNAME"
+fdisk -l|grep '/dev/sd*'
+echo "Please Enter the disk eg:a,b,c,d,e,f"
+read disk
+echo "please enter disk size in mb"
+read dsize
+echo "please enter volumgroup name"
+read vg
+echo "please enter lv size in mb and lv name"
+read lvsize
+echo "please enter lv name"
+read lvname
+echo "please enter mount directory"
+read dir
+
+echo "do you want to create disk y/n"
+read q1
+if [ "$q1" = "y" ]
+then
+echo -e "\nn\np\n\n\n+$dsize M\nw\nq" |fdisk /dev/$disk
+fi
+
+echo "do you want to create volume group y/n"
+read q2
+if [ "$q2" = "y" ]
+then
+vgcreate $vg /dev/$disk
+fi
+
+echo "do you want to create logical volume y/n"
+read q3
+if [ "$q3" = "y" ]
+then
+lvcreate -L $lvsize M -n $lvname $vg
+fi
+
+echo "do you want to create filesystem y/n"
+read q4
+if [ "$q4" = "y" ]
+then
+mkfs.ext3 /dev/$vg/$lvname
+fi
+
+echo "do you want to mount y/n"
+read q5
+if [ "$q5" = "y" ]
+then
+mount /dev/$vg/$lvname $dir
+fi
+
+
+yum update
+yum -y install scsi-target-utils
+systemctl restart tgtd
+systemctl enable tgtd
+tgtadm --lld iscsi --mode target --op new --tid 1 --targetname iqn.server1.target
+tgtadm --lld iscsi --mode logicalunit --op new --tid 1 --lun 1 --backing-store /dev/vg1-iscsi/lv_iscsi
+#insert following lines in /etc/tgt/targets.conf
+tgt-admin --dump >>tgt.dump
+#tgt.dump >> /etc/tgt/targets.conf
+
+
+systemctl restart tgtd
+tgt-admin -s | grep Backing\ store\ path
+
+#initiator configuration
+echo "do you want to install iscsi-initiator-utils"
+read q1
+if [ "$q1" = "y"]
+then
+	yum update
+	yum -y install iscsi-initiator-utils
+	systemctl restart iscsid
+	systemctl enable iscsid
+fi
+
+#update initator name in this file-vi /etc/iscsi/initiatorname.iscsi
+echo -e "InitiatorName=iqn.2019.node3.initiator" > /etc/iscsi/initiatorname.iscsi
+
+iscsiadm --mode discoverydb --type sendtargets --portal 10.200.20.250 --discover
+iscsiadm --mode node --targetname iqn.2019.server.target --portal 10.200.20.250 -l
+systemctl restart iscsid
+systemctl enable iscsid
+
+#now iscsi disc shoulb be avliable c using fdisk and do
+fdisk -l |grep Disk
+vgcreate lvcreate mount mkfs
+echo "do you want to create partiation y/n"
+read q2
+if [ "$q2" = "y" ]
+then
+	echo "enter disk name"
+	read idisk
+	echo "enter disk size"
+	read idisk_sz
+	echo -e "\nn\np\n\n\n+$idisk_sz\nw\nq | fdisk /dev/$idisk 
+	
+fi
+
+if [ "$q2" = "y" ]
+then
+echo "enter disk vloume group to be mounted"
+	read idisk1
+echo "enter volume group name"
+	read ivg_name
+	vgcreate $ivg_name /dev/$idisk1
+fi
+echo "do you want to create logical volume y/n"
+read q3
+if [ "$q3" = "y" ]
+then
+	echo "enter lv size"
+	read ilv_sz
+	echo "enter lv name"
+	read ilv_name
+	lvcreate -L $ilv_sz -n $ilv_name $ivg_name
+fi
+echo "do you want to create ext3 filesystem y/n"
+read q4
+if [ "$q4" = "y" ]
+then
+	mkfs.ext3 /dev/$ivg_name/$ilv_name
+fi
+
+#10.200.20.250 iscsi target -storage
+#node1 10.200.20.245
+#node2 10.200.20.246
+#virtual ip 10.200.20.247
+
+
+#installing pacemaker on all nodes 
+yum -y install pcs* pacemake* fence-agent-all
+#update /etc/host file entry
+echo "please change passwd for user hacluster on all nodes:"
+read $user
+passwd $user
+# restart and enable on all node
+systemctl restart pcsd.service
+systemctl enable pcsd.service
+
+#authntct both clusters and enter user name and password of cluster
+pcs cluster auth node1 node2
+pcs cluster setup --start --name itweb_cluster node1 node2
+pcs cluster enable --all
+pcs cluster status
+
+# install httpd and update /etc/httpd/conf/httpd.conf
+echo -e "<Location /server-status>\nSetHandler server-status\nOrder deny,allow\nDeny from all \nAllow from 127.0.0.1\n</Location>" >> /etc/httpd/conf/httpd.conf
+
+mount /dev/vg_node_iscsi/lv_node_iscsi /var/www
+setenforce 0
+#check status on each node
+pcs status node2
+pcs cluster start node2
+pcs resource create httpd_fs Filesystem device="/dev/mapper/vg_node_iscsi-lv_node_iscsi" directory="/var/www" fstype="ext3" --group apache
+pcs resource create httpd_vip IPaddr2 ip=10.200.20.247 cidr_netmask=24 --group apache
+pcs resource create httpd_ser apache configfile="/etc/httpd/conf/httpd.conf" statusurl="https://127.0.0.1/server-status" --group apache
+pcs property set stonith-enabled=false
+
+pcs cluster stop node1
+pcs cluster start node 1
+
+#to display status of cluster contisly use crm_mon 
+
+
+
+
+
+
+
+
+<Location /server-status>
+	SetHandler server-status
+	Order deny,allow
+	Deny from all
+	Allow from 127.0.0.0
+</Location>
+
+
+  
+  
+
+==> Linux+basic+Technical+questions.txt <==
+How to display hidden files?
+ls -a
+
+Whats the diffrenece between $ and # prompts on CLI?
+# is for root and $ is for users
+
+How to find an error in a file?
+grep error file
+
+How to make a directory?
+mkdir
+
+How to remove a directory?
+rmdir
+
+How to create a file?
+touch, vi etc
+
+How to move a file?
+mv file from to
+
+How to delete a file?
+rm file
+
+What is the default port # for DNS
+53
+
+What is the DNS package name?
+bind
+
+what is the configuration file for DNS and its location?
+named
+/etc/named.conf
+
+List 3 types of filesystem?
+ext3, ext4 and XFS.
+
+
+List any 4 Linux falvors?
+Fedora, Ubuntu, redhat and Suse
+
+How to log off from Linux system?
+exit
+
+How to check if a package is installed?
+rpm -qa | grep bind
+
+How to check your previously typed in commands?
+history
+
+Where are zone files located for DNS?
+/var/named
+
+What is the command to find your current directory?
+pwd
+
+How to check files permissions?
+ls -l
+
+How to find file type of a file?
+file filename
+
+How to find where passwd command is located?
+which passwd
+
+what command is used for changing file permissions?
+chmod
+
+What command is used to read top/bottom part of a file?
+head and tail
+
+How to check mtu, ip and MAC address?
+ifconfig -a 
+
+How to get help on certain commands?
+man ls
+
+How to find your hostname?
+hostname
+
+How to count total lines of a file?
+wc -l file
+
+What is the command to create a group?
+groupadd group
+
+How to reboot a Linux machine with init command?
+init 6 
+
+Where are the user passwords saved?
+/etc/shadow
+
+How to find running processes on your system?
+ps -ef
+
+
+where is the network time configuration file located?
+/etc/ntpd.conf
+
+When is the last command used?
+Shows last logged in users
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> Linux Docs.docx <==
+PK     ! ä$‰L}  )   [Content_Types].xml ¢(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ´”ËjÃ0E÷…şƒÑ¶ÄJº(¥ÄÉ¢eh
+İ*ò8ÕiœÇßwì$¦'.M²1È3÷Ş£Íp¼6:YBˆÊÙŒÒ>KÀJ—+;ÏØÇô¥wÏ’ˆÂæB;Û@dãÑõÕpºñRÛ˜±¢à<ÊSçÁR¥pÁ¤c˜s/ä—˜¿í÷ï¸tÁb+6>A!JÉóš~oIèÈ’Çmc••1á½VR ÕùÒæ¿Rz»„””uO\(o¨ñÖ„ªr8`§{£Ñ•C2_…¡.¾r!ç¹“¥!ezÜ¦…Ó…’Ğè+7œ„iæF§MÅe÷üm²ŒèÌ§Ñ\!˜Ip>NÆiL+?¨ ™áÁYØÒÌ ıù‡ÑXwBDÜhˆç'ØúvÇ"	.°sîDXÁìıb?Ì;A
+ÊŠ™†óc4ÖH«¶ßÓ_Ems,’:ëH«-üãÚûİU©{şO/¯I$ë“ïÕZÌ!oÉæõ¢}  ÿÿ PK     ! ‘·ï   N   _rels/.rels ¢(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ¬’ÁjÃ0@ïƒıƒÑ½QÚÁ£N/cĞÛÙ[ILÛØj×şı<ØØ]éaGËÒÓ“ĞzsœFuà”]ğ–UŠ½	Öù^Ã[û¼x •…¼¥1xÖpâ›æöfıÊ#I)Êƒ‹YŠÏ‘øˆ˜ÍÀå*Döå§i")ÏÔc$³£qU×÷˜~3 ™1ÕÖjH[{ª=E¾†ºÎ~
+f?±—3-ÂŞ²]ÄTê“¸2j)õ,l0/%œ‘b¬
+ğ¼Ñêz£¿§Å‰…,	¡	‰/û|f\ZşçŠæ?6ï!Y´_áoœ]Aó  ÿÿ PK     ! ×æ  D   word/_rels/document.xml.rels ¢(                                                                                                                                                                                                                                                                  ¬“ÍNÃ0„ïH¼ƒµwâ¤@A¨N/©WW7ÙüˆØì·Ç¢j’Š*êÁÇkg>{½›íjÙZ×- ‰b`¨sS4ºğ½Ü<s$u![£QÀ€¶éõÕæ[I¾ÉÕMç˜wÑN@MÔ=qîò•t‘éPû“ÒX%É—¶âÌ?e…|Çknçx²]!ÀîŠ[`ÙĞá%Ş¦,›ŸMŞ+Ôt&‚;Z–I[!	8Ô‘÷~>ş!d<ù^œÒÿÊƒ˜,1¬B2è^íÑúñN£´‘„„È{GF}ø´"Š&•7„jñIÖ!iJ£)“ûv6šQZ‚¸	ñû7$òS˜ıÏ™¸rtGşQ•#?Ùıô  ÿÿ PK     ! #V[PXL  já    word/document.xmlì}{sÛ:–çÿ[µßãêq¦#Û’_±gâ®Äqn²›{o6öíÇTWMA$$aLº|XVjÿØ¯±_o?Éâ  EQ¤R”BÒH÷MüÁƒóøáœƒƒƒÿó³ë 'â”yoúG'ˆx³©7~{ğÛÃÇŞ›„Ø³±Ã<òö`N‚ƒ?ßü÷ÿöï³k›Y‘K¼ñ!¼àz6µŞLÂpz}|XââàÈ¥–Ï6
+,æ³ÑˆZäxÆ|ûxpÒ?_M}f‘ àï»ÅŞÔpÖ³Şh¶güağìØš`?$Ï‹1ú¥9?¾:~“È]›ÿrÄ|‡ü[|ìbÿ1šöø¸SÒ!uh8çC\ÄÃ°·‘ï]«!z	)ğÈµ$Eı?áë¼W>òA‰C¼ñØ'§yÁ„NºUGã¿œÄƒ<­›Ä“ëÄŸ›MûgÛ)Ä)•Å€:ä+Qº¤|ıˆı‰ÀÉ:$,¿3¦ÄÅÔ[¼¸kRÌíŸ—`°2ÀE@Êq®†8æîÂ4fÓñvRşÉgÑt1İn´ÏŞc2àU‰±”¶¤58Ø˜û	rSv­ëÏcùxèpŠ¸ì@`%7M‡ÌÃ¿S4»æhl{{pròñ¼úşî şÑ2Â‘Šß|¸¼½Ä¿ù
+?:?9»ôÅ`Ó¯>üL±ÅÉàÂ£p,9
+Œœ%ß|‹€.…ìàøæß“ÇÅ_áÍêEÏè’à~ŠÏøò“«$/¶_’c‚;TÿÈA©Í{ÂÎÛƒ^ÿêüêtpvyz
+ŠEì+‡ú_‡ÿ•úî'ì8ÄŸÇ=€à¡[æ…ƒ¥Góèï‘T¤G;NÀ¿¸ólÅUõÏG>X ó,J¸vñ	¹”«É§w^@a¢á»€âÜ_Nà‹ÜßXA˜úñ{jSIïPş}ˆ=öÕgl$¾¶˜Ãüx¶1S9ÕßãŸñOnäÔÏ@ëÓ“ä_+f­(È‡ÛşÅ»\Q¿IiÃô>œsÖÇrøõöÁàšäêi,Í:zË5ñ2×¬4HèKV„x¨ã_:dÂ SÆqãŒ+küÁø>OÄ'>Pn›-¸:=O õjì¬ªä)Äú™|ÙBª)Á¤Ù4rì[îÛ ä«‡ù”5$c¾:©Ç’S/ıò,\<ašü£SŸÄ"7ˆsıƒ¡ƒ~ïô ıc‚şñı#B0FòdfÄ‚×dŠ}’4şŸÛú#ØˆgMç×>0kpñæôìD Á„!óçÜoƒa‹dü ädğşìı‡wòÃŠ)Kâı¿3m1«<ıê¿ZÒ³ü·×%D¡iéìs¦·ÜŸõaAcz`ÌÉ¬gFš~¢¶M¼’“+5œ¶oû¢MöñõİOwßî>¢”Ú‚™Èväìš}y6º½äou+SùÄ³”§à¥ô‘"ªskÄzĞí¯İÚqg°‚°uÍ·qjŸÃg/ô™YŠ£¡'ŠˆM9ÿÖL­4^–z¶”°C$ì¯CÂï®•¹WN47§[‰Ö ×ÎĞKÄ{C¯Ó ×GÊ\©JÛDàjĞU¸:7pÕL¸:İ+\u ®n}‚CHn{6²©O,ÎAj ìä´«va ¬™v¶W;ï „}áÌâöâ±ê¬«Xui°ª™Xu¾W¬ºèDtèÙ/¨Î»
+TW¨š	T{ªËN8UŞ#„…#æ Ø…A0ƒ`{E°Ë½"Ø› Øo—¡(Ãã¹TÔcôºì*zõû¾š	_oö
+_W€¯Ÿ™MGs]ËĞõÆ@WÛ¡ëâ¢]ĞuµWèêŸteS‘ ,¢Ç£ZW­S·Õ2Ğê¯-õ¯´Vûëšğş@ë~J,Šô5q·VjöKiw«¿¶ô¾Ä»›‡\g¹š‰\û­—ïw¡`ş„cj£!óy&VŠã—"yoP¬³eóıSˆÚ6Ûoİ|¿…óïq0A‡CùÇ˜z(˜Çy…îác-§ï¿˜bÔ¶ÁØ~ëéû](¨ÿö)8_Æïêw¶xŞ VSk¿Õóı.”Ïö¦QØû5
+áìÙ½;ßg~ï‘_”y/È:[Yßc€¬™@¶ßÒú~jëo™ëB¡ê'É5ãu¶Î¾ÿbÊTÛ[û-´ïw¡Òş:6A÷Ñ0i¿e«³õõƒƒ\ÍD®ıØ÷»PaÿŒ#‡kãİsÜëĞ Wgkër5¹ö[[ßïBq=§
+ıot8¥Sò
+Y\±ß WgËë+-Së Ì ×öèµßòúAÊëE=º·|:fu¶º¾˜¥uõ@š2©¹«W&”¦l*şNßŠ ¿]!±	×g”ã™!Èd2‚Ak×2é;S™³Àm
+%Ôu@*œğ"W~ˆ:ONüAğß}Nn:U¤'l
+DÎVÂ
+êÁhìqqüöàr Ş“rb'!æÿ)cpIà}ˆı?NmÅeƒk¾8e–Ëº‚×pñp¯şV!ÄşŠÇä½Oğ£Hã—˜¶;11I™ğ&Á–uR–e-/¿rsìãéDÎ{çªØ,Š•
+Â„?ôDDÕ¼Ğ;´#”ú”QB©”ŞH™¿Ó©Ö£w‰·jd½'Yß<Lh€,Uæa‰CæÂq% Ã¢ˆ®+'¶8/wÖlMàßpB²z¤(‘mÑ82:¢üI H›ÛĞQi-nü½ŒÆ–ç©‰'P0d‚'böËè‚ôĞİ3v§¹^Ö ƒ”U‘r=B§`Iï·±N€˜Zb=Æ½aĞu¸U-g$Í‚òãMÿU5ŠÈ‹[£iDÙı%²-¡È30”Ëï&ğ¡İU®Üª–û\kİé]½Z×“¾g‡Ö¿†oäw¾–:á4¥¥x]¸$Û$½(·İík¯êÜôz=ÃüÅü¿³YØCØ	xhÈ¡n Ü¡Xl—w%lö(¾^Iit0XRÊ•LpZN¶;‹£ÁdÃü
+ÌÏwdŞùÖ„>Áà¡Ø›0Ë3Ä=Vtâ)AXˆ…¼²Ø’<fe³®KIî×O§Ä³ùÑÔiïìèk†rø¼åä9„R×Õ§ËÑ&½æ‰1G>sFg£#SÃeh³°ã[ğO<zˆqÕ Œÿ`È‡Óz:+Ü˜$\³Ğ­+Ù÷®ÉåëŒT›Ğ›ÂÒ*ù’›n'™{:”ÉùZh–˜mÜ'tøâY@ËlÒ•‰èÍŠŞĞ#úƒ4§ ‘	qÇY¢Cx#}ˆğ ª2ŒñÖÏègtxÇÊ¡7L®›Éßù5
+If4”Gh*PSóN˜ªî2áXóİ~}±F5ªÈ¦¡òıb"Ê#˜RßèŒT¦®	?öšƒWiYª2M‘<Ê«Á­>ÛaGX+v¤4§Ó&ûÀd}—üæ&š¯1Õ™ê³1Õõ‰n•jfi½2†Ğ9÷û,áhü½#^Îú9ÿÈDmÄvì"|§á^Ãf	í†„çz!¡"ËHbt~dXsX‹kø²G¬Õ„@;VYWğšBşì…>³#qÃ Ô’lÒÄlZ§$7OTç«‡$·š$"6WÎXÄ_œœİ…}í2Æ\=«™‹++Šu>|¢î+t'Ø¼ûìÆ­ˆ;”o5CÂÒ„…¶Ì¨‰‘f˜S4õ8xøEŸ6Ole	-z×Í(rœÀò	É’·i…/Iı"ìäW×İ„Ğ3XÚ ¡(ÜY"‡„šÃ‰ u£;,—Ùt4Gâ}5ò®)O¦ö9;“m<'P£'Lµ§õ7s®W¥pJÂA_¨=×È
+›Ú¡O‡¢üŞXâ!k¼nÀÚ3â&'gñÏÉòQl»4KRã@­q­ç¾ÆÄİClrèbÑ*¶í“ù}6SÔ)#Yl‰É‘g^äÚS>[TÏMœM‰Ç¿yĞŸÑ€À¯Ö!È!bŒB‘Gf2ı'òAÒC$¦³áö•(`ıêYd±ûÆaDğ)‚CcÄa³8S•é›Ô2U•ÈıkVµVè›—ŠÇ£„[P>Áú6W9o’ÕÁ+ø,,òp:ÊÅšW{cYŒÂàóÄ?ØC%z]fyXè+Ä˜p=‰BØûK©ÛîKkêšG«a£|kÍuö»ÖÀÉÂ_İ-ø§ŠI˜=ú´…gà'‰jM×MŞ”ê·±7¿7A@¿Gj'†K‹³°Ù¢j.â©¥æÔ¤±öÄFÂWŸ™0ğĞŞÙ¶òÿa2q'°È÷yà-~Ôtk>Ÿ7T°1fÛZêÑÀ%m‡ğ`OˆyÆCFbæ¿çAÒ‘±îjğø^Ä”<Ê„@GT·qÇVÕ‹«ü”ØLjz¸Ù@ÿ€”“ˆ|céU3	uåqF*ò—«W»ÈÁGß­ŞëŞ^­|¬ ”	'~f<¾`‚êh:Ã~ÓÕQ›1«Ÿ´“dŸâ“¸Mª#,šì†EP¥ÑÍjáĞŒùv«ôGÍş¯ÅĞº~~hŠ¹ƒ2<+Œp‡ÀvX»:´ÁVÔäßWĞ˜^W•¡JÜ¶Ì-Å$Âwu+‡‡-Q‹şOz¡f*®Çóà©ƒk-™ç'ıi†lšhN…LS§ºîR˜Ÿõ™àRÛvÄ…-åCxó¥„f³0dn«g{úN¯„1ƒÈÀzm3f1×s…MJ‘O[„GYÈnÛ¬?hÌº<èØ¬u—œY·yÑsÿ­ºÄ[?÷şŒ|LÄÔZÖçš@-ğù|©OÀá¹hq=„‚Ö¹ü€¹Câ·¥6â8}šÙh]aÀG8"Êtå§¡¤ôº%süs¥9±õØ†IjFXËÆXğXQ„%˜£„¼“à¦lµ{rÇ?t¯m‰~ü¢¡±6toöÿñk§Ÿ¿érÅ4	
+’çÕÖ]lµ×ú·±¾rXCI~‡qtd*š«j[oh¹ó’‰@æÖÌuc¡€¦Ê”-$¨ªRÂiY°W_//ÍU¨şÉ
+—Š'Ú?søBæ8loyZ5ŸïP«ş½Ç¥œÌ¨uœÍgÜÆóíëó5’h=ç"¶49y°¡mÜRÜøºŞêòæ‹‡"ŒjÕ|›+€ü1Ì«˜ÍP?·¨r(KûzûëTUÎu6r×Ş›ã¿ÇÇÏÇÂşŸ6Äº›(ıóÉÔáÑ:üÛ[Ç!6ü/bñ@èmü+ùƒÆ§xtù[ãA‚•”æÃdğÙ2?äá³<üç©=‘x™èĞ™ëÓ³úx-ï¹Y¯Ş¬UÉ±FgÈk1£+0ò¯>åaœLI²œ—âL‘:8ù’9W'HN§¹G™å¡æ®ğx‹ÎìïÀœ
+Ş‘ê±Zd:YHy-™ÉDnĞ½*ö½N:fü‘ùÜS Ù–½N]nTğZ8˜¯òÿIîAÁã§
+àaÈB›yÿïÿü_qT³5‹ b…ˆ“?Í&º¹\üìM#Õx¢kAt¨µ4®®˜+Î6¶ª3UüY¶‘X4$Y®y_Ôşµ17ŸÏÎwàw¡yâÖÖ~u0Õ^eÚ¬X¢|Îy¶iÇôs1DåOVm¯ÔšuPMª´XØS7Ğßüª¥ é™veæââòj4‰K´üCĞ (¿´ĞÕú'ö[Ò8ãÏŞ%mŒñ`u+âÆ6áÚM¶ãNËÉuXôº#·,òDSÖ¿2¨)†|Ç>ŞîîÜ,ÎWmei\G6-iyx\v2ŠX–¤V=wÌ?o×Ø¬Rro£’ İ·ÔkÈ¥Ü—Î›tA_5û—Wç-g^§Å]›¤3m'ã'®â/âÜÄ@wûM×iLú,+xëY¼ıËó}~Ü."ØCæ£á<$¹¹·Yıu*{bµ­U¦ßsĞáWŸÂ¥–ğidİ•›Ãoz³dv¢‹DÇfg%³`Ñµé¹ÉôG!:1ECñşÔ¨Ã5ÇîJ|ÑR'‚ Cñ>”S)‡U‡¨ç`ÚìÍ›yÛ*§ğ’ì›beVşvËPKùÀµmıò6ib´ÖËV÷’ŞÊ­Pg¢Ì¤öe-X6 êÛ§»/èòèÙœpŸ½BA4…2ü àV€<;üã£[²`ìäEÀ¬÷ĞçûGº£÷Ì]t6c®Ë<Uø-x°	óìË¾Şdãj}‡@œ×ìPò}#ãÈÁòIWr‘|Z¨O¬ùó®Mìî™X_;YMİ¡™İÏİ!s¨N÷cçô‘<Q«"ë<ÅË[à\,WR7~<éŞ¥¨-pï–P?{iİ«õ/©\zrñœ¯ë^‰7…š`BŸ%Ø
+¢æXnãÁ5ÒÁú‹—‘X,rlhÑŞE	2 ¾FuãTDŒ˜ïnq2*˜ğkX>†Y'|SDX8ÜQWUİmµ‡»Yö—8ptÌu¬C3.ü²ÎéÊ“ÿÌKjlĞÿö±ÌP¼?µÜÕŠš	8ª¯©Fö§‰Ô(÷Dº€i6ıš¨B†Ò"‡ÁG¼qìd‚ËŸÔ,z¡ÈhDAÙ|F9úá¤L®òŞL˜#àËªã öìÿŒkÑ¶ı_ÇAÇ]ÉdåOò	¡dÂDm²›"O„¬ô*4Q
+ç­´ŞSÙ@©M¼ ³m¸M˜ml£óXèºÃ±Ï¹¼ùÖb0ú¼õ±r"Î–OÑP¼?5Ú•Ó›JFÃ†á‹òz}çIŸ_úzê" Ë-D:ğò¡6­$Ú®#IDõZgÌêŞã„@¦’m¹ÊÀS$R`p;¤¶Ré½¸DGª%şeg,@ù’QàCş
+>#—`/@4-^h^g
+s7CM¹j­ÏlÂ°»±ÑA‰«ÂÌ­É”
+Š°ŸPPò±´ß«³(å-tº®ÊêÎkb…‡:ïÖ²?ü¸„ioÍ]àCX°Å…õóªõ‹]¿?}wù®)F»‰ªYX¥|\‹y|n†×f@2Ä&Ì-è²Ê¸Ì¸K)·‘A¥²)DÈğºèMï¡9N€f4œ Gæ‰™×œ°YQ‘Ÿ8ö}6[~y{t#.7…šÔ·ı‹ø\R|zuW§¶LçËÍk½îÎ?o43Ò^|Õu#»{­¹fÜT}áol[^óÖp³eè ·VoáS½,õíıqşŸş”Q¨f|± ü	ìì¤ë¬ÁëQ‹¸Û€”	xPÀ»°’¢jYîûâ’â]Ó„;lMĞ”¸îe„&Ø·gPƒQ¤å(T•“ó $.T$úq0‹âPİq€,ì8ük{Q7~”éoµò‡[ J"ê\:“zÖ´_İ¸6n² ó¸fB–‡¬>½J‹ #¼çl:ÌzìĞÔ:_]İjâ*WÙÿ³Kv4_kß†¯ñaXêRÑóê#õƒT»m4D>*!úugm¥g½øqÚa1«Áß ŞP¾Tniú–%á±`Üu¼VG¯—ÓX[2m=†9m=Îà%Ù¶‚ÀYù¶·>Á¢y¸ÈLˆí®T	FAcj­>ÎZnè=5ïxÓ_¹˜0Ç ä£<2‡s .Ÿ©x¡Olm;6YvŠŞ’ïd¾.ü“ÊîUÑm±oVêòÅ™+NŠÔ…ØMe¢‹¦(>j»°W=´dOrö!‹¬I<ÿ'Z:_J‚CĞïĞ¬œ4ÓØpúc!¼øûTü½û KLFÓeş…ñ5wã-¹ú+ÛgÙ^J—r²‹vá—?w,çpÑl¯¡ĞyFESü„œ£fjJ!uIrĞä‹$<•¹¾M<N|®ík§¡xÀ°Ñ?‘[?ÂAÑ1¨¼]ìú‘Ø”{­Æ7êÂ45úHï^¡@»!Dî§¹ábÛÍ:­;=yktş•ífù0o±à¥r#(
+à'›à¦ î>ò¡´ÕÌ¯¨Ì€Yü^Äâ·'­â£u&[ñÀT>1İí )ˆjÿDìÊ
+0"«Û³0M|Ëw»OuÓÆœEó,àü‘1Lc˜¹ªÒ›¢şñàxYù:±DM(ñ±oMæPg»uK4³·~/Én‹½èYù-pĞ	ºÒ¢ku¯û¼Úø¯ü- P(¨‚È_;üU©®€êØÁå€‹ÎåÇïwU¬!³ıÙs¥Uù¦§õÔê«¾îyÓcÚ^æ:EüáÍMTf ÏV™C÷Ï+úİ?ã9BWµ±N®ÏOPWbşüIŠ½}d³™‡†stËœÈíÀÍÃ]“’”ê¯Üó­k¢mµ‚œóóQ·3²ğ¿"§á`€Î‰ºÌÃ
+jñĞk¥›Sšß`RÉÅ×Èƒ‹F®ÊÏ²è‹³„M§âYÔÈ˜)ñ]p=ûÑËÂÈ¸¯—ÂÈÁ5÷f6I<ë?ä°@ªĞL</Yû[4\RAy’¹CâC‚ƒÏÿÑ(W3•ëôZÏQÖÖ¯{h„µsåâŞ×-Èî½j¤^Õ­W{Ã-®ZÀš±Ï¢©Ñ°æjØùuN\]¬?©øq=oöÙušĞïâ(ÏpÎ}È#ôQ£OfA:fÇot¹ÿx8¡A¼\ûdäpú
+Z=Ÿ^íÅYæ 	ˆ?
+ÈjKïBñx}±u2$î¡Şˆ!<dQˆ(f^§‡_˜U6(àã¸N¢Ë½ÀR/¶Y–†{}Yşu‚;ÏFo®’i·8[VP•/HÈå9yl,vóÄwb$8tÂ¿µt^dq~[V’«ë!çLQÊı¼¸t|CÙ\~uäÄuñ4êQTí=g±G}œz 8±òé¡-³Á¬ŸÓÑkö¶î@š¼ºß¼)ÏS†"\mzŞâµª‡¾P/zæ;‚›õ8x”İİ)¹R0æp¥¯hûDÊîk±kR¸b$e‰ò“Û!/¨;uæ	-nÙ+ "]%î¡a|õ ñ©¶>õĞo-NûÁ5Aæ|x+Aè=!¾ª=uH˜½]To£ëxšsr‹Ù˜xÜÂØ.¹bjÂåqì%ú4Ér£ÛŸö–Mç@„h‡Ò¥zº4å±Û”{!e²£©#7N\üÔÆ_Û—ÉxîÅ‹NåKO­i¤*pDSõ‚BB¹õ‚/âH”9µ}İ[GfjãUç±õôÁ–º6Á.´71ïQazÙ¦.Ğ–%ƒ#  É´4RÇ²©Ó› I;Ù=&á»4³'ÂñiÈi¨•Ì²@’aK!¾†½Ô£ÜON¡9‹Ğ{!÷¸7>¢¾+ü§mL±)cÍ¼!±•^€[lâ%âˆCş.´Ã]?çZÜ›Æo34Ä½á¶ÛI§ÙL›C}økĞ~‹<ÀÒ){şoÄÉz"Ngbãîz•åö^„.Å{Nré¡ÁÏì	F†ÜMŸâ=­$ó–kœwËg‚Ü§ƒ$y³	Kó}+
+ıwê¼"–Ç½Bğ"—ç•BüpÕ\f÷ĞÔúÍ‡“woîö1±ÅfO;Ë‚û¤ü(Ñ0¶%|~`Rëáf)i2µ­a ËTî—ş¦+BâSo­?L>Td•Y[¥/9¡R*= Uél€Q°:¥”ùqa	l‡àß¥½—ˆåAuì—ÙÇlœi–"(S-‰^¸#®4qÍmö-9R‰ìå›˜O/6_(İ8*×ãlõì‘ïj=XbG²…*pC(³v&Û¨rwUYyÊgsµù’‰BËÆø»ôuŠ·KÅeÕ!çÁœEF‘ãÌÑ¡u$]e”İPÙR*3­27õÏ\ş ıôÏ¼€—dûgVìoyó‘“•AÚø‹æ™±à¶S«5ºQß36èa>¥vy¢±Àq)˜!qÑhy¶Oì•#×š[%	Bá„EÿªÆ3åL®fÁú;‹‹çÈ#p•¡€@ïÚŠäB~P¦k¤uûÑSş*jEö!éCÎCQ*Ö²¡8$E}q”ß,^;w%Ò‡—Fğ€Úl!ç“9‰;ŸùçQO$ÓFô_QoêÓÌQ>£Ouò^XV—˜-åmÔõ˜Oã+†Ëu}ä0Kn™Y´™ y+g¨©+÷{m©jAQ5°‡ê[¾´À‹^u™“«(·%+±%y(F4@¶d
+òà”‚t6``DÃNóÖ&ÙÜÔ±<sÍ¢´c„İºª¹ÉîÄl;:wg£±%qp"h^Á¡d7±Ëšõ¶²Niíà»ÀŞVªIË”yÕooçÖêú	¡^ÎBÒ¾‰uEX†Êİ-KRß®÷ó¡‡úèç÷Ğ¡‘sø/š0®:/bqâö"¦¾Š[èwÙëÿÜf,Ù¬+Väû„G;+‰ê¸¢uCQOÄ¼ £ÌŠV´Û˜\O¥p­?ÿ5r°?íáìäç÷mdâ2ğ™)•üŸS‹§TTş›B4Ñ½MÇ–W‘`F|’´&­Î 	j€ğ˜iTõ¶@›6q¦ ¨ä	×zfE*\è8[#g³&(éæà'dİf}å ïì{Ü¢¹YËVÙé·6:5:TnªÛÈ!ıÔm\ÂK²u¢´bVåŞSï+WœLë­¸¬t\Æm„¾•Q­½´¥zïEŸäpöÂ+0ìŒB!Œ	ömy½ÎëŠ€Cx°¬ó¨Ş"DJ
+yô=Äµ”Ÿ½bÜ(eŞ8¡i3aIS*èp.™0T9ğ_ÂşÜ@6+Ó®ÕØC#æ8Â©¯êŠCêi=ºÒ;µâŸè¸NçÏhNIÍÙ(']\„ë%ÅÿËI³:v¡¾È]V.e¯÷ÎÚ3ôXhp‚N.®û'ÆÛºNıqş[i•Ò4’':ÕgŞ¶uIîp\ìJ=„Ó5ÆÜ™s7%ôé0}ƒ€=YaCÃØŒ¸/â%ŸÈz±G®R†1Hˆmâ#ô0áïäï°œÈ–ûsÜy¾Åµ¯Ó—ŠVuLÅ»»"KJ Ò#¥ ,î–{Şİ~y-]xáÑ3.8«íàÈ»¯€İtÁ}yÈ”‹nHPÀc1²¹v¼š¹Ÿ>ão$Gğ’§¸Lnˆ9Ìsæ¨?xÓ—¨¢‰çÄ¼Åd!åZ
+Âc¢~G+Oô¶ÎaÈ3®ï‡<T'Ï¾~…>‹Is‚vá^äŸZˆÆ×Íù '’ælBù—ª½‘ªIGÄ÷ˆsÔuÒM"»$ndÓ_\ş¦ú¥óÉeb fÏ­¹Ì–!PÌ(ÏQPş{uuquµIN;_b«†Zëhiv0Õl}^Xÿ†œjqSBK¹¸È@š¶N
+ÈBo—f›“!¨‚ä†ÕİûÁİ¹8˜¼?*ùˆòé¡$yı-JŠÂ‚Ç@O{è~uûÆ¨p58PÌ”ñó!Î€n"›Œd
+@ÿ—ü¢7Üs¨*¹$•#Xq»CæğˆŞöêUL·¤Ø¨n•¤pzí•Kóepš0?D–ˆÑŒÇˆø²{YnşåsKåÆç±yÑ­S§Öxh=™²Yéü²q®k^œ¹AÔ Âv™Ñ†ÈÊAµ[È¾B³F±Õv‰,¨_–µ©xòÒš¹&¸ÓÒÄ ZM(Í¯¾Ù‚¯ªŠòP/|”Ú×+’©³VP¼ÑÏĞ´ ¿k}~ÆsÔ?AıóëÓ3–2–op/ÍæÃ€½â¥¨%ö/Åş	WMl—Á^L@-í˜GÑfïı„ÍªZÈÔ¹95oÜ–u¢-)ì[ì­ ÕÿÚú5BÍJìHÖ»ñ	››™a¤„1K ,*Xhƒˆ'm:8TuÔİø……<^P÷D2Ÿ©‡¹3¡Ë…|VÂÖè&ÁèF¬7›·ë·	­U—‚Í÷÷4,#2$sWë!”T£€Ï*€ò¨z¡°a/r²€Jî^‹‚e›AÏ‹ŒsÒXÈ÷E¨XNaäƒ7Ø’-'wë~ğ?í »"ãSœ6ás­œMø
+K+³(†j¨,`¥§²÷˜§.6óã^ ¢99‡7>‡ÕUgurgm;rTAPä9ô²XZ˜¯·ˆğ dç«H&ıº_¢:;CÔ:4>˜—çÚZ¶.æòà«“zWÏu'>NÁÒYornF¹ç-˜6äú1¾ÉnoÜÛJvÅT˜fV :Á§Å¹p¥[BSn&½.Û’~ÌºÂ†P¹‰,%¸›¾a”ˆSæ“kJ&ïÑ›ky® ?(œœ\–%°ªWmUà—<E²ˆßƒÿ¯,áº,©J‹Ÿ¬¦Å
+7:ltx£7|_¯FµÃïqJßªàI¤Æ!•@à'Ñ.Ğ2]ùyÔt[)H8Â4ÚS»º˜ JõG[÷)(`œ•öe³¯ùl’™‡œ‡<ì½Ãe¶Zdë“z¬jzœÿZ±îb–•S³/©tQV\)M/ŸÕ°ÇL	ï¦>9.şèáó^’íá#ºé¤”N·‡ÏoIÇÀÔÑÜŒˆcBî’ş=ob,Ø$ÅõKYÆÎ–ÕIö)ZÆÔgéqï™”Hã[›ú¢¾\øH»ñFšykŞ¢~LrS¿˜¬ä—d4•¸â9½Íôh+ş¬×ë=7¬ğ¬Z„İNEY(BÇm.„zqİÓ&ëÇ±`¿„%øè-s°Æ_ wÆÉùTçÂ‡FĞûÌé%ÏÄŠšNqsYqFßĞ“¦%rs¢eË›6QÍ8Õ"• Cæ£i4t¨¥qYÓ×DÜy÷¼$q‹øwV>âş:«ÏËFÛW±$[§R/>Ú61vE51¶‰±MŒ½†ƒ&Æn¬PMŒ]ÅLŒmbìfk¨‰±÷FuWcìÁMá7{½ÄşŠÇä=GÙG±ş.@ÁŸ·:W95|%Ù-ñò æ%úgºÁ€‚sÎçõ¼®ÆûÍ?,’Ú‚©«’âºÇàÏ¥F¿½fèˆz®·±äW[w Új IÊ‘Y•`±¹èÉÙ1àÿ-c•¶QÁãâ?cWsèVœ_D>OB‘ìTäAI¹j{!E#ŸRz:ço.û—2c^ /Ñ%WÎpfß­|Ûä†(¤å?O³BìÀA}q[EpÔli'³‰ÏöĞjM\f£ËËKÍÆ9†Çİµş%\ö÷İaûµrĞñÊµâ% °8Z:¿ŠŠW à‰Â]7²êNˆˆÑ¥áàÒ³&œ¯jˆåO`±mf¢†:ùúÀ8¨õ°mËl	`Œ„7?Cl=‚§"!èØfîhà|5ƒ ‰¥›l,' ¹iøæ÷FK’ÈT–ÆìOå©¹ ıÏ	¨L©ê3½½ò$z(Ì€œ¯Æh´ùoÖr7¦‹Sİ0
+ŒŞ‚øZhÊÛÍ!hù7‚ ”k/K~_h~Å>æø?HIk—ù‰²ÀãÔ;„ó/Ô‹“ëø2*º'xQTÇççV5ò8ÈW$~¶äæšú¾uT¦zòx¦¢‰qâ|b…ÌŸ—±´„e./Õi/³¥¾5Î v¨¥Š”¥RBè’jaÇŠäÍŸC÷C²ŠGñó_’­ªm‘‹ƒ’g‚·ØI9ûïğÊW!n•AA4}l“F>s³¨
+š¸˜Á%»T—¨êÑbç ­tGMç\9#ÒØa­O»×²¾‡»ÛÌàâš;‰¤yœÜ¸€¿>Gp·‘À˜vÌ<òEêáöĞ¬ã87‚ÖİrW)É®·™”l%ÕĞ¢ßËëYÉİE¹@Á%Ts:ªj0‚D´—|UN´¾'FïõĞaNd¥QØÜ¨‡âûÒ+š^ä¸NßD¸…9Ûæ²”/,•yYÒÏk.œh”CşHJ[¦T™¿äíö{{è³Œ@–’oÑÅÅ…ØD—õº8CQ¤Âg§Ç #{+æ¹¦€»@eA†]TÓıáûzê¸6ådZÍp$ ‡øò!Ğ á~lc¹k"Æ¦h"FÅˆÖDŒëøÿa±˜š'%Ü},8mf7îX¼Ü\^·y2HˆWİGîR×¨ëtˆƒ¥˜«%‰U~Ùğø[C°š.‰íËƒEUdÓÛX”çÎqíèóÿ]¤–ıÁIYÏÑËì±$=¶a,j8¬¶’ M}Òr¨|}Òú‚³ÙFi¢uÙ¬|£´¥İÙ£ŒEÄ¯¿K:¤õãiõ^KP‚3-Ú6n/˜g6¹·‚r#§-22‹›Eiü¥Ñç 	´×¾ÏÅGÀvöDŞ6Îz˜ÙhÍ”g)Eo`B§qçH¨~ÁzjM8GêÖÒÖÕHÔ¯Ã¶Rİ¯Œ…¥,lìO…«Á¯Ù7>³3ÚCe*x*«¤:h)n‰\`¾h
+1óàr9Pàß•¼áˆmLÂ–‹5ßYŸ1_‹¿ÍÚø€È c§‘'ÅƒsôXŸİqæ/´hºn°ì}[ÂËücÌ¹ÜUû+9Ü]şÖfLÎ‘öú1!C±Ü©u]ØSêÃ[2{Jr¯g–İSJ±#wOi]äû)± òçkRZ³lÑ¹[Nq÷‚-m}_Ú‹d§$¿²F|MØhÍÓN°èï(ş¤j]‡:˜LğÚöı7—ïO®ÄÜŠl>ûøšÏºx>$( !œ~—íßğĞ‘W}Ğ/!]ØÓ5²Ênøï§Œ3Ò¦À%â…Î\•[Ä1õã<Òn8i<•<-|˜pêö›~F©±œ-*|Ìhº¦cÅ1¢%Z;€eÃÊ¨ÍíŠ(ñ_Ì›-ím™[±ôŠ3k¼™ûËÎ×¶Â‘ñÁ‹’NóCj=nì®£ÏİÆ³Ñ´­¢ñE\˜"â.‹
+[X½zÔ,šÕ*eÇ’ô?,ì¡i6¥ ¼O¨Şì[²'¢Èc^Oæa„JÀ·a³ƒK:ÔG¡WR‡†spr·¤$J{ÒšÑp‚o!lY$Xm”&IÁ’A‘êùl±=«ªg÷¸šåE8Æ€+26ÅÖ‘ƒÇÊ‚Ùv†#,xéXø’eæÚMşH`ÄÜáéu–W¼%å<|“R¨|³^­µm¬Pógıyó¡Ä|‡Âq1’cšaÖI,)F®(@Tj‡æ¿éˆ¸„šYÓ®±V}kÙ¹/µ­wşñzÇAÔºww¤:¨xv©‚²£V;HUq,îhN®.*¢ãb­^¶´*öß\Ş´P¡‰ˆŠáLÄ¾…Ÿû…ù’&bLÓEˆ%À
+"d1×åß6×š‡øBBğuÄ5=Âå”ú,ã–˜aÒ„>ê-D³gáªˆk!hO‹pYZcæÔÛ,Åx/éSIjâà 	+K`±¨/(~¢Ğ—éK¹Øã1ì759‡«\–TXp–ö:Â¡Œ­k"ó5zq—Å©%*,ĞS'òM‰jÕĞª[ÍaMKjS^àŸŒØ/ğ%¤bÊÒ3Çx±]}¸Zç^Â¢Ó{h8G¦Ô°úøw‰AìâÜò"w(vóÂÓ©3Oñ½álNfÕÖ¥QÓ´ê<ĞÑ
+‰®+]Od}vy~n¢éİkßr·Ö­”/r›~ÓnTëÉ²ë‹YN*/'<¢
+ö¡±óÅõ®òt‚,¬Z¬à©³-
+¸Äm%Ç¨Ô£ŞÙÉÉ‰Ñ”Šš’úÓ~šˆÃ¼ÓkbÆÙÓkjF Ñ«¼+xèÇ½(ıÕ+Ì=¯6ˆ¥jLTÌS,§:x–ás"F D£kåØšºWwMáoşHy"ÎQšÄtmcAubÓWİ»,²ÌpkG,[‚¹U§*Á”’u‰Œ*WK1EÑeÉw»ÈQ°Ë96h'±åE3Ü»FıÒÉlõä¾*(ÔsÕRõ»Ê‡›—‚apÿüôì¬"Âş¾ˆ +gõhAƒ“şYUY'ÛVbİª£[d[ä¡ÏláçvÊ&|6¾òI'!•h¶˜AÛ‚Øw%˜Uu±ò9Ğ"†mZàeÊ{œ®ÿl>8¶OI¡2ÄhhMüLÔ¶"GÇÚ¸–`çKw*^Ü&b
+7çé­Bœ]GòÛRBøNì‹Ì¾XõH·6Æíü¾ş¸·é\síC
+cyK
+M3’‘$dkô€:ÔB3Ÿ†DìH¤Û(n’yÖ¹*÷æeîLOæÉ?óD¼*§ï£ñh¸]"‰CÄñá-m‘¥|yÛÍ5u¹ÑãEEàİ,0¬…ìrbãL5ƒ½øÚYÉ5¬:Ş¬ìèjRz)vBêƒ½Šª£CD	ÏşêTŞÖÛG'g×''ûÒèä¹å÷ÚÙCô¶I{(Ğt9œd:#™”N« ì§Ù %ÔAìUJ ZK¶4×y^·˜ã°°^5QiK*%uQk‰Ëš«¦Õ¯Öp9jÔO>š¹¤µVz·ÅŞØ h›L.wk¤$µ‹CtíŞ^Úv×ı©N)¿ÜPPM$Çåå¥	ŒôÖ°ÉÙ¡÷¹ÔÛ&*{c–İ]lenY;Ueõmq°^Ø}{±Ø–ƒİéK=Iè‘)%»mGFlUCúõG¢ónÒ™%³¨|S[ûËI@o‘—•ô÷QV2}o‹‡,™‹Ô‰Ù€OË!ğhğıíÁ…øBJA\Ğh1‡ùËSRÃì\©ÍÉãaŞÉãSxKöä±8 œ².İ“Çïq0A‡CùQƒ	w^¡{øGãè±àMù7·²Ü²±È’ÏMq/ˆ±b
+[*?Ó†1%ì,ˆß”<zZ4Nv@ÊI®Ş*ù¨ÇyÆ?Áÿ.X*Ä§DEöäÇG|X4$á: âEsr÷‘pCpŒGPq àô4„c¿AèG–®òìHŠdãÈç+–¨äA‡lEÔ›ÃÃB…|‹rZµ¬ª·¯^çëfş§•šî
+Õœâ €‹oá{æHEn×6Êªˆß©nh¢ÿœ­ç/*‡!kXy´Z‚–Ãùúÿ)
+MhQR‡~‡\›'Ø·gx×¼WÈ,`£Ó&!,tSæO´öÿ=¢>YÉW¯#$ˆD×‚Qä8sè ¡Øœw`²$qÊÂåÈfñ®ˆšß>İ}9¾å"f—ÕtÊüê?Ÿ¶NâcG.ÿ¢5ÅlBy˜6/×'P´P¹¾º,à›B¥Y+Êõ³t; û$ğÔæDl'R>%<î§ƒÖ\!áÁë fõR^ùÊÂj^Ñ‘¦ÆsÜOØ§$œƒÒ#ş€°	ø~ğ»Õ[îš«ÜI¥`D€¯c¯u;%à¼!#9&õ¦Q(…ğe¾˜ø²!ª.j¤cB(âx 
+†eJÖ^óï©cİC¸Lü‡œ·r·4ŒĞšpY­¸Y[ø….	±Å—~lqwë&ò(Š`Ša½~~X(¾°˜gS`!‡xÙoH°sä°ÚÒßf^è³‚Õ!ÿ	áìˆ,Ÿ;ÓœBãTˆÙS‹4_?VÎá•¨ºÑ]t“şgĞ±·5Ô¾dÄ‡/
+TZDr:è­qôş13úÍÀĞÇ(™ÉNòÄ÷_<tó3^},Ç……âµà¦X‚Lö87{|oÉf+æpoş¢¼1•gÕŞaòÄµ./=ônáCCp‚BâN·¼/ÛÇş/ˆÇ¼v‡"—¸Ü?,Õ ñB ­ËÜ•7é`\nî:Ê®0…Óº)Û2±ÄªdEœC.ı'^ÖáÄ{¢>ó\X«`mã+7÷9·“Ó<U>n?ˆoZR	¡Õ¡ëä24Š<NÀ Sâ;YA«Ô´Ê5W ä3_œğ	ÊI.jZÇ œº¯Ómø¼H0Å°\#‡Y<0EKir|Š„Ùp/!àŠwŸ¶™k óœ9ÂO˜:ò'²Yk>2Y‘ï*Iô	{ÜÙVğØ¾'~aD]yy^–µ'hKA«…$YöÕÉ$±§T”sûm±°9Ø'¢EväÇKX’y´6[æÚĞ(sğñæıUäØ]‚3gKËL© øTÂŠ5!–e®Ğò‡ÊÏ˜j³ƒãƒT”
+)ò†@·¶ãhßåTî(©(˜P§Ô™zŞ8/Õ1ë¹dI=Aç¶°p$jËQİ€§d“ŸÌn}`„-|ækj>´†ŸEã	
+î8$«¸±ó‰DÓÅİıcÕÖGÃk¨Ÿš÷áóı×/ïşĞÆÙ%ªŒ¸4aA¹hMóù«ÿÆnß¥nKãòOŸï>~şr‡zèƒ° ¥ ¢° :	ñ7¨ pÔVFÃÏè/f÷ëÏwşˆAäŞ÷à,9£{T“¦ÏFSÕ¿üúÓ/ï`Â5ªºÈØHÆqÀâx
+ßéıë!|şb±Û»Pˆ¸ÀÏmÉ´î?İ}ù"§õ‰9ê:<˜…à7…ğ–¦>uEâN¸õ`Ôf…é†KVZ%!lÍB(±ÉúN×ıö®Æ¹mãØÿ+gÙcK.)ÙNüÑdÄÔIœ÷2·®íÄÓ×$o@ğD¢q, %×íßŞÛ= @ <|ÈèíL[ZßííîííçÏÔÏ0ú~7Í5J übù–ö6uˆL±_¾yq|öÜÁ†r*ò¹±–9d±K-­ë¨›	Ø2!0˜¨ù§k,émµË|©¶v,xœKr|Õ&áE¹şMAVµV{®®Ù‘%>ƒ<#Ã¥ĞÊµ(isPÒ³1kÿ¼Zqß¶¤²08äiã3{×gí% KœÖèLWç½b[pÅ—ùÅ a-`e
+)ô¨µƒ"¼×±ƒ¨l_)k°E"T+y<‘ı™PÅ±c´áxlÈ™ØP`RÎNOô¨§¤>œUK|§İFU'¹ë*-ğËë‡C).½3´ç¾2ç{ŞHc`b†eÎ`#Duãè“×zuİé}BÙ–E¸½ìM,Ò!‹(YZ—\1ˆ“ÊQÏmâŸ“ºnÃ¿WPRGDìZÇe(º1¾‹‡­}İ0©$-G$/-äE_ÕI\>›¯›…(+DŠb†-mé#¬À4Ù·\GDÎ›‰KQºïô0w;uÛ¹q`²9©T]ö¾Ê®#óO…Ç%d4(gM"|‘ó8î]UYçšx
+¡äÒvC¨)Ntİ:O‰»¶Q—bæ\@¼ŒÂ¸ƒ¹“oò,UŒÚ[²¥îG¯Şä{æ•
+Éäüè®|}'JøS]*–>÷Îq=é/}PœFsòÕ¯w^½ûşî<øºçGñ>Fş.öE6|È<±QZE\J¥è.âê£½¢Ú:3”»…xİÈğy¥\¤^LşdcK¯Î !èŒkg;0_í=¡ZÄiQ-âcxK¾ñËœ60­Eüú Œÿ‚=ÆJ¶ÆJÑüzÛ÷ ·ñ1¤TâãnÔ{JyîİOÊ„yeù–R«…^n7ü+Ÿ;kepè·¾pù•3u\'¸†ìŸ¸„î1ŠšGèÈ:Ê±%ÀçÊˆÑUÔÌ‘Iÿ0NöÓ´ S:P`‚·¥T™7iB1)Bßè”İÆògq»
+õ&|Ÿ(ùÒŒC 3¯N‡¡ï•jON=KjÁ°VdNºwyˆ"I6.(Í(öı·‚¸•\öã»FÌÖåõPIK®tÅ*ğ;0
+„â±ƒ QwÂë© ~*âÎ¸{ìØÅš¥¥OXÒÆ<ÊÌh¸»Ì|­1Òûhòh£q £ÌB,T#H¬ÁDã)¡¤öšÑÚË[n<…ùÜ$£°Lnª¢ùûl_Õh*4y­I(1¹1B³ÖoÂ˜ÓwuÒÎñ¤ãX;[l¯tB¯Á‹Å?"ww–äxeQÆRt™sûj±ÑÆ1Öl[›Pí³åªUÂÕd……Ûk
+ÖoïøjCÔmºœıyÍ%jØé2-s¢ÁèÃ¨ü*ôÛö‹‘ü”ıM„XˆÜCSûQ¸Å‚>$`(È+öÿÂ‹‹¶¬E¬w/hœP!ÖÜWê6¡‚3ˆM(Í•ÀöP|ªdekµâZÂ TA(aÀğ_ÜU
+étªÛã+™xİš(‘"Eˆ	Y$]r­ÿ‡:ˆûh r“Û•±ò­5Â­‚şÊÚvÛS[2†çÆ	ÉX+?Ò“hHWı£™¢Ã³!Q1›¹¸cì/wpøiÜíÌf8É)£L]áóO×P*oílœÌĞæÒ)íxC1"Ÿë³0‰ƒlás6^ù°GhvœÍøúÌİ÷ê-‰K
+¸Àµ»ø66D>¹³óÊœ8¶úÜ³;íP#QœìÎoê*P¥-§×å!íâ/m™1êõ	¾$¨˜‡^ûÛ"o>(ï7ƒlDIr:f§ìÛDóÛ:ŠfÇÛ:8î§™#m0? ‘ö	FM£ŒM7m'5gİ+I®ÔWeIã?…Âë£ôA&Eu-B¦>À^ÇéPSx>í@äÆÚ0ÔÆ£^æÙ"éèò3òÈ¶£+z‰$;ó”8ÃÃî*rjQÀs…+DTc¢ê~÷ê„ô¢x´–©Rè©|á²|¿Øf‰:}Ä&÷‡íª’Ûö¿ãû^QbTªï}3Qª-T®›3ˆı¶ùbb"otO,>§çÌm°;,EŒÒ8#Ğ÷6`Õú³ÔÑ µ°zau%ESÙiªÈ‚™3Z	ÎDng‚ƒ¢Pö™Ù»‡sÆ`ˆÕ÷TØŞÊ@™8Œ“›Š¦EEHOà-ù"$,ÚÔ/BŠëúşW7Ä6‹ö¤Ù›(Söæ»Üf²KÎW»C²ÒkÙoüAÏ9KQGà¶|j±ÛKµc«<e5,¡gònC‹GgòeÛ¿F%dÑ4ç†Vƒz ÷ ¬¾CƒašíïÚC5$ÎL£j@™I4B<šàÛ½uõxóã± 0¿¦Ğ^Œ`{u=ç&Tºƒr=äk#Ù:¥Oû¾ÅÆlë-Œ)²ìˆï/Á)é:ŞØ¤;©Ö¥sR·íç³3@9òvÜ.2B„lFÈ3“eù°€ÃKœ>PÑıÿ†B’öşĞÕĞ½Àâo~ü¿Ió–Ç-¼À.tÎ¿bê¢3å~j<NSÿ÷|§Ó€2ZÑ@Àôçíä¹XöI‹v¡EÅˆ…”Ò›ë·Ÿxp,"q_Ñbë<VIQ„ššF¶ô¢Sz€Ù¶T
+ŸvşıYØ?Ïçc=¶úÇF¢?˜Šao=y0°Cİu²¡©ò±ê„ºXÁÃc›ñÉƒS’Êƒ9…µ Æ[<ÑæI3­¡ŒY¼E¬yØÆÏ¼®˜åûb=¨(9¬©Ğ<w¥H¥€*R¯J÷šÁÍïÛqPè Ô>Eœ#ÎOá-ùˆsÃ8ğä­ãÎ8{Neà!T3ŸÆ;IbÛ\;¢,_z Ë–dîCôÉnæö²¬2ãjey² ÁMãX0MWÜ‡Ö„uÃ¦õ ƒÙºP›—'Æ¾Å)‡ùĞØªM²ÿlûö\å%‹³/î¸`ËePY×¸Ÿ‚ŞÌr…²ûjŒ —Íç0ïr·—LB×yå•Íy2Ì¡›JBÈ’;½ø¨N Şï†ax=_õx¿ŠÑcšª'>3²ˆºT­4Ø²« Ã¢R_'z.¯Í.’i ¨z®”PuåPø³ä,€FîéUì)U³Ì;ÙKtÅH¸šQğ/VS[İ5fÒY:®åƒ^{õî{"oK¥øoC
+n×Øå·µKxğ@´Õ ¸ìpë!»±3tÜT99RÆ"è^qÛ¹pÔÕœLÆ®m]øcır½UQzøML`v%Ï÷š/å”’Jà`ıJ’rŒ¸”=šº^	¦Ì(¹ÿÙkõíÿ*‚@,Yä?‡P‘Ëá«òıù–UE¤~Ÿmá
+?‹/zÌ¯â…qˆgğ–|C)2C¼æó,İW XàÄ6ˆC<‹wòàEæ52Æ!ö)Ó’|bt/ïWÅuŠhÎ•U9£Õ H™Rli6ôd1ŸÏù4}¨½Î²×Nğ‘«š+¯·ˆ\­Bõ·k	Á¿¯.ˆĞ‚Áp4ş#”‘Ï?êB®i	ÔhsÌdUß'õÆÇ{ºğ5ª}[xb³KìÚh¯4Eã\w+Š¹nV){˜úìptû$19Â(˜9…]rğÙ4-¸¡Z¬È´+Kk©«Ey{îóš
+¥ÛÏ+û î×NbjA¢>¶·¡gì5yRÖÑ¬øQ?9^xµ¾kgÆ!ºî_„®ÒbÂÛŸÔ¥zcªîU‘Jm]:dzº»ûe¬ø0§öv—*ÉP®fSÉ-ßŞi°TE'(uŞ:ÿ!z=‰¡K¦ÉVìldÙYs˜ïNE©î®I,8³ÂÕÊK4ğu'ç âû0©=¥v¢ÛÂ)äTtIµ‚.[åDÛâ¸QÊ9P¨dµ¬Mu™B+eÉøšû×:=Ïr0gÃx•˜„³]*äì »Ìö9ïû„İŞªŞ3j£xT½]ßtÓëÚˆ€Pƒ™É¹²¤ÜÔºã[4c‹‡< ¶ õL°E¢£§L¦N\<ÁÙc)QÛ›ğ.¸“8^f+ú»´Ãåï=ÒMí¦Vq7Dá	WÌs‚Û=aÍ7¨œQ3<æ }r úd¼&•B*%ïÊ´İp·NŒT
+©”=8X6÷Õ ÆÎ¼u=…%+«
+©Ä^©Ä=Ì‰}QólÒ¡–&•ö½ß*:Mÿ»CõHGõGGiO]ÑeV˜¬Á ı»§ÃwQË÷TA<ìyY¾Øw–Ï!Ulî±ß¤Pj¿"~#€ĞO^‡BH@:%Uušá©…OáÌÏh ˜ÜÀ—« –d%Á´)då.«§ËÆy$;ŸF¡E]˜mI>v<É=éÎ:J¢¦ÃıI†wôÜ¦¨f7‡ãRYz©ı^Ğá)–²’À€Õ×…ÏËúàCÎìCSmÍ;V×÷â€L© HmDö­ıU¨:Zˆ~¢$»\ê,1p'ÅŠôğS'hÖdSúÀWÎŠŸ`UNÔaË":HÍòÒãîÒÜWàçû6·İ´¹@”›3˜`lPğøUpÊ^BÂ=T®(ò”o~£¨hCCÌ³dBšqæ?…ä³¦ú‹ı\‡©zyÉk[2×DÍóe[wjÑ½UZ§•,˜ô½9,×Ø:Ù2
+úLë)zZ‹­„”\ÊRÑ’[ºW¦Ğå08&\òkLëTj¬ÏugHû¼ë_ß_ú®‰ŒMvŸ7š5ùûˆİ±Ó»?bßŒØßM¹ x¿~“ÿâSÅ —<#}|A/.77÷»š5ãG°ı{ÔÔä^)Fõš.'tŸŒØ¯#ö‡¡Ÿ¼ãz¶…-ÖÜo·ÁºÉªîêƒwwõÁ‘œë£|³j_¡Bòş¶p|0#XKõ]G^F…l’½ç¾ÒƒÆM‡K6:ô\géÀŒÔ¬¼b¡·´)^U‚µä8İ(t(WgËu½ïş x¼v¯…·‚¹Ğ$‚fX™¼ø®KgC¥ö>´¸†‚gGñY«óˆ$¼©Ä­­¼•a(á®˜Ÿİ?Uÿ;ÑË‡¡[¸ÛPß­%ÙxDîÄƒ^iZÜŞ=”d½;n˜¡Ëtz–€ıûÍ>.¼¹ÔbÓ‹nbŸ×ƒZ°ú¹„»KMù+{^	5 Glk>çÅ´ú›ÚªçWê«ê
+›HR%ñ™uò+›¯ 1tûØiTı¶P„H´#pô•ÅÎlÆ½!…›û~pMÄ§¿´Ö†ÂxöñO>ñß}İ7ßÔQqı¥{Öòˆ;†çìŒ60˜v3P•E«šº$.{Ûä‹4¯:å•ˆbMÏ ‰j»ö}ÏÕÚªéƒçìï¿•ºÎr;š9•ŞdıÅºdşÛU,«~íNã2Ôxº2®¸~çTnaûXJ8ƒ¬ÃòÀ}Ë›§ï¾·—Lˆ”ê7Şş
+xt¥ßô˜”ÓºU†p–ø43ÔóÇóæ}=´UâôÛ}s}Ş-¹ëÛª¡Q»Áâ•«ïv·öH5Ås‚ÍîØÁ2Z?0¥‘j/°”êµw»fô¬4RÄõå©üY=Wã¤oD-[›ñûö¬PM¶>{,cãå¨´]°áêÊ¾a˜éø¾çì™,¦(ËjÂt€Ã-àÎ|ÔébÒÅáAùI8|"%Æ·ÕÉ¸MÖ,sÆ8^l§]ü1ŞÚ^JD±:yå@N¥d>ÇŸy¡¯R.û/ĞÓk´-ÖÜÛrÙÔò!cGıŞAw`¡î)Ñuñ$ií¹«u=n u'Suw”®%'qÿÜK~=–?%¡ğ—ô½_€1tB[Z•ØW˜’lÊD“‚Üå(ñ³ûNã*JPjH;ª¢Iç~ìÔ®ş€ßi'a'ÂèGSÊ©¬©:0ˆMÛ©qÅ»›…hÀ6†ç¯—Ÿ6¹tö7ÆÔG2í‘Ìó8K•[öÛ@Şo¬÷¡şwü9ÔFöü¸yôäócâ>M2Möõğ‚Àß©-¡î24¼µÈ¥õ™)ïÒBÓ¦¾Kë”°±7¶ï¬‚ı,ºwú!áC½‰«—ÕÌ-*¡P>!v=¨‡q«\;ÂNkËJÙ›'²f o¯YToGeÛjÅĞ1¥Íh¬Ì:Gla­a—ù·C%Š˜+î/=,ó–Ş2Y10è_l¼ò¢,Â½4®bÙÇ—‚Ókõª5}Ä á;ß	à)8íùÿi—$}NÆì;Ÿ[ŒºEİ¥ŒŠkS8¡õ´>÷‚$õïšŠ±ZÉë§N%»İPZÚ{µµ¹¨Æ´)7½˜9úl% CİıõŞÊ²İúŠê?Å *q˜$˜] /¥µæÃHå7ÜøÛ·ŒòÀw"†w6µ†"ŞİÊÊËü9ÓÖ¢‰¬ï´45ûìE¾r¾ÔÅViöNøîìÖÑàHÔĞï»ùç>
+Ö÷ûNnYXÇì­`¶kùÎÅuÿK|åËÎ¡QÏÔR8÷¦}”ø· 7®ËÎ.±‰ç/Ã‘)á…ò¤ïÛUµ¤ÛŠÊß‰å®
+&›µKãcö½¨;¾¼ŠÆ€‰×poãµÀ¸ÍŞ“¸‡GÃí;gÌ²ƒĞÚŠ3ÇÕş¼¿ù-ë­˜ª£à¥uÉÓjfëutÉjSƒÔ^,ÅŞ…9w>ıòËNîpŸ7¾u&å°¼j·Ùéíı1ã_0Ùu(,˜>³‰	"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  D€"@ˆ  ôâÛG/ã¬º< ìoú	(ú"@ˆ  Ô'@Ï¾ğüÙ‹"@Ùß  èGˆ  D€"@ˆ  4`@¿ıâùÓçE€²¿A@Ñ"@C$¹¼òPá‹æoŞ«_mÎ>Š¸PŸ?SŸÏô¼´àËX©Ÿ©ÿÄwæ‹`ûÏ©±ÜşÛå©ß.¸5ìOá?/„À¥Dÿœ‡A´2|-\ÉôÂ¹şüñLØÿã;³h½¯œÀV(¿x‚¿=‹—ˆ§bvÔWB˜^9ù¯    ÿÿ PK     ! ·@ª$       word/theme/theme1.xmlìYM‹7¾ú†¹;Û3şXâã±´ÙMBv“’£<#Ï(ÖŒŒ$ï®	’œz)ÒÒC½õPJ4ôÒ³Ğ¦?¢’Æcl¹Kº„Ò5¬õñ¼¯½¯ôHã¹zí,ÅÖ	¤‘¬k×®8¶³D(‹»ö½ãa¥m[Œƒ,˜d°kÏ!³¯íüÑU°Ç˜BKØgltí„óé^µÊBÑØ2…™èš.ª4®Fœ
+¿)®Ö§YMÊl+©p{{<F!´¥K{¿p>Àâ_Æ™l1=’®¡f¡°Ñ¤&¿Øœ˜Z' wm1NDNá·-]ÛQvuÿjui„ùÛ’İPı-ìÑ¤®ìh<Zº®ç6ı¥À|7hšƒæÒŸ€03Í¹”±^¯Óë{l	”¾û­~£¦áKşxß“¯@yÑİÀ‡Á*†%P^ô1iÕWÃ+P^lnà[ßw[^Œ²ÉÚñš ˜í2&ø†ŞñÜa«¾€¯PÕÒêÊí3¾m­¥à!¡CPÉeŸOá„ ŒFY(NÄÂ›‚Œ0ÑìÔ¡ÓÿåÇU%°AÉ:o
+ÙF“äc±¢)ïÚŸ
+¯v	òúÕ«ó'/ÏŸüzşôéù“ŸcoÚİ Y\¶{ûÃW=ÿÜúó—ïß>ûÚŒgeü›Ÿ¾xóÛïÿäk´¾yñæå‹×ß~ùÇÏpŸ‚Q~ŒRÈ¬[ğÔºKR1AÃ pDßÍâ8¨lág16ô€'úÖ``Àõ ÇûTÈ…	x}öP#|”ĞGàÍ$Õ€‡„à¡Æ9İ”c•£0ËbóàtVÆİàÄ4v°–åÁl*Ö=2¹¨Ñ¼ƒEÊA3È-ÙG&Ì ¤Åõ…”02æÖdõ 2†ä´Õ´2ºR‘—¹‰ È·›ÃûV`“û><Ñ‘bo lr	±Æë`ÆAjdR\F ˜HÍi¨œq‘ébb"È˜Éæ6kto
+™1§ıÏSI9š˜€2²O&AÒ©‘3Ê’2ö6KXw7’ ú‘u‘mM÷}µt_¼·ï	2/Ù3£¦-‰¾çx r^]ÓõeŠüš¼{ïOŞ…ˆ¾şî¹Ysw éfàeÄÜ§È¸›Ö%|n]¸B#ôáëvÌ²;PlôÙş_¶ÿó²½m?ï^¬Wú¬.òÅu]¹I·ŞİÇã#>Çğ€)egbzÑP4ªŠ2Z>*LQ\§áb
+TÙ¢„†xr”€©¦¦FˆÙÂuÌ¬)aâlPÍFß²ÏÒCå­µZñt* _µ‹³¥h'Ï[›­ÕcØÒ½ªÅêq¹  mß…Di0DÃ@¢U4^@BÍl',:mé~+õµÈŠØ?lxnÎH¬7€a$ó”ÛÙİy¦·SŸvİ0½äº›Lk$JËM'QZ†	ˆàzósİY¥T£'C±I£Õ~¹–"²¦8ÓkÖ©ØsO¸	Á´kÅ­PÓ©ğÇ¤ng];ä‹@ÿe™RÆû€%9LuåóO‡ÔÂ(k½œœ­¸Õê-9Ç”\Çùğ"§¾ÊI†ã1ù––UUôåNŒ½—Ë
+™	ÒGItjğŒŞ"P^«&!Æ—ÑŒ--îU×äj±µ_ÍV[ài'JYÌs¸*/é”æ¡˜®ÏJ¯/&3Še’.}ê^l$;J¢¹å ‘§¦Y?Şß!_bµÒ}U.İëZ×)´nÛ)qù¡Dm5˜FM26P[µêÔvx!(·\šÛÎˆ]Ÿë«VÅ½RÕ6^OÑC±òûâº:Ãœ)ªğL<#ÅË¹¨ÖB]Î¸5£¨k?r<ßê^PqÚŞ â6\§ÒöüFÅ÷¼FmàÕœ~¯şX…'iÍËÇŠç<_¼}Qío`Òâš}%$i•¨{pU«70µúö70‘yÔ¬;N¯Yé4üaÅí÷Ú•NĞìUúÍ Õö¯İ>¶­vıFà6íJ³·éHúíN¥åÖë¾ÛòÛ×¼ˆµ˜yñ]„WñÚÿ  ÿÿ PK     ! ¡€Ñ  S     word/settings.xml´VÛnÛ8}_`ÿÁĞó:–dKr„:…¯Ûq[TéPmáE );n±ÿ¾CJŒœF[¤[ôÉÔœ™3Ãá\üæí#£ƒ#–Š>ó‚+ß`^ˆ’ğıÌûr¿N½Òˆ—ˆ
+gŞ+ïíÍŸ¼9¥
+kjj \¥¬˜y­«t4RÅ3¤®D…9€;!Òğ)÷#†äC]Á*¤IN(ÑçQèû±×Òˆ™WK¶CF
+)”Øic’Šİ¸ıqò5~“•(j†¹¶GSˆApu •rlìÿ²xp$Ç]âÈ¨Ó;ş+®{²|²xMxÆ ’¢ÀJÁ1ê$¼s<yAôäû
+|·W´T`øötyôsá‚XáŸ£ˆZŠ‘:3üèˆ}MJèäÉ¦àÚ|°"½İs!QN!ÈË ®6°Ñy7På_…`ƒSZaYÀSC‹ø¾72 $Xì24XU˜RÛ3ÅhOé^"Õî$Ö¦Ä;TS}òL‹
+”¢OÂ–²8 ‰
+eV¡Ø–‚k)¨Ó+Å¡—Ğ9¶µ°}Ô²¦'Á‚#÷yÖg[QbY-Éëo¬÷ ºtù½#3D’ß›<fúLñ‚ÏÈW<çåûZiŒ¶Û~!‚€¹ñü^şş\áFº†4ı&gö%6”T["¥·¼„ÚømÎÈn‡%8 Pk[("ÅÉæùF%Œî_ô;º,#X¥r‡ÏBh§êû×«8ÛHÚ!Á4Yø×}È$ŒÇËiù“u?[4M‚$ìEãy2ïCâ8¹îg›®üùtİ‡ü÷}–«d™ôÚ¬–A<ïm½×QÜ‡l¢`¼èeÛLèG ‚¥õ3zz–šóIº“i°k,–ˆå’ ÁÖ,¡‘ÑÈåÃ‚p‡ç†!¾D²:wàpØ Š!J70`ÇKK¢ªŞÙ3İ"¹ïx[Ù+…i÷ş‰ËLO,ÿ–¢®ô$QÕ4S	&“Ö’p}G˜“«:Ïœ‡ñ}Õ¼üx”6O]zN©†°èÙF²º˜¿dm£Q™™&Á[TUM¯åû`æQ²?èÀ´‡†¯ş«Ø|¶Xh±°Áì*ÌÍ@»=t²ĞÉ.ôÆN6îd'›t²ÈÉ¢N;Yld˜rVÎ´½;ùNP*N¸|×á/DMÔUxÕl$(/ÑÚ¥Ç?Â¾Ã%Ñğ°"%Cfı…¶È[mŠÎ¢ÖÏtf”«ç%ÒÈœgÆ¶Ä¿‹ÅlÊ‚@9fg–wğª	œC²‚]©…tØ_&i)Š[è$8Yy<§‹0i¦SÙ«ï¡Èàİ?ãİ)\¶˜3Óoëùzí‡áx¸Ö‹ádî'ÃùÜ“Mt½^¬ÆãpşÓ6©û7|ó/   ÿÿ PK     ! ø(P   {     word/styles.xmlìMsÛ8†ï[µÿ¥Óî!±åÏŒkœ)[¶7®qOälÎ	Y“„–±½¿~”@5A²A¬÷²'[¤úˆî·&)ò×ß^’8øI³œñô|2}¿?	hòˆ¥ç“ï7ï>L‚¼ iDbÒóÉ+Í'¿}üë_~}>Ë‹×˜æ ¤ùYOVE±>ÛÛËÃMHş¯i*v.y–B|Ì÷’=•ëw!OÖ¤`³âuï`ÿd¢1Ù
+_.YH¯xX&4-”ı^FcAäi¾bë¼¦=¡=ó,Zg<¤y.:‰+^BXºÁL (aaÆs¾,Ş‹ƒÑ=R(a>İWÿ%ñpŒ ÀINqˆcØË_ú2	’ğìö1åYÄ‚$)½
+xòQx3âá]’2.rù1»ÏôGıIı¹ái‘Ïg${½¨„	ê§‹4g±‡’¼¸Èiİ¹’ÿ´î	óÂØ|É"6Ù“-æÿ;’ø|rpPo™É4¶Å$}¬·Ñôİ÷¹ÙcÓBpÏ'${7¿†{úÀª¿Æá®w?©†×$dª²,¨ÔéÉ¾„ÆLêâàø—úÃ·R0)®Q€êï»F\Ä¯ˆæy%*±—.ïxøD£y!vœOT[bã÷ÛûŒñLç|ò‹jSlœÓ„}bQDSã‹éŠEôÇŠ¦ßsm·ÿq£‚_oy™ŠÿO§*
+â<º~	éZJIìM‰ôÉiËo—lÛ¸2ÿW›jO´Ù¯(‘ù$˜î"T÷Qˆi‘GÛÎ,w]}ÕĞá[5tôV¿UC'oÕĞé[5ôá­R˜ÿfC,èK%DØ öq,jDs,bCs,ZBs,RAs,J@s,æXâÍ±„)‚SğĞ…F°Z¢½›Û?G¸qû§7nÿàÆíOønÜşüîÆíOçnÜşìíÆíOÖxnµÔ
+n…ÌÒb´Ê–œ)/hPĞ—ñ4’
+–*²üğä¤G3/éSe6=¦…D}î%R÷ù¼å\À—Á’=–™¨ÍÇvœ¦?i,ªä€D‘àyf´(3Ëˆ¸ÄtF—4£iH}¶?¨¬ƒ´LbsM½±hy¾šè%)lZÔÏ+)æ!¨f||×8ñ–îX>~¬$$¸,ã˜zb}ñbŠ5¾6P˜ñ¥ÂŒ¯f|a`øÌ×iš§‘Ò4O¦iÆ­ŠO_ã¦iÆMÓ<›¦·VÄ*Å›«éğsw³˜ËÓâ£û1g)€ñÓ>gÜ“Œ<fd½
+äYév¬yÌØv.yô<ø˜Ó6$_ëz"3qÔ,-ÇhƒæK\'ymx¶á—Øg±L–´O~ê™y¹(ZE«HƒD;'qY-hÇ«ã#l+€–åŞdĞõÁ_ärVºÓGæÛör|Ç¶¬ñ²ÚÍJ^»§‘zóğÉOşôº¦™(ËF“nxógù#Î‹ŒW±fJş@¹dä¯“õŠäLÕJÄğ©¾¾ |&ëÑt–úñÛõ»„°8ğ·‚øôğù.xàkYfÊñ¼äEÁoL}&ğo?èâï~:x!ŠàôÕÓÑ^x:=¤`3æa’©H<òDËL–2/s¨âıN_œd‘Ú}F«{X
+ê‰8'ÉºZtxĞ–È‹Ï"ÿxX)Ş?IÆäy!_¢zğ3NæåâOOu_xàåÌĞ×²PçÕRWYûÃ_&4pã—Ê›bzñëá`¸ñÛÀù:ØYLòœY/¡:ó|nÍó}¼ã‹?Íã1Ï–eìo k ·¬Ş†Çe’æ>Xñ<°âù>^!£xNÉ)Ş?2ys†‚ùò„‚ùrƒ‚ùò‚yuÀø;tØøÛtØø{u*˜§%€óg^§OWy˜¯8S0_q¦`¾âLÁ|ÅÙáU@—K±ö7ÅH_1g ıM4iA“5ÏHöê	yÓGâáiE»ÏøRş¸§ÕMÜòuìq±]á|9ù]xëšdùì—‡3¢$9÷tnm;á(Ëæ½k}fê—£»p“®xÑÌrLv[Q/Ï«Ÿeìv_ucĞiÏ;ö¸*‚ùjs¶ßÄœì÷ZÖ{Ã¬¿Á¶1?©ÏÒfö™F¬LêÂSœ7Vİ0>ê7Ş®$–Ç-a›'ı–ÛUrÃòt %lóÃ@K¥Ó†e—®HöÔ§]ñ³©ñ,ÁwÚEãÖf»icÙ‚§]QÔJp†òjôÎ0ÍØí‡‰ÇnQ‘‚‘“2XWvD—À¾ÑŸLÎì˜¤©ÚÛÜ=ò¾ZDÊœ”¼:oß¸à4üG]·bá”æ4hå¿pÕÈ2öqœnìˆÁyÇœ€ìˆA™ÈjJIvÊàÜdGNRv:[Á—­ =.[A{—l).ÙjÄ*À¼°#ĞB…´PG¬ì”P¹“P!-Tˆ@"ĞB…0œP¡=N¨ĞŞE¨â"THA"ĞB…´P!-Tˆ@Õqmo5w*¤ …
+h¡BZ¨j½8B¨Ğ'Thï"THq*¤ …
+h¡BZ¨*D …
+(¡s'¡B
+Z¨*D …ZıÔĞ]¨Ğ'Thï"THq*¤ …
+h¡BZ¨*D …
+(¡s'¡B
+Z¨*D …ª.*´Ç	Ú»R\„
+)h¡BZ¨*D …
+h¡BJ¨ÀÜI¨‚*D …
+]ñ©/QÚn³ŸâÏzZïØ~éJwê›ùSnu8U÷ÊÎş[„KÎŸ‚Öªzc„-bÆÕ)jËeu“«n‰@]øü:ëş…IùĞ%ı[uÍÀ†Z‚s*G]!oZ‚"ï¨+ÒMK°ê<êÊ¾¦%˜º’®Òe}SŠ˜€qWš1Œ§ó®lm˜Ã!îÊÑ†!á®ÌlÂîÊÇ†áq “ó®õñÀq:ÙÜ_
+]áhNí„®°„¾ªÓ1ÆP§Ù	C½g'u£€ò§ƒw¬…ö°åæj(3¬«İ…j'`]	N®wWC”³«!ÊÍÕ01b]	XW»'g;ÁÉÕ ãîjˆrv5D¹¹NeXWCÖÕ€uõÈ	ÙŠqw5D9»¢Ü\wXWCÖÕ€u5$8¹`Ü]QÎ®†(7Wƒ*íjHÀº°®†'WŒ»«!ÊÙÕÕåju¥áj”‡sÜ"Ì0ÄMÈ†!.9†Õ’aíX-Çj	úªö9®Z2f'õ0ÔvÊŸVŞ±vÚÃv”›«qÕR›«İ…j'`]«–¬®ÆUK®ÆUK®ÆUKvWãª¥6Wãª¥6W»'g;ÁÉÕ¸j©ÓÕ¸j©ÓÕ¸jÉîj\µÔæj\µÔæj\µÔæê‘²ãîj\µÔéj\µdw5®Zjs5®Zjs5®Zjs5®Z²ºW-uºW-uºW-Ù]«–Ú\«–Ú\«–Ú\«–¬®ÆUK®ÆUK®¶TK{Ï0I¶z¿™ørñº¦òÜÆf¢ê¤ú" úâm´yQ’4–=	ô+©ôfÕa}Á°jQö4µë«•Õ{šLüöõJª…ÉiôUh<•ækÙ.aWo¯›™­HVíİVıÛcy>ËrQ¡êİûûW³éÉ…–~}Ö¥ë/¢}µM~¸c)ÍÕ§í›µò©VbÔ¯ô‹¶tØğê±Aw?ãMCÚsº‰Î·”‘?;ŞR&w^ëmrãEeËí‹ÊäæËÍ‹ÊBfu¿®O.UNQ_V!x>!* UÄ¨Íò®º¼©ÛWê‘3_uVm3ŞXf‰P¸„úÉ[–0ÕOĞİüL=?w7ª,ÙµD„½íeôê{Kæ1_H¹vôYÉ¹S_•â­!«c¶¯‡¢?‹¸Š#ñÏm*ƒúY¿ì¬êiôB*”Ø?£qü™TßækûWcº”Â{§ûê;ûÕ³­ö™šd¬€½fgªİqR½M@ßı`Mg2“¶·ºgìHcóŸlsû«ÅİN©œ¿İİ—	a·õö¤vsu:›5“Sñ!½+ï@Òy*”„x)Jëß¦Ij pÃ2ñ ¦¢]§4òóî(èbY²Mß;£Ğ*ş*H[fÀõÿŸ‹mq¬Ÿß u°ë¿Æ³úbØô—íœ¸gÁŞù¼Ó|f5}Û_†i‰óÉœ>r|¿İ8¾¹)ÌÏ;šêe®é©jrÖìßî0wùo¬Í8Á¹©ÊÿÙ¨·ëãáë¬¾1owxÍ›öÚ¶™µl«İ–Ü¯Ç±E¨5.\¡*pò·\íWoÎëË¶c—BüF#ùl[Š|R˜î7Öè¸ì6ØŞ†íœÂì"B¯Rc¦Ù?>9œm§=Ó¬š-ëoË·jTËU(”ú¿üã   ÿÿ PK     ! t?9zÂ   (   customXml/_rels/item1.xml.rels ¢(                                                                                                                                                                                                                                                                  ŒÏ±ŠÃ0àıàŞÁhoœÜPÊ§K)t;JºGILcËXjiß¾æ¦+tè(‰ÿûQ»½…E]1³§h ©jP>N~ûıjŠÅÆÁ.ÑÀ¶İçG{ÄÅJ	ñì«¢D60‹¤o­ÙÍ,W”0–ËH9X)ct²îl'Ô_u½Öù¿İ“©ƒ|Pı=á;6£w¸#w	åE…v
+§°üd*ª·yB1àÃßª©Š	ºkõÓİ  ÿÿ PK     ! ÏT1”ˆ  r     word/numbering.xmlìXÛÚ0}¯Ô@‘úĞ‡%BÑf+.¥Új[UíöLbˆµ±Ù–¿¯ËµIP‘*åÉ`ÏÏñŒÇG¹ÿôŠãÎ2(ñ5³khH"²ôµßÏ³;WëpHbJ ¯m!×>=¼w¿ñÈ
+Ï!“†‰A¸·I_‹„H<]çA1à]ŒF9]ˆn@±N@}CY¨[†i¤¿FÈ¹Ä™ ²\Ëá‚×jh!é¬ m=ˆ ğu‡aÖéëCİ=ÂÇÔh‰\\P†ÙRÇ€½¬’;‰› æ(Fb+!§€¡¾¶bÄË!îÊP”‹—…’…«²oæ2¥Á
+C"Òuc%<BIy¦¸)š\Œ
+õ%kv›Ä´¯+ˆi–•`•ğóTâ8‹ü2¢iTÈˆ‚(=ª„°¿g	ˆì6nt4o×ì×° ëAôsoñîjl’åuYşÂè*Ù¡¡ëĞÉK‰¥V¬¼ZŞV0¿.˜_HäUÆ÷¸$”y,#’¹ïÈôuÒtÔ-Ñd;s.Ä÷îìı{}M¶eéâ1({1S“Yç-dcÁ‹2Q(„£Pº¯Aìk½mYSg éj¯bàÆÏÛ6ÑvÎPøM­Åj-³8‰cìXÖèó$[‰×jÉ!ÊI,{£aCÃ0Í4†4ÆÂİÌüäc1Ãåd„A¾™Äz†¯åÚóc9ÿ5(fc¸Ùtòƒ©ÅSMûÚÀJC‰ Y¦ïVÏ1”­ë)ÖaôæQôÃtFö<Ù8×PYTcÓdOPÈ\œfduë22m»%ëˆÒøJ?)ä4£Ş)F-£ó”,ÓÙ§dº(õ)³†”.Öœ];C–ë6È}»¢ë×¦$4 Ô¿YÑ9õ‹Îî´†JEçÜ¦èµ3Ô7š´…ÁíŠÎ­OipĞ*QroVtÃúEçØ­áLÑé{Ï¼B¹¨ÔƒU[Øı±aMÜüõnª¬ÉH¶»Ñ¨<Š2ÿ‹Øx,f”®,*ŠÄsÓÔ¦•­\håÂß)µr¡•W]+ş\Pİ½¶\ØæÌL§Y°MåÂp65Ü¡é–GQ&¢ıdPñf´ Õ ­h5@«ZpQôí'Å'5µ'ö˜è©å‘›uŞ­ˆâ”[ï¼›õÖ-3ùñğ  ÿÿ PK     ! ŸŞi'á   U   ( customXml/itemProps1.xml ¢$ (                                   œÁjÃ0†ïƒ¾CĞİµë®©Sâ”†èul°«ë8‰!¶ƒí”±wŸÃNİq'ñIHßÊó‡™²»òA;Ëa·%)+]§íÀáíµE²…íÄä¬â`œ«ÍSÙ…S'¢ÑyuÊd©¡S½6¾jºcÍåˆyÛKX^SD	;{rh‹ö²¤¶éLà0Æ8Ÿ0rTF„­›•MÃŞy#bB?`×÷ZªÆÉÅ(1%$ÇrIzón&¨Ö<¿Û/ª¸F[¼ş¯å¦o“vƒóø	¸*ñÕÊ¯¨~   ÿÿ PK     ! 2èÕo  á   docProps/core.xml ¢(                                                                                                                                                                                                                                                                  Œ’QOÂ0…ßMüKßG;ÅeŒDO’˜ˆÑøVÛT¶®i/ş½İÆ†‹<øvoÏ¹ßîN›ÌyìÁ:Uè)‰Œ E!•^OÉÛrNHàkÉ³BÃ”Á‘Yz}•‹ÂÂ‹-XTàOÒ.fJ6ˆ&¦Ô‰äÜ¼C{qUØœ£oíš.¶|tÈØ-Í¹äÈiMG$'¤ÒìlV¤ A={lî.ÔÊ/g®ğhà¢µ;÷Á©ÎX–å ÕV¿D?Ï¯õ¯†JWY	 i"EŒ
+3Hz.}åv_ß °9î_›âFÙ]­¶'UÖ[8–…•ÎÏõ:o“à„Uı6ÔŞwgÜáÂ_éJ|8¶ø+T^{U½…ô¦vtmr
+¶Y
+dà‰›øZå}ôø´œ“tÈ¢ûB6^²q<º‹û¬öêÍŸùiÿ£I<ö‰- ‰¦ÿ(Ó   ÿÿ PK     ! ¿WgCÇ   2   ( customXml/item1.xml ¢$ (                                   ¬ÁjÃ0†_Åè¾8ë¡Œ¤ÚÛA¶vq%1ØR°Õ‘¾ı¼•í	vúşıªwkğêcrL<%($Ëƒ£©÷·ÓÓ¨$†ã™°bØµu_u|‹“ÊqJUßÀ,²TZ';c0©à)ïFÁHã¤yÅÛ[@½)Ë­î]ïOÑ,ó²ÿQuèÑ
+Ü}>ûcÿºïÜ*óqp’«^~ò°X“ÏoğlB†3êúû“-´µş+Ü~  ÿÿ PK     ! %k_ê  G     word/fontTable.xml¼“ÑnÛ †ï'í÷±ã$]T§J³Dª4íbk€l£°8$nŞ~ÇØI¥Z‘­üçğÁùw÷/º"é@Y“ÑxÄ(‘FØ2EFŸŸ67·”€çfÇ+kdFèıâë—»f[ãàzs-2Zz_Ï£D)5‡‘­¥Á`næ§®ˆ4wöõ°ºæ^mU¥ü1J›ÒãŞC±y®„ünÅ^KãÃúÈÉ
+‰Ö@©j8Ñš÷Ğëvµ³B`Íºêxš+sÆÄé ¤•plîGXL¢€Âå1#]½&×’`
+ò:Ä¤GDpÔò…-æ…±o+$aIOE˜.úŸIš¹áÃOJK ?eC~YÍMH¨¹± cÌ9ğ*£,Á6ec6a)öG)ÚDQr²…u‰¬“s®Uu<©.pC V^”'ıÀjØ…@ØÃ–etÍK–›í”8£+Tf·é¸W’v¯ğ}ë•ñYa­"'Lã#çœƒ{FGV¼R[§.8±	´-E’«œ€Fü£)*ËÕYyu"ş4'ÈU”ş¢­ÿËeğcıÆ„Í~„ê?Öß²°’<?^°â!\´ïøL>÷j`åÉúí#Y§³áÕøˆGÒ`ñ  ÿÿ PK     ! ±?¸b"  N     word/webSettings.xml”ÒÍJ1 à»à;„ÜÛl‹-²t[©şÖ{šÎ¶Á$2©Ûõé×ªH/í-“É|Ì$™ÌvŞ‰wHd1TrĞ/¤€`peÃº’‹—yïR
+Ê:¬´Ã •lälz~6iÊ–Ï3Ÿ$ÁJ Ò›Jnr¥Rd6à5õ1BàdÉëÌaZ+¯ÓÛ6öú¨³]Zgs«†E1–{&£`][×h¶BîêUÇ"ÚØH?ZsŒÖ`ZÅ„ˆxï¾=¯møe·&!aû<Ì¾£âòAÑ­¼ûF§Ã`Lp1ÚŠZ;)¼)o×“^:–x$Á]‰–S~RŒÙzûsLW	‚¤¾¶ù^ÛÇğz×EÚ9ln8Pÿ~Áô  ÿÿ PK     ! €Ó¾Áå  æ   docProps/app.xml ¢(                                                                                                                                                                                                                                                                  œSÁÓ0½#ñ‘ï[§ii¡r½B]¡= [©Ùİ³q&­…c[¶7ÚòõŒ\àDNoŞLŸgÆìöµÓE>(k¶d>+IFÚF™ã–<ÖŸnŞ“"Da¡­-9C ·üí¶÷Ö
+B&lÉ)F·¡4Èt"Ì0m0ÓZß‰ˆ¡?RÛ¶JÂ•/˜H«²\Qx`hnÜ$HFÅMÿW´±2ùOõÙ¡g5tN‹ükúSÏ;F'–Õ6
+]«øzµÄÄ²½8BàsFGÀ­o_–k¤FÌv'á…ŒØD^-ªrÅhÆ°Îi%EÄó/Jzl‹‡Áu‘ÍKŞä òÅ«xæ%£yÈ>+“Ì|X0:B´çÅÑw
+üİ2™œBvBÃÛÀ[¡0ú›`÷ Òˆ÷B%‹}Üô £õEP?pÈ)¾‰ ©y[Ò¯„‰d,ƒk¢çµŠµ§x€yYÕ2ur×…C0x@|ín8!<´x·ø³óÜìàa´šÙÉ]ÎøCug;'¶˜N;ü=<ºÚŞ¥ùÕÃk2ı³Š§ƒ‡R­«j‘/A–cd¡Á©NS™vwğ:€ÿš#4—š¿i­ÆgËç«Y‰ß°GWazOü'   ÿÿ PK-      ! ä$‰L}  )                   [Content_Types].xmlPK-      ! ‘·ï   N               ¶  _rels/.relsPK-      ! ×æ  D               Ö  word/_rels/document.xml.relsPK-      ! #V[PXL  já              3	  word/document.xmlPK-      ! ·@ª$                 ºU  word/theme/theme1.xmlPK-      ! ¡€Ñ  S               \  word/settings.xmlPK-      ! ø(P   {               X`  word/styles.xmlPK-      ! t?9zÂ   (               £m  customXml/_rels/item1.xml.relsPK-      ! ÏT1”ˆ  r               ©o  word/numbering.xmlPK-      ! ŸŞi'á   U               as  customXml/itemProps1.xmlPK-      ! 2èÕo  á                t  docProps/core.xmlPK-      ! ¿WgCÇ   2               Fw  customXml/item1.xmlPK-      ! %k_ê  G               fx  word/fontTable.xmlPK-      ! ±?¸b"  N               €z  word/webSettings.xmlPK-      ! €Ó¾Áå  æ               Ô{  docProps/app.xmlPK      Ô  ï~    
+==> linux lab ex.txt <==
+1)creating,moving,copying,listing,finding,softlink,hardlink,deleting & archiving files & directorys
+2)modifing permission 
+3)creating lamp stack
+4)configuring dhcp server & client
+5)creating nfs client & server
+6)cron job
+7)loadbalancing webservers (haproxy)
+8)mysql cluster
+9)glusterfs cluster
+10)red hat cluster
+11)samba
+12)NFS
+13)Migrate data from a disk on one server to a disk on another server.
+14)Migrate Databases.Live migrations Export / Import
+15)Creating and managaing user freeipa/ldap/nis
+16)configureing backup server amanda/bacula/rsync+ssh
+17)pssh
+18)iscsi target and initator
+19)lvm/lvm extend without downtie
+20)firewall iptables
+21)configuring proxy server - apache/squid|reverse proxy apache/nginx/pound
+22)git 
+23)owncloud 
+24)wordpress
+25)shell scipts
+26)networking/
+
+==> nfs.txt <==
+
+echo "do you want to configure NFS Server y/n"
+read q1
+if [ '$q1' = 'y' ]
+then
+#installing nfs server
+
+yum -y install nfs-utils nfs-utils-lib
+chkconfig nfs on
+service rpcbind start
+service nfs start
+echo -e "/root/share	10.200.20.245(rw,syncno_root_squash)" >> /etc/exports
+exportfs -a
+else
+echo "do want to create "
+yum install nfs-utils nfs-utils-lib -y
+fi
+
+echo"do want to install client software y/n"
+read q2
+if [ 'q2' = 'y' ]
+#installing client
+
+
+yum -y install nfs-utils nfs-utils-lib -y
+systemctl enable rpcbind &&
+systemctl enable nfs-server &&
+systemctl enable nfs-lock &&
+systemctl enable nfs-idmap &&
+systemctl start rpcbind &&
+systemctl start nfs-server &&
+systemctl start nfs-lock &&
+systemctl start nfs-idmap 
+mkdir -p /root/share
+mount 10.200.20.250:/root/share /root/share/
+echo -e "10.200.20.250:/root/share"  "/mnt/share nfs"      "auto,noatime,nolock,bg,nfsvers=3,intr,tcp,actimeo=1800 0 0">>/etc/fstab
+showmount -e
+fi
+
+
+
+
+==> Troubleshooting+part+1.txt <==
+1- How to view all messages generated by the system since the last 
+reboot on RHEL7/CentOS 7?
+
+journalctl
+journalct | grep ssh
+
+Use journalctl to view the systemd journal. The boot process, kernel
+and all systemd services put messages into the the systemd journal.
+
+2- How to check log messages related to kernel?
+
+dmesg 
+journalctl -k
+
+3- How can you continuously monitor logs as they come in?
+
+journalctl -f
+tail -f /var/log/messages
+
+4- Where can you find messages related to the installation of Linux?
+anaconda.log
+/var/log/anaconda/anaconda.log
+
+5- Where are most of the log files located?
+/var/log
+
+==> Troubleshooting+part+2.txt <==
+6- To improve performance, how can you safely set the limit of processes 
+for the super-user root to be unlimited?
+ulimit -u unlimited
+
+7- Where can you set the resource limits for users logged in via PAM?
+/etc/security/limits.conf
+
+8- How to check ulimit for a user?
+ulimit -a
+
+9- How to check and increase the limit of opened files in Linux?
+cat /proc/sys/fs/file-max
+To change:  
+1- vi /etc/sysctl.conf 
+(and add line)
+2- fs.file-max=98321
+3- sysctl -p
+cat /proc/sys/fs/file-max
+
+10- How to view run time kernel parameters?
+sysctl -a
+
+11- How to change runtime kernel parameter for maximux shared segment
+size in bytes?
+append >>   kernel.shmmax = 18446744073692774399 to /etc/sysctl.conf
+
+sysctl -p
+
+12- How to view Boot time parameters and which file is modified to 
+change these parameters?
+To view cat /proc/cmdline
+These are supplied /boot/grub2/grub.cfg
+==> Troubleshooting+part+3.txt <==
+13- How to check system load without top command?
+w
+uptime
+
+14- By default load average is shown in how many intervals?
+
+1, 5 and 15 min intervals
+glances shows load average by time.
+
+15- How can you get the physical and virtual memory statistics?
+
+free   -m  or g
+vmstat  -a( active and inactive memory), -d disk stats - t time
+vmstat -a 2(every 2 sec) 4 (4 intervals)
+
+16- How to check cpu utilization and other statistics?
+
+Use sar which is part of sysstat package
+
+sar -u shows cpu utilization stats for the current day
+sar -u 2 3 (shows realtime cpu stats every 2 seconds with 3 intervals)
+sar -r memory utilization 
+sar -S swap space
+
+17- How to find process id of a process and kill it immediatley?
+start cat
+pidof cat
+kill -9 PID
+
+18- How to list all open files by specified user?
+lsof -u user
+
+19- How to list all open files by specified command?
+
+lsof -c cat
+
+20- How can you list all network connections by port 22?
+lsof -i :22
